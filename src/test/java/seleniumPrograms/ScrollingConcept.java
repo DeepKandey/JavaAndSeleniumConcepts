@@ -1,0 +1,54 @@
+package seleniumPrograms;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class ScrollingConcept {
+	public WebDriver driver;
+
+	@BeforeMethod
+	public void setUp() {
+		// chrome
+		System.setProperty("webdriver.chrome.driver", "C:/Users/deepa/Downloads/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+	}
+
+	@Test
+	public void scrolling() throws InterruptedException {
+		driver.get("https://www.makemytrip.com/");
+		JavascriptExecutor js = (JavascriptExecutor) (driver);
+
+		Thread.sleep(6000);
+
+		driver.switchTo().frame(driver.findElement(By.id("webklipper-publisher-widget-container-notification-frame")));
+		driver.findElement(By.xpath("//a[@class='close']")).click();
+
+		// Scroll Page down to 550px
+		js.executeScript("window.scrollBy(0,550)", "");
+		// js.executeScript("scroll(0,250)")
+		Thread.sleep(5000);
+
+		// Scroll Page Up by 250px
+		js.executeScript("window.scrollBy(0,-250)", "");
+		Thread.sleep(2000);
+
+		WebElement followUsTxt = driver.findElement(By.xpath("//div[@class='cfooter_small']//section[1]/h5"));
+
+		// Scroll Page to view an element
+		js.executeScript("arguments[0].scrollIntoView(true);", followUsTxt);
+		System.out.println(followUsTxt.getAttribute("innerHTML"));
+		Thread.sleep(2000);
+	}
+
+	@AfterMethod
+	public void tearDown() {
+		driver.quit();
+	}
+}
