@@ -2,24 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="37664" started-at="2018-10-01T16:35:19Z" finished-at="2018-10-01T16:35:57Z">
+  <suite name="Default suite" duration-ms="15493" started-at="2018-10-02T05:44:25Z" finished-at="2018-10-02T05:44:40Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="37664" started-at="2018-10-01T16:35:19Z" finished-at="2018-10-01T16:35:57Z">
-      <class name="seleniumPrograms.CookieHandlingConcept">
-        <test-method status="PASS" signature="setup()[pri:0, instance:seleniumPrograms.CookieHandlingConcept@3c0ecd4b]" name="setup" is-config="true" duration-ms="11486" started-at="2018-10-01T16:35:19Z" finished-at="2018-10-01T16:35:31Z">
+    <test name="Default test" duration-ms="15493" started-at="2018-10-02T05:44:25Z" finished-at="2018-10-02T05:44:40Z">
+      <class name="seleniumPrograms.FireFoxHeadlessMode">
+        <test-method status="PASS" signature="openBrowserInHeadlessMode()[pri:0, instance:seleniumPrograms.FireFoxHeadlessMode@754ba872]" name="openBrowserInHeadlessMode" duration-ms="15439" started-at="2018-10-02T05:44:25Z" finished-at="2018-10-02T05:44:40Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="getCookie()[pri:0, instance:seleniumPrograms.CookieHandlingConcept@3c0ecd4b]" name="getCookie" duration-ms="24033" started-at="2018-10-01T16:35:31Z" finished-at="2018-10-01T16:35:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getCookie -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:seleniumPrograms.CookieHandlingConcept@3c0ecd4b]" name="tearDown" is-config="true" duration-ms="2080" started-at="2018-10-01T16:35:55Z" finished-at="2018-10-01T16:35:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- seleniumPrograms.CookieHandlingConcept -->
+        </test-method> <!-- openBrowserInHeadlessMode -->
+      </class> <!-- seleniumPrograms.FireFoxHeadlessMode -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

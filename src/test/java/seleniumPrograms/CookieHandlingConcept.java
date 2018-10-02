@@ -3,8 +3,10 @@ package seleniumPrograms;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Set;
 
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -40,7 +42,7 @@ public class CookieHandlingConcept {
 
 	}
 
-	@Test
+	@Test(enabled=false)
 	public void getCookie() throws InterruptedException, IOException {
 		driver.get("https://www.taggdigital.com/");
 		Actions action = new Actions(driver);
@@ -82,7 +84,36 @@ public class CookieHandlingConcept {
 		}
 		workbook.close();
 	}
-
+	
+	@Test
+	public void setCookie() throws IOException
+	{
+		FileInputStream fis = new FileInputStream("C:\\Users\\deepa\\Downloads\\TestDocument.xlsx");
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+		int index = workbook.getSheetIndex("Cookie");
+		XSSFSheet sheet = workbook.getSheetAt(index);
+		
+		String cookieName=sheet.getRow(1).getCell(0).toString();
+		String cookieValue=sheet.getRow(1).getCell(1).toString();
+		String cookieDomain=sheet.getRow(1).getCell(2).toString();
+		String cookiePath=sheet.getRow(1).getCell(3).toString();
+		XSSFCell cookieExpiryCell=sheet.getRow(1).getCell(4);
+		Date cookieExpiry=cookieExpiryCell.getDateCellValue();
+		XSSFCell cookieIsSecureCell=sheet.getRow(1).getCell(5);
+		Boolean cookieIsSecure=cookieIsSecureCell.getBooleanCellValue();
+		XSSFCell cookieisHttpCell=sheet.getRow(1).getCell(6);
+		boolean cookieisHttp=cookieisHttpCell.getBooleanCellValue();	
+		
+		workbook.close();
+		
+		Cookie cookie = new Cookie(cookieName, cookieValue, cookieDomain, cookiePath, cookieExpiry, cookieIsSecure, cookieisHttp);
+		driver.get("https://www.taggdigital.com");
+		driver.manage().addCookie(cookie);
+		driver.get("https://www.taggdigital.com");
+		
+	}
+	
+	
 	@AfterMethod
 	public void tearDown() {
 		if (driver != null) {
