@@ -5,8 +5,7 @@
     <classes>
       <class name="seleniumPrograms.FireFoxHeadlessMode">
         <methods>
-          <include name="tearDown"/>
-          <include name="openBrowserInHeadlessMode"/>
+          <include name="launchEdgeBrowser"/>
         </methods>
       </class> <!-- seleniumPrograms.FireFoxHeadlessMode -->
     </classes>
