@@ -12,12 +12,10 @@ public class DateDemo {
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		SimpleDateFormat dateFormatHrs = new SimpleDateFormat("dd-MM-yyyy  hh:mm:ss");
-		
+
 		System.out.println("Default Date Format: " + date.toString());
 		System.out.println("Default Calendar Format: " + cal.getTime());
 		System.out.println(dateFormat.format(date));
 		System.out.println(dateFormatHrs.format(date));
-
 	}
-
 }
