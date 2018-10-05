@@ -8,14 +8,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestBase {
 
-	private static WebDriver driver;
-	private static WebDriverWait wait;
+	protected static WebDriver driver = null;
+	protected static WebDriverWait wait;
 
 	public static void init(String browswerName) {
-		if (driver != null) {
+		if (driver == null) {
 			if (browswerName == "chrome") {
 				System.setProperty("webdriver.chrome.driver",
-						"C:\\Users\\deepa\\Downloads\\Drivers\\Chrom^ Drivers\\chromedriver_win.exe");
+						"C:\\Users\\deepa\\Downloads\\Drivers\\Chrome Drivers\\chromedriver_win.exe");
 				driver = new ChromeDriver();
 				driver.manage().window().maximize();
 				wait = new WebDriverWait(driver, 20);

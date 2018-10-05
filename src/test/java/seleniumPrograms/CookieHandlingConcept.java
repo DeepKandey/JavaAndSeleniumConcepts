@@ -93,6 +93,7 @@ public class CookieHandlingConcept {
 		int index = workbook.getSheetIndex("Cookie");
 		XSSFSheet sheet = workbook.getSheetAt(index);
 		
+		// Retrieving cookie data from excel
 		String cookieName=sheet.getRow(1).getCell(0).toString();
 		String cookieValue=sheet.getRow(1).getCell(1).toString();
 		String cookieDomain=sheet.getRow(1).getCell(2).toString();

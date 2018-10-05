@@ -26,25 +26,25 @@ public class SikuliConcept {
 
 		Screen screen = new Screen();
 
-		Pattern pauseImg = new Pattern(System.getProperty("user.dir") + "/YT_PAUSE.PNG");
+		Pattern pauseImg = new Pattern(System.getProperty("user.dir") + "/src/test/resources/Images/YT_PAUSE.PNG");
 		screen.wait(pauseImg, 2000);
 		screen.click();
 		screen.click();
 		screen.click();
 
-		Pattern playImg = new Pattern(System.getProperty("user.dir") + "/YT_PLAY.PNG");
+		Pattern playImg = new Pattern(System.getProperty("user.dir") + "/src/test/resources/Images/YT_PLAY.PNG");
 		screen.wait(playImg, 2000);
 		screen.click();
 
-		Pattern settingImg = new Pattern(System.getProperty("user.dir") + "/YT_SETTING.PNG");
+		Pattern settingImg = new Pattern(System.getProperty("user.dir") + "/src/test/resources/Images/YT_SETTING.PNG");
 		screen.wait(settingImg, 2000);
 		screen.click();
 
-		Pattern qualityImg = new Pattern(System.getProperty("user.dir") + "/YT_QUALITY.PNG");
+		Pattern qualityImg = new Pattern(System.getProperty("user.dir") + "/src/test/resources/Images/YT_QUALITY.PNG");
 		screen.wait(qualityImg, 2000);
 		screen.click();
 
-		Pattern Img1080P = new Pattern(System.getProperty("user.dir") + "/YT_1080P.PNG");
+		Pattern Img1080P = new Pattern(System.getProperty("user.dir") + "/src/test/resources/Images/YT_1080P.PNG");
 		screen.wait(Img1080P, 2000);
 		screen.click();
 	}
