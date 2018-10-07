@@ -13,16 +13,17 @@ import org.testng.annotations.Test;
 
 public class BootstrapDropdownConcept {
 	WebDriver driver;
-	
+
 	@BeforeMethod
 	public void setup() {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepa\\Downloads\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\deepa\\Downloads\\Drivers\\Chrome Drivers\\chromedriver_win.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		//driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		// driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
 	}
-	
-	//Clicking on web element from bootstrap drop down
+
+	// Clicking on web element from bootstrap drop down
 	@Test
 	public void bootStrapDropdown() throws InterruptedException {
 		driver.get("http://seleniumpractise.blogspot.com/2016/08/bootstrap-dropdown-example-for-selenium.html");
@@ -30,16 +31,16 @@ public class BootstrapDropdownConcept {
 		Thread.sleep(5000);
 		List<WebElement> element = driver.findElements(By.xpath("//ul[@class='dropdown-menu']//li/a"));
 		System.out.println(element.size());
-		for(int i=0;i<element.size();i++) {
-			if(element.get(i).getAttribute("innerHTML").equals("JavaScript")) {
+		for (int i = 0; i < element.size(); i++) {
+			if (element.get(i).getAttribute("innerHTML").equals("JavaScript")) {
 				System.out.println(element.get(i).getAttribute("innerHTML"));
 				element.get(i).click();
 				break;
 			}
 		}
 	}
-	
-	//Clicking the web element in bootstrap pop up
+
+	// Clicking the web element in bootstrap pop up
 	@Test
 	public void bootStrapClick() throws InterruptedException {
 		driver.get("https://www.gliffy.com/");
@@ -48,25 +49,25 @@ public class BootstrapDropdownConcept {
 		driver.findElement(By.xpath("//div[@data-trial='Gliffy Diagram For Jira']")).click();
 		Thread.sleep(3000);
 	}
-	
-	//Getting tool tip text
+
+	// Getting tool tip text
 	@Test
 	public void tooltip() throws InterruptedException {
 		driver.get("https://www.seleniumhq.org/");
-		
+
 		Actions action = new Actions(driver);
 		action.moveToElement(driver.findElement(By.xpath("//a[@title='Get Selenium']"))).build().perform();
-		
+
 		Thread.sleep(3000);
-		
+
 		String tooltip = driver.findElement(By.xpath("//a[@title='Get Selenium']")).getAttribute("title");
 		String text = driver.findElement(By.xpath("//a[@title='Get Selenium']")).getAttribute("innerHTML");
-		System.out.println("Tooltip text: " + tooltip + System.lineSeparator() + "Link text: "+ text);
+		System.out.println("Tooltip text: " + tooltip + System.lineSeparator() + "Link text: " + text);
 	}
-	
+
 	@AfterMethod
 	public void tearDown() {
-		if(driver!=null)
+		if (driver != null)
 			driver.quit();
 	}
 }

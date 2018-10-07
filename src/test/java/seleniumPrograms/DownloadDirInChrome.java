@@ -16,7 +16,8 @@ public class DownloadDirInChrome {
 	public void downloadDirInChrome() throws IOException {
 
 		// Setting chrome driver path
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepa\\Downloads\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\deepa\\Downloads\\Drivers\\Chrome Drivers\\chromedriver_win.exe");
 
 		// Setting new download directory path
 		Map<String, Object> prefs = new HashMap<String, Object>();
@@ -24,14 +25,16 @@ public class DownloadDirInChrome {
 		// Use File.separator as it will work on any OS
 		prefs.put("download.default_directory",
 				System.getProperty("user.dir") + File.separator + "externalFiles" + File.separator + "downloadFiles");
-	    prefs.put("safebrowsing.enabled", "false");
-	    prefs.put("profile.default_content_settings.popups", 0);
+		prefs.put("safebrowsing.enabled", "false");
+		prefs.put("profile.default_content_settings.popups", 0);
 
 		// Adding cpabilities to ChromeOptions
 		ChromeOptions options = new ChromeOptions();
-		/*options.addArguments("--safebrowsing-disable-download-protection");
-		options.addArguments("--safebrowsing-manual-download-blacklist");
-		options.addArguments("--safebrowsing-disable-extension-blacklist ");*/
+		/*
+		 * options.addArguments("--safebrowsing-disable-download-protection");
+		 * options.addArguments("--safebrowsing-manual-download-blacklist");
+		 * options.addArguments("--safebrowsing-disable-extension-blacklist ");
+		 */
 		options.setExperimentalOption("prefs", prefs);
 
 		// Launching browser with desired capabilities

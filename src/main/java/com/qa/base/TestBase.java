@@ -26,7 +26,7 @@ public class TestBase {
 				driver.manage().window().maximize();
 				wait = new WebDriverWait(driver, 20);
 			} else if (browswerName == "Edge") {
-				System.setProperty("webdriver.gecko.driver",
+				System.setProperty("webdriver.edge.driver",
 						"C:\\Users\\deepa\\Downloads\\Drivers\\EdgeDriver\\MicrosoftWebDriver.exe");
 				driver = new EdgeDriver();
 				driver.manage().window().maximize();

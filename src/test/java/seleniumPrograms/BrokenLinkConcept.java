@@ -17,7 +17,7 @@ public class BrokenLinkConcept extends TestBase {
 
 	@BeforeMethod
 	public void setup() {
-		init("chrome");
+		init("Edge");
 	}
 
 	@AfterMethod
@@ -59,7 +59,7 @@ public class BrokenLinkConcept extends TestBase {
 		try {
 			URL link = new URL(urlLink);
 			HttpURLConnection httpCon = (HttpURLConnection) link.openConnection();
-			httpCon.connect();
+			httpCon.connect(); 
 			if (httpCon.getResponseCode() == 200) {
 				System.out.println(urlLink + " -- " + httpCon.getResponseMessage() + " " + httpCon.getResponseCode());
 			} else if (httpCon.getResponseCode() == 400) {

@@ -31,7 +31,8 @@ public class GoIbiboAssignment {
 		 * driver = new FirefoxDriver();
 		 */
 
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepa\\Downloads\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\deepa\\Downloads\\Drivers\\Chrome Drivers\\chromedriver_win.exe");
 		driver = new ChromeDriver();
 
 		wait = new WebDriverWait(driver, 20);

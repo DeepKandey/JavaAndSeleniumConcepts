@@ -25,7 +25,8 @@ public class DownloadFileConcept {
 		folder.mkdir();
 
 		// chrome
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepa\\Downloads\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\deepa\\Downloads\\Drivers\\Chrome Drivers\\chromedriver_win.exe");
 		ChromeOptions options = new ChromeOptions();
 
 		Map<String, Object> pref = new HashMap<String, Object>();
