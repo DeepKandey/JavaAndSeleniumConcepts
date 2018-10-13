@@ -12,6 +12,7 @@ public class CheckDuplicates {
 
 		String[] withDuplicates = new String[] { "one", "two", "three", "one" };
 		String[] withoutDuplicates = new String[] { "one", "two", "three" };
+		Integer[] integerArray = new Integer[] { 1, 2, 2, 4 };
 
 		System.out.println("Checking array with duplicate using brute force: " + bruteforce(withDuplicates));
 		System.out.println("Checking array without any duplicate using brute force: " + bruteforce(withoutDuplicates));
@@ -28,6 +29,9 @@ public class CheckDuplicates {
 
 		printDuplicateStringusingHashMap(withDuplicates);
 		printDuplicateUsingSet(withDuplicates);
+
+		printDuplicateStringusingHashMap(integerArray);
+		printDuplicateUsingSet(integerArray);
 	}
 
 	/*
@@ -75,8 +79,8 @@ public class CheckDuplicates {
 	}
 
 	// Checking Duplicates Using HashMap using containsValue method
-	public static void printDuplicateStringusingHashMap(String[] input) {
-		HashMap<Integer, String> hash_Map = new HashMap<Integer, String>();
+	public static void printDuplicateStringusingHashMap(Object[] input) {
+		HashMap<Integer, Object> hash_Map = new HashMap<Integer, Object>();
 
 		System.out.println("------Using HashMap------");
 		for (int i = 0; i < input.length; i++) {
@@ -88,14 +92,13 @@ public class CheckDuplicates {
 		System.out.println("Hash Map wthout dupliactes-->" + hash_Map);
 	}
 
-	public static void printDuplicateUsingSet(String[] input) {
-		Set<String> HashSet = new HashSet<String>();
+	public static void printDuplicateUsingSet(Object[] input) {
+		Set<Object> HashSet = new HashSet<Object>();
 
 		System.out.println("------Using HashSet------");
-		for (String value : input) {
+		for (Object value : input) {
 			if (HashSet.add(value) == false) {
-				System.out.println("Duplicate value "
-						+ "using Hash Set-->" + value);
+				System.out.println("Duplicate value " + "using Hash Set-->" + value);
 			}
 		}
 		System.out.println("Hash Set without duplicates-->" + HashSet);
