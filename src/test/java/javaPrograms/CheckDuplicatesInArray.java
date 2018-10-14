@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class CheckDuplicates {
+public class CheckDuplicatesInArray {
 
 	public static void main(String args[]) {
 
