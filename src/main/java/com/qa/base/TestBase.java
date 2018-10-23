@@ -6,6 +6,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class TestBase {
 
 	protected static WebDriver driver = null;
@@ -14,8 +16,14 @@ public class TestBase {
 	public static void initialization(String browswerName) {
 		if (driver == null) {
 			if (browswerName == "chrome") {
-				System.setProperty("webdriver.chrome.driver",
-						"C:\\Users\\deepa\\Downloads\\Drivers\\Chrome Drivers\\chromedriver_win.exe");
+				/*
+				 * System.setProperty("webdriver.chrome.driver",
+				 * "C:\\Users\\deepa\\Downloads\\Drivers\\Chrome Drivers\\chromedriver_win.exe"
+				 * );
+				 */
+
+				// setup the chromedriver using WebDriverManager
+				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
 				driver.manage().window().maximize();
 				wait = new WebDriverWait(driver, 20);
@@ -33,6 +41,7 @@ public class TestBase {
 				wait = new WebDriverWait(driver, 20);
 			}
 		}
+		System.out.println("Initialising browser");
 	}
 
 	public static void close() {
