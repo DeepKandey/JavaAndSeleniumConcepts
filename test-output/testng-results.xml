@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="11466" started-at="2018-10-07T14:01:04Z" finished-at="2018-10-07T14:01:15Z">
+  <suite name="Default suite" duration-ms="11837" started-at="2018-10-23T03:17:56Z" finished-at="2018-10-23T03:18:08Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="11466" started-at="2018-10-07T14:01:04Z" finished-at="2018-10-07T14:01:15Z">
-      <class name="seleniumPrograms.GetJSErrorsConcept">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:seleniumPrograms.GetJSErrorsConcept@5f341870]" name="setUp" is-config="true" duration-ms="3207" started-at="2018-10-07T14:01:04Z" finished-at="2018-10-07T14:01:07Z">
+    <test name="Default test" duration-ms="11837" started-at="2018-10-23T03:17:56Z" finished-at="2018-10-23T03:18:08Z">
+      <class name="seleniumPrograms.BarCodeReader">
+        <test-method status="PASS" signature="setup()[pri:0, instance:seleniumPrograms.BarCodeReader@5cb9f472]" name="setup" is-config="true" duration-ms="4358" started-at="2018-10-23T03:17:56Z" finished-at="2018-10-23T03:18:01Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testMethod()[pri:0, instance:seleniumPrograms.GetJSErrorsConcept@5f341870]" name="testMethod" duration-ms="7377" started-at="2018-10-07T14:01:07Z" finished-at="2018-10-07T14:01:14Z">
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="readTextInBarCode()[pri:0, instance:seleniumPrograms.BarCodeReader@5cb9f472]" name="readTextInBarCode" duration-ms="6735" started-at="2018-10-23T03:18:01Z" finished-at="2018-10-23T03:18:08Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testMethod -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:seleniumPrograms.GetJSErrorsConcept@5f341870]" name="closeBrowser" is-config="true" duration-ms="841" started-at="2018-10-07T14:01:15Z" finished-at="2018-10-07T14:01:15Z">
+        </test-method> <!-- readTextInBarCode -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:seleniumPrograms.BarCodeReader@5cb9f472]" name="tearDown" is-config="true" duration-ms="680" started-at="2018-10-23T03:18:08Z" finished-at="2018-10-23T03:18:08Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- closeBrowser -->
-      </class> <!-- seleniumPrograms.GetJSErrorsConcept -->
+        </test-method> <!-- tearDown -->
+      </class> <!-- seleniumPrograms.BarCodeReader -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

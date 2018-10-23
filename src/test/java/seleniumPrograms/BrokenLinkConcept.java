@@ -17,7 +17,7 @@ public class BrokenLinkConcept extends TestBase {
 
 	@BeforeMethod
 	public void setup() {
-		init("Edge");
+		initialization("Edge");
 	}
 
 	@AfterMethod

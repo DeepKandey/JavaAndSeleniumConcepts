@@ -11,7 +11,7 @@ public class TestBase {
 	protected static WebDriver driver = null;
 	protected static WebDriverWait wait;
 
-	public static void init(String browswerName) {
+	public static void initialization(String browswerName) {
 		if (driver == null) {
 			if (browswerName == "chrome") {
 				System.setProperty("webdriver.chrome.driver",
