@@ -16,12 +16,6 @@ public class TestBase {
 	public static void initialization(String browswerName) {
 		if (driver == null) {
 			if (browswerName == "chrome") {
-				/*
-				 * System.setProperty("webdriver.chrome.driver",
-				 * "C:\\Users\\deepa\\Downloads\\Drivers\\Chrome Drivers\\chromedriver_win.exe"
-				 * );
-				 */
-
 				// setup the chromedriver using WebDriverManager
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();

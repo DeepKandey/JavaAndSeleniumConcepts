@@ -47,6 +47,5 @@ public class BarCodeReader extends TestBase {
 		Result result = new MultiFormatReader().decode(bitmap);
 		System.out.println("Result Object--> " + result);
 		System.out.println("Text in Bar Code--> " + result.getText());
-
 	}
 }
