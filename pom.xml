@@ -16,6 +16,7 @@
 	</properties>
 
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
@@ -75,7 +76,6 @@
 			<version>2.6</version>
 		</dependency>
 
-
 		<!-- https://mvnrepository.com/artifact/com.sikulix/sikulixapi -->
 		<dependency>
 			<groupId>com.sikulix</groupId>
@@ -102,6 +102,13 @@
 			<groupId>org.apache.pdfbox</groupId>
 			<artifactId>pdfbox</artifactId>
 			<version>2.0.12</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email</artifactId>
+			<version>1.5</version>
 		</dependency>
 
 	</dependencies>

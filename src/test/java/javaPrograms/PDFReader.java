@@ -16,10 +16,13 @@ public class PDFReader {
 		InputStream getInputStream = url.openStream();
 		BufferedInputStream bufferInputStream = new BufferedInputStream(getInputStream);
 
+		// Code to fetch text from PDF
 		PDDocument doc = PDDocument.load(bufferInputStream);
 		PDFTextStripper textStrpper = new PDFTextStripper();
 		String textInPDF = textStrpper.getText(doc);
 		bufferInputStream.close();
+		
+		// Printing the text in PDF Document
 		System.out.println(textInPDF);
 	}
 }
