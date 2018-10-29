@@ -1,0 +1,2 @@
+WinWaitActive("https://www.engprod-charter.net/api/pub/cnetloginedge/spectrum-redir?targetUrl=https%3A%2F%2Fwww.engprod-spectrum.net%2F%3Fdomain-redirect%3Dtrue - Google Chrome","")
+Send("rajkumar{TAB}myPassword{ENTER}")

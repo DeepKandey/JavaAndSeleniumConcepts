@@ -3,13 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="seleniumPrograms.MyFluentWait">
+      <class name="seleniumPrograms.AutoIT">
         <methods>
-          <include name="fluentWaitCheck"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
+          <include name="fluentWaitCheckWithChrome"/>
         </methods>
-      </class> <!-- seleniumPrograms.MyFluentWait -->
+      </class> <!-- seleniumPrograms.AutoIT -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
