@@ -7,11 +7,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class ChromeOptionsConcept {
 
 	public static void main(String[] args) {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Users\\deepa\\Downloads\\Drivers\\Chrome Drivers\\chromedriver_win.exe");
+		
+		WebDriverManager.chromedriver().setup();
 
 		ChromeOptions option = new ChromeOptions();
 		// option.addArguments("--disable-notifications"); --disable browser
