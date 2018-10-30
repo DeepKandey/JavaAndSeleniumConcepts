@@ -32,8 +32,10 @@ public class MyFluentWait extends TestBase {
 	public void fluentWaitCheck() {
 		driver.get("https://www.makemytrip.com/");
 
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30))
-				.pollingEvery(Duration.ofMillis(500)).ignoring(NoSuchElementException.class);
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(30))
+				.pollingEvery(Duration.ofMillis(500))
+				.ignoring(NoSuchElementException.class);
 
 		WebElement hotelsLink = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {

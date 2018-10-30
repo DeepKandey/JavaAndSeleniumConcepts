@@ -11,16 +11,16 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class BootstrapDropdownConcept {
 	WebDriver driver;
 
 	@BeforeMethod
 	public void setup() {
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\deepa\\Downloads\\Drivers\\Chrome Drivers\\chromedriver_win.exe");
+		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		// driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
 	}
 
 	// Clicking on web element from bootstrap drop down
