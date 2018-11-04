@@ -33,13 +33,6 @@ public class CookieHandlingConcept {
 		driver = new FirefoxDriver();
 		wait = new WebDriverWait(driver, 20);
 		driver.manage().window().maximize();
-
-		/*
-		 * System.setProperty("webdriver.chrome.driver",
-		 * "C:\\Users\\deepa\\Downloads\\chromedriver.exe"); driver = new
-		 * ChromeDriver();
-		 */
-
 	}
 
 	@Test(enabled=false)

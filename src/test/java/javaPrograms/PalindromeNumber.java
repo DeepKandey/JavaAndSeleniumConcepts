@@ -26,7 +26,6 @@ public class PalindromeNumber {
 		if (reversedNumber == originalNumber) {
 			flag = true;
 		}
-		return flag;
-		
+		return flag;	
 	}
 }
