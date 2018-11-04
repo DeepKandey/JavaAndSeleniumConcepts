@@ -27,5 +27,6 @@ public class PalindromeNumber {
 			flag = true;
 		}
 		return flag;
+		
 	}
 }

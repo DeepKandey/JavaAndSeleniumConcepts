@@ -24,7 +24,7 @@ public class PrimeNumbers {
 		int num, i, count = 0;
 
 		Scanner scan = new Scanner(System.in);
-		System.out.print("Enter a Number : ");
+		System.out.print("Enter a Number to check if it is a prime number: ");
 		num = scan.nextInt();
 		scan.close();
 
