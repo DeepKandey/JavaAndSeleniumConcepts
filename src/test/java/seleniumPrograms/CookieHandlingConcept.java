@@ -91,10 +91,13 @@ public class CookieHandlingConcept {
 		String cookieValue=sheet.getRow(1).getCell(1).toString();
 		String cookieDomain=sheet.getRow(1).getCell(2).toString();
 		String cookiePath=sheet.getRow(1).getCell(3).toString();
+		
 		XSSFCell cookieExpiryCell=sheet.getRow(1).getCell(4);
 		Date cookieExpiry=cookieExpiryCell.getDateCellValue();
+		
 		XSSFCell cookieIsSecureCell=sheet.getRow(1).getCell(5);
 		Boolean cookieIsSecure=cookieIsSecureCell.getBooleanCellValue();
+		
 		XSSFCell cookieisHttpCell=sheet.getRow(1).getCell(6);
 		boolean cookieisHttp=cookieisHttpCell.getBooleanCellValue();	
 		

@@ -3,11 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="seleniumPrograms.AcceptSSLCertificates">
+      <class name="seleniumPrograms.CookieHandlingConcept2">
         <methods>
-          <include name="handlingSSLInIE"/>
+          <include name="tearDown"/>
+          <include name="storeAndLoadCookieInBrowser"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- seleniumPrograms.AcceptSSLCertificates -->
+      </class> <!-- seleniumPrograms.CookieHandlingConcept2 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

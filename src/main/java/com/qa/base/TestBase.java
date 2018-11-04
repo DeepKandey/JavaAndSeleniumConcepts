@@ -20,17 +20,15 @@ public class TestBase {
 			if (browswerName == "chrome") {
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
-				driver.manage().window().maximize();
+				driver.manage().window().fullscreen();
 				wait = new WebDriverWait(driver, 20);
 			} else if (browswerName == "FF") {
 				WebDriverManager.firefoxdriver().setup();
 				driver = new FirefoxDriver();
-				driver.manage().window().maximize();
 				wait = new WebDriverWait(driver, 20);
 			} else if (browswerName == "Edge") {
 				WebDriverManager.edgedriver().setup();
 				driver = new EdgeDriver();
-				driver.manage().window().maximize();
 				wait = new WebDriverWait(driver, 20);
 			} else if (browswerName == "IE") {
 				WebDriverManager.iedriver().setup();
@@ -53,6 +51,7 @@ public class TestBase {
 				wait = new WebDriverWait(driver, 20);
 			}
 		}
+		driver.manage().window().maximize();
 		System.out.println("Initialising browser");
 	}
 
