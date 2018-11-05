@@ -16,5 +16,15 @@ public class A {
 		int f;
 
 	}
+	public static void b2() {
+		int c;
+		int d;
+		int a;
+		int b;
+		int e;
+		int d;
+
+	}
+
 
 }
