@@ -7,7 +7,7 @@ public class A {
 
 	}
 	
-	public static void b() {
+	public static void b1() {
 		int a;
 		int b;
 		
