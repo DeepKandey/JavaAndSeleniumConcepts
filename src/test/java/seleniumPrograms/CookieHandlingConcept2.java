@@ -38,7 +38,7 @@ public class CookieHandlingConcept2 extends TestBase {
 		driver.get("https://www.facebook.com/");
 
 		driver.findElement(new ByIdOrName("email")).sendKeys("deepak.rai21@yahoo.com");
-		driver.findElement(new ByAll(By.id("pass"), By.id("pass"))).sendKeys("Rehan@91");
+		driver.findElement(new ByAll(By.id("pass"), By.id("pass"))).sendKeys("xxxxxx");
 		driver.findElement(new ByChained(By.cssSelector("div[class='menu_login_container rfloat _ohf']"),
 				By.id("login_form"), By.id("loginbutton"))).click();
 
