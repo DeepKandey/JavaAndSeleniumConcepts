@@ -6,14 +6,15 @@ public class A {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	public static void b1() {
 		int c;
 		int d;
 		int a;
 		int b;
 		int e;
-	}
+		int d;
 
+	}
 
 }
