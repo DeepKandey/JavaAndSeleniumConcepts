@@ -3,7 +3,6 @@ package seleniumPrograms;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -86,8 +85,7 @@ public class CookieHandlingConcept2 extends TestBase {
 				String domain = token.nextToken();
 				String path = token.nextToken();
 				Date expiry = null;
-				String val;
-				if ((val = token.nextToken()).equals("null")) {
+				if ((token.nextToken()).equals("null")) {
 					expiry = new Date();
 				}
 				boolean isSecure = new Boolean(token.nextToken()).booleanValue();

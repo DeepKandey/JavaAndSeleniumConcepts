@@ -1,7 +1,6 @@
 package seleniumPrograms;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
@@ -9,15 +8,14 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class SikuliConcept {
+import com.qa.base.TestBase;
+
+public class SikuliConcept extends TestBase {
 	WebDriver driver;
 
 	@BeforeMethod
 	public void setup() {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepa\\Downloads\\chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		// driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		initialization("chrome");
 	}
 
 	@Test
