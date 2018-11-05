@@ -7,10 +7,11 @@ public class A {
 
 	}
 	
-	public static void b() {
+	public static void b1() {
 		int c;
 		int d;
-		
+		int a;
+		int b;
 	}
 
 
