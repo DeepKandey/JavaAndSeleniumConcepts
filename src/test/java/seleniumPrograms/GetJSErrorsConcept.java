@@ -46,7 +46,7 @@ public class GetJSErrorsConcept extends TestBase {
 		}
 	}
 
-	@Test
+	@Test(invocationCount=2)
 	public void testMethod() {
 		driver.get("https://www.makemytrip.com/");
 		extractJSLogs();
