@@ -9,6 +9,8 @@ import com.qa.base.TestBase;
 
 public class ApplitoolsConcept extends TestBase {
 
+	Eyes eyes;
+
 	@BeforeMethod
 	public void setUp() {
 		initialization("chrome");
@@ -17,17 +19,24 @@ public class ApplitoolsConcept extends TestBase {
 	@AfterMethod
 	public void tearDown() {
 		close();
+		// If the test was aborted before eyes.close was called, ends the test as
+		// aborted.
+		eyes.abortIfNotClosed();
 	}
 
 	@Test
 	public void visualTesting() {
-		Eyes eyes = new Eyes();
+		// Initialize the eyes SDK and set your private API key.
+		eyes = new Eyes();
 		eyes.setApiKey("lyV1luwQQdZpjJ5AxPpl4p59YFWyuGHLtfNqXFAAGOM110");
-		eyes.open(driver, "Applitools", "Hello World");
+
+		// Start the test by setting AUT's name, window or the page name that's being
+		// tested, viewport width and height
+		driver = eyes.open(driver, "Applitools", "Hello World");
 
 		driver.get("https://applitools.com/helloworld?diff2");
 		eyes.checkWindow("Home Page"); // checkpoint
-		
+
 		eyes.close();
 	}
 }

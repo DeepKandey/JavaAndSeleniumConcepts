@@ -15,22 +15,22 @@ public class TestBase {
 	protected static WebDriver driver = null;
 	protected static WebDriverWait wait;
 
-	public static void initialization(String browswerName) {
+	public static void initialization(String browserName) {
 		if (driver == null) {
-			if (browswerName == "chrome") {
+			if (browserName == "chrome") {
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
 				driver.manage().window().fullscreen();
 				wait = new WebDriverWait(driver, 20);
-			} else if (browswerName == "FF") {
+			} else if (browserName == "FF") {
 				WebDriverManager.firefoxdriver().setup();
 				driver = new FirefoxDriver();
 				wait = new WebDriverWait(driver, 20);
-			} else if (browswerName == "Edge") {
+			} else if (browserName == "Edge") {
 				WebDriverManager.edgedriver().setup();
 				driver = new EdgeDriver();
 				wait = new WebDriverWait(driver, 20);
-			} else if (browswerName == "IE") {
+			} else if (browserName == "IE") {
 				WebDriverManager.iedriver().setup();
 
 				/*
@@ -52,7 +52,7 @@ public class TestBase {
 			}
 		}
 		driver.manage().window().maximize();
-		System.out.println("Initialising browser");
+		System.out.println("Initialising " + browserName + " browser");
 	}
 
 	public static void close() {
