@@ -41,15 +41,21 @@ public class Xls_Reader {
 		try {
 			fis = new FileInputStream(path);
 			workbook = new XSSFWorkbook(fis);
-			sheet = workbook.getSheetAt(0);
+			// sheet = workbook.getSheetAt(sheetNumber);
 			fis.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	// returns the row count in a sheet
+	public static void main(String[] args) {
+		Xls_Reader reader = new Xls_Reader("C:\\Users\\deepa\\Downloads\\TestDocument.xlsx");
+		System.out.println("Number of rows in the sheet: " + reader.getRowCount("Sheet1"));
+		reader.getExcelData("Sheet1");
+		System.out.println("Vlaue of the given cell" + reader.getCellData("Sheet1", "String", 3));
+	}
+
+	// 1. returns the row count in a sheet
 	public int getRowCount(String sheetName) {
 		int index = workbook.getSheetIndex(sheetName);
 		if (index == -1)
@@ -59,10 +65,30 @@ public class Xls_Reader {
 			int number = sheet.getLastRowNum() + 1;
 			return number;
 		}
-
 	}
 
-	// returns the data from a cell
+	// 2. returns data from the excel
+	public String[][] getExcelData(String sheetName) {
+		String[][] arrayData = null;
+		try {
+			int totalNoRows = sheet.getLastRowNum();
+			int totalNoCols = sheet.getRow(0).getLastCellNum();
+			arrayData = new String[totalNoRows][totalNoCols];
+
+			for (int i = 0; i < totalNoRows; i++) {
+				for (int j = 0; j < totalNoCols; j++) {
+					arrayData[i][j] = sheet.getRow(i + 1).getCell(j).toString();
+					System.out.print(arrayData[i][j] + " ");
+				}
+				System.out.println();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return arrayData;
+	}
+
+	// 3. returns the data from a cell
 	public String getCellData(String sheetName, String colName, int rowNum) {
 		try {
 			if (rowNum <= 0)
@@ -95,7 +121,6 @@ public class Xls_Reader {
 			if (cell.getCellType() == CellType.STRING)
 				return cell.getStringCellValue();
 			else if (cell.getCellType() == CellType.NUMERIC || cell.getCellType() == CellType.FORMULA) {
-
 				String cellText = String.valueOf(cell.getNumericCellValue());
 				if (HSSFDateUtil.isCellDateFormatted(cell)) {
 					// format in form of M/D/YY
@@ -107,7 +132,6 @@ public class Xls_Reader {
 					cellText = cal.get(Calendar.DAY_OF_MONTH) + "/" + cal.get(Calendar.MONTH) + 1 + "/" + cellText;
 
 					// System.out.println(cellText);
-
 				}
 
 				return cellText;
@@ -117,7 +141,6 @@ public class Xls_Reader {
 				return String.valueOf(cell.getBooleanCellValue());
 
 		} catch (Exception e) {
-
 			e.printStackTrace();
 			return "row " + rowNum + " or column " + colName + " does not exist in xls";
 		}

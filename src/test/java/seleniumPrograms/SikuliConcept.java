@@ -1,6 +1,5 @@
 package seleniumPrograms;
 
-import org.openqa.selenium.WebDriver;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
@@ -11,7 +10,6 @@ import org.testng.annotations.Test;
 import com.qa.base.TestBase;
 
 public class SikuliConcept extends TestBase {
-	WebDriver driver;
 
 	@BeforeMethod
 	public void setup() {
