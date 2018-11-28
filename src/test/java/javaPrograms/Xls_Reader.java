@@ -53,8 +53,20 @@ public class Xls_Reader {
 		reader.getExcelData("Sheet1");
 		System.out.println("Value of the given cell: " + reader.getCellData("Sheet1", "Link", 2));
 		System.out.println("Value of the given cell: " + reader.getCellData("Sheet1", 0, 2));
-		System.out.println(reader.setCellData("Sheet1", "Boolean", 4, "true"));
-		System.out.println(reader.setCellData("Sheet1", "Link", 4, "Facebook", "https://facebook.com"));
+		System.out.println("Set Cell Data: " + reader.setCellData("Sheet1", "Boolean", 4, "true"));
+		System.out.println("Set Cell data with URL link: "
+				+ reader.setCellData("Sheet1", "Link", 4, "Facebook", "https://facebook.com"));
+		System.out.println("Sheet created in Workbook: " + reader.addSheet("MySheet1"));
+		System.out.println("Sheet removed from workbook: " + reader.removeSheet("MySheet"));
+		System.out.println("Adding column to the sheet: " + reader.addColumn("Sheet1", "My Column"));
+		System.out.println("Removing contents of the column: " + reader.removeColumn("MySheet1", 0));
+		System.out.println("Does Sheet exist: " + reader.isSheetExist("Deepak"));
+		System.out.println("Get column count: " + reader.getColumnCount("MySheet1"));
+		System.out.println("Adding HyperLink against the test case name: "
+				+ reader.addHyperLink("Sheet2", "Address2", "TestCase2", 0, "http://gmail.com", "Message"));
+		System.out
+				.println("Row Number of the data: " + reader.getCellRowNum("Sheet1", "Link", "https://www.google.com"));
+
 	}
 
 	// 1. returns the row count in a sheet
@@ -120,7 +132,7 @@ public class Xls_Reader {
 			if (cell == null)
 				return "";
 
-			System.out.println("Type of Cell: " + cell.getCellType());
+			// System.out.println("Type of Cell: " + cell.getCellType());
 			if (cell.getCellType() == CellType.STRING)
 				return cell.getStringCellValue();
 			else if (cell.getCellType() == CellType.NUMERIC || cell.getCellType() == CellType.FORMULA) {
@@ -205,10 +217,10 @@ public class Xls_Reader {
 			int index = workbook.getSheetIndex(sheetName);
 			if (index == -1)
 				return false;
-			
+
 			sheet = workbook.getSheetAt(index);
 			int colNum = -1;
-			
+
 			row = sheet.getRow(0);
 			for (int i = 0; i < row.getLastCellNum(); i++) {
 				// System.out.println(row.getCell(i).getStringCellValue().trim());
@@ -269,8 +281,8 @@ public class Xls_Reader {
 
 			if (colNum == -1)
 				return false;
-			sheet.autoSizeColumn(colNum); 
-			
+			sheet.autoSizeColumn(colNum);
+
 			row = sheet.getRow(rowNum - 1);
 			if (row == null)
 				row = sheet.createRow(rowNum - 1);
@@ -310,8 +322,15 @@ public class Xls_Reader {
 
 	// 7.returns true if sheet is created successfully else false
 	public boolean addSheet(String sheetname) {
-
 		FileOutputStream fileOut;
+
+		for (int i = 0; i < workbook.getNumberOfSheets(); i++) {
+			if (workbook.getSheetName(i).equals(sheetname)) {
+				System.out.print("The workbook already contains a sheet named: " + sheetname + ". ");
+				return false;
+			}
+		}
+
 		try {
 			workbook.createSheet(sheetname);
 			fileOut = new FileOutputStream(path);
@@ -328,8 +347,10 @@ public class Xls_Reader {
 	// not exist
 	public boolean removeSheet(String sheetName) {
 		int index = workbook.getSheetIndex(sheetName);
-		if (index == -1)
+		if (index == -1) {
+			System.out.print("There is no sheet of this name. ");
 			return false;
+		}
 
 		FileOutputStream fileOut;
 		try {
@@ -372,8 +393,10 @@ public class Xls_Reader {
 			// System.out.println(row.getLastCellNum());
 			if (row.getLastCellNum() == -1)
 				cell = row.createCell(0);
-			else
+			else {
+				System.out.println(row.getLastCellNum());
 				cell = row.createCell(row.getLastCellNum());
+			}
 
 			cell.setCellValue(colName);
 			cell.setCellStyle(style);
@@ -388,7 +411,6 @@ public class Xls_Reader {
 		}
 
 		return true;
-
 	}
 
 	// 10.removes a column and all the contents
@@ -453,7 +475,6 @@ public class Xls_Reader {
 			return -1;
 
 		return row.getLastCellNum();
-
 	}
 
 	// 13. String sheetName, String testCaseName,String keyword ,String URL,String
@@ -475,7 +496,6 @@ public class Xls_Reader {
 				break;
 			}
 		}
-
 		return true;
 	}
 
