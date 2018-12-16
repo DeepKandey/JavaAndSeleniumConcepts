@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="seleniumPrograms.CookieHandlingConcept2">
+      <class name="seleniumPrograms.SikuliConcept">
         <methods>
           <include name="tearDown"/>
-          <include name="storeAndLoadCookieInBrowser"/>
-          <include name="setUp"/>
+          <include name="flashObjectsControl"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- seleniumPrograms.CookieHandlingConcept2 -->
+      </class> <!-- seleniumPrograms.SikuliConcept -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

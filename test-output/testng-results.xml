@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="33161" started-at="2018-11-04T14:44:47Z" finished-at="2018-11-04T14:45:21Z">
+  <suite name="Default suite" duration-ms="25751" started-at="2018-11-28T06:34:04Z" finished-at="2018-11-28T06:34:30Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="33161" started-at="2018-11-04T14:44:47Z" finished-at="2018-11-04T14:45:21Z">
-      <class name="seleniumPrograms.CookieHandlingConcept2">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:seleniumPrograms.CookieHandlingConcept2@25bbe1b6]" name="setUp" is-config="true" duration-ms="6101" started-at="2018-11-04T14:44:47Z" finished-at="2018-11-04T14:44:54Z">
+    <test name="Default test" duration-ms="25751" started-at="2018-11-28T06:34:04Z" finished-at="2018-11-28T06:34:30Z">
+      <class name="seleniumPrograms.SikuliConcept">
+        <test-method status="PASS" signature="setup()[pri:0, instance:seleniumPrograms.SikuliConcept@6737fd8f]" name="setup" is-config="true" duration-ms="6784" started-at="2018-11-28T06:34:04Z" finished-at="2018-11-28T06:34:11Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="storeAndLoadCookieInBrowser()[pri:0, instance:seleniumPrograms.CookieHandlingConcept2@25bbe1b6]" name="storeAndLoadCookieInBrowser" duration-ms="27016" started-at="2018-11-04T14:44:54Z" finished-at="2018-11-04T14:45:21Z">
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="flashObjectsControl()[pri:0, instance:seleniumPrograms.SikuliConcept@6737fd8f]" name="flashObjectsControl" duration-ms="18090" started-at="2018-11-28T06:34:11Z" finished-at="2018-11-28T06:34:29Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- storeAndLoadCookieInBrowser -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:seleniumPrograms.CookieHandlingConcept2@25bbe1b6]" name="tearDown" is-config="true" duration-ms="1" started-at="2018-11-04T14:45:21Z" finished-at="2018-11-04T14:45:21Z">
+        </test-method> <!-- flashObjectsControl -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:seleniumPrograms.SikuliConcept@6737fd8f]" name="tearDown" is-config="true" duration-ms="852" started-at="2018-11-28T06:34:29Z" finished-at="2018-11-28T06:34:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- seleniumPrograms.CookieHandlingConcept2 -->
+      </class> <!-- seleniumPrograms.SikuliConcept -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
