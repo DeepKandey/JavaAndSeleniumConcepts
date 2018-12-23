@@ -15,7 +15,7 @@ public class DateDemo {
 
 		System.out.println("Default Date Format: " + date.toString());
 		System.out.println("Default Calendar Format: " + cal.getTime());
-		System.out.println(dateFormat.format(date));
-		System.out.println(dateFormatHrs.format(date));
+		System.out.println("With Simple Date Format(dd-MM-yyyy): " + dateFormat.format(date));
+		System.out.println("With Simple Date Format(dd-MM-yyyy hh:mm:ss): " + dateFormatHrs.format(date));
 	}
 }
