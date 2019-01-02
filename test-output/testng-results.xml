@@ -2,15 +2,15 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="14966" started-at="2019-01-02T14:12:15Z" finished-at="2019-01-02T14:12:29Z">
+  <suite name="Default suite" duration-ms="16409" started-at="2019-01-02T14:26:28Z" finished-at="2019-01-02T14:26:45Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="14966" started-at="2019-01-02T14:12:15Z" finished-at="2019-01-02T14:12:29Z">
+    <test name="Default test" duration-ms="16409" started-at="2019-01-02T14:26:28Z" finished-at="2019-01-02T14:26:45Z">
       <class name="seleniumPrograms.Exercise1">
-        <test-method status="PASS" signature="findTotalNumberOfCheckBoxes()[pri:0, instance:seleniumPrograms.Exercise1@2b552920]" name="findTotalNumberOfCheckBoxes" duration-ms="14935" started-at="2019-01-02T14:12:15Z" finished-at="2019-01-02T14:12:29Z">
+        <test-method status="PASS" signature="clearTripAssignment_Udemy()[pri:0, instance:seleniumPrograms.Exercise1@2b552920]" name="clearTripAssignment_Udemy" duration-ms="16380" started-at="2019-01-02T14:26:28Z" finished-at="2019-01-02T14:26:45Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- findTotalNumberOfCheckBoxes -->
+        </test-method> <!-- clearTripAssignment_Udemy -->
       </class> <!-- seleniumPrograms.Exercise1 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

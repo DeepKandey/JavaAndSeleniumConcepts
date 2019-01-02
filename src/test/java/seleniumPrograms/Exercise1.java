@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -69,6 +70,9 @@ public class Exercise1 {
 			}
 		}
 
-		driver.quit();
+		driver.findElement(By.id("MoreOptionsLink")).click();
+		driver.findElement(By.id("AirlineAutocomplete")).sendKeys("Indigo");
+		driver.findElement(By.id("AirlineAutocomplete")).sendKeys(Keys.ENTER);
+		// driver.quit();
 	}
 }

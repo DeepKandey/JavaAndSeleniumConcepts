@@ -5,7 +5,7 @@
     <classes>
       <class name="seleniumPrograms.Exercise1">
         <methods>
-          <include name="findTotalNumberOfCheckBoxes"/>
+          <include name="clearTripAssignment_Udemy"/>
         </methods>
       </class> <!-- seleniumPrograms.Exercise1 -->
     </classes>
