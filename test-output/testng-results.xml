@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="25751" started-at="2018-11-28T06:34:04Z" finished-at="2018-11-28T06:34:30Z">
+  <suite name="Default suite" duration-ms="15103" started-at="2019-01-02T01:48:45Z" finished-at="2019-01-02T01:49:00Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="25751" started-at="2018-11-28T06:34:04Z" finished-at="2018-11-28T06:34:30Z">
-      <class name="seleniumPrograms.SikuliConcept">
-        <test-method status="PASS" signature="setup()[pri:0, instance:seleniumPrograms.SikuliConcept@6737fd8f]" name="setup" is-config="true" duration-ms="6784" started-at="2018-11-28T06:34:04Z" finished-at="2018-11-28T06:34:11Z">
+    <test name="Default test" duration-ms="15103" started-at="2019-01-02T01:48:45Z" finished-at="2019-01-02T01:49:00Z">
+      <class name="seleniumPrograms.Exercise1">
+        <test-method status="PASS" signature="checkBoxValidation()[pri:0, instance:seleniumPrograms.Exercise1@2b552920]" name="checkBoxValidation" duration-ms="7431" started-at="2019-01-02T01:48:45Z" finished-at="2019-01-02T01:48:52Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="flashObjectsControl()[pri:0, instance:seleniumPrograms.SikuliConcept@6737fd8f]" name="flashObjectsControl" duration-ms="18090" started-at="2018-11-28T06:34:11Z" finished-at="2018-11-28T06:34:29Z">
+        </test-method> <!-- checkBoxValidation -->
+        <test-method status="PASS" signature="findTotalCheckBoxes()[pri:0, instance:seleniumPrograms.Exercise1@2b552920]" name="findTotalCheckBoxes" duration-ms="7628" started-at="2019-01-02T01:48:52Z" finished-at="2019-01-02T01:49:00Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- flashObjectsControl -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:seleniumPrograms.SikuliConcept@6737fd8f]" name="tearDown" is-config="true" duration-ms="852" started-at="2018-11-28T06:34:29Z" finished-at="2018-11-28T06:34:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- seleniumPrograms.SikuliConcept -->
+        </test-method> <!-- findTotalCheckBoxes -->
+      </class> <!-- seleniumPrograms.Exercise1 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
