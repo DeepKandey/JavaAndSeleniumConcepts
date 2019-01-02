@@ -3,13 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="seleniumPrograms.SikuliConcept">
+      <class name="seleniumPrograms.Exercise1">
         <methods>
-          <include name="tearDown"/>
-          <include name="flashObjectsControl"/>
-          <include name="setup"/>
+          <include name="findTotalNumberOfCheckBoxes"/>
         </methods>
-      </class> <!-- seleniumPrograms.SikuliConcept -->
+      </class> <!-- seleniumPrograms.Exercise1 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
