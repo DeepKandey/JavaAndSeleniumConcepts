@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class Exercise1 {
+public class ClearTrip_DateSelection {
 
 	@Test
 	public void clearTripAssignment_Udemy() {
