@@ -4,7 +4,7 @@ public class DynamicArray {
 
 	private int initialCapacity;
 	private Object[] data;
-	private int size;
+	private int size = 0;
 
 	public DynamicArray(int initialCapacity) {
 		this.initialCapacity = initialCapacity;
@@ -17,6 +17,7 @@ public class DynamicArray {
 
 	public void set(int index, String value) {
 		data[index] = value;
+		size++;
 	}
 
 	public void insert(int index, String value) {
@@ -26,7 +27,7 @@ public class DynamicArray {
 		}
 
 		// Copy Up
-		for (int j = size; j > index; j--) {
+		for (int j = size - 1; j > index; j--) {
 			data[j] = data[j - 1];
 		}
 
@@ -36,13 +37,13 @@ public class DynamicArray {
 	}
 
 	public boolean isEmpty() {
-		return size == 0;
+		return size() == 0;
 	}
 
 	public boolean contains(String value) {
 		boolean flag = false;
-		for (int i = 0; i < size - 1; i++) {
-			if (data[i] == value) {
+		for (int i = 0; i < size(); i++) {
+			if (data[i].toString().equals(value)) {
 				flag = true;
 				break;
 			}
@@ -53,7 +54,7 @@ public class DynamicArray {
 	public void delete(int index) {
 		// Copy data
 
-		for (int j = index; j < size - 1; j++) {
+		for (int j = index; j < size(); j++) {
 			data[j] = data[j + 1];
 		}
 		size--;
@@ -70,13 +71,22 @@ public class DynamicArray {
 	}
 
 	public int size() {
+		int counter = 0;
+		for (int i = 0; i < data.length; i++) {
+			if (data[i] != null) {
+				counter++;
+			}
+		}
+		size = counter;
 		return size;
 	}
 
 	public void print() {
-		for (int i = 0; i < size; i++) {
-			System.out.println(data[i]);
+		System.out.print("Printing values from the array--> ");
+		for (int i = 0; i < size(); i++) {
+			System.out.print(data[i] + " ");
 		}
+		System.out.println();
 	}
 
 	public void add(String value) {
@@ -89,7 +99,26 @@ public class DynamicArray {
 	}
 
 	public static void main(String[] args) {
-
+		DynamicArray obj = new DynamicArray(10);
+		obj.set(0, String.valueOf(1));
+		obj.print();
+		System.out.println("Size of the array: " + obj.size());
+		obj.add(String.valueOf(2));
+		obj.print();
+		System.out.println("Size of the array: " + obj.size());
+		System.out.println("Does array contains 3: " + obj.contains(String.valueOf(3)));
+		obj.insert(2, String.valueOf(3));
+		obj.print();
+		System.out.println("Size of the array: " + obj.size());
+		System.out.println("Does array contains 3: " + obj.contains(String.valueOf(3)));
+		System.out.println("Is array empty?? " + obj.isEmpty());
+		System.out.println("Length of the initial array: " + obj.data.length);
+		obj.resize();
+		System.out.println("After resizing, Length of the array: " + obj.data.length);
+		obj.delete(2);
+		System.out.println("After deleting data from index 2, Values from the array: ");
+		obj.print();
+		System.out.println("Size of the array: " + obj.size());
 	}
 
 }
