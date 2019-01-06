@@ -77,6 +77,7 @@ public class LinkedList {
 		if (head == null) {
 			return counter;
 		} else {
+			counter++;
 			Node node = head;
 			while (node.next != null) {
 				counter++;
@@ -115,15 +116,33 @@ public class LinkedList {
 
 	public void printList() {
 		Node tNode = head;
-
+		System.out.print("Elements in the Linked List: ");
 		while (tNode != null) {
-			System.out.println(tNode.data + " ");
+			System.out.print(tNode.data + " ");
 			tNode = tNode.next;
 		}
+		System.out.println();
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		LinkedList obj = new LinkedList();
+		// obj.getFront();
+		obj.addFront(12);
+		obj.addFront(34);
+		obj.addBack(13);
+		obj.addBack(98);
+		System.out.println("Front Element: " + obj.getFront());
+		obj.printList();
+		System.out.println("Deleting Front Element 34");
+		obj.deleteValue(34);
+		System.out.println("Front Element: " + obj.getFront());
+		obj.printList();
+		System.out.println("Last Element: " + obj.getLast());
+		System.out.println("Size of the Linked List: " + obj.getSize());
+		System.out.println("Deleting Last Element 98");
+		obj.deleteValue(98);
+		obj.printList();
+		System.out.println("Size of the Linked List: " + obj.getSize());
 	}
 }
