@@ -53,12 +53,10 @@ public class DynamicArray {
 
 	public void delete(int index) {
 		// Copy data
-
 		for (int j = index; j < size(); j++) {
 			data[j] = data[j + 1];
 		}
 		size--;
-
 	}
 
 	public void resize() {
@@ -120,5 +118,4 @@ public class DynamicArray {
 		obj.print();
 		System.out.println("Size of the array: " + obj.size());
 	}
-
 }
