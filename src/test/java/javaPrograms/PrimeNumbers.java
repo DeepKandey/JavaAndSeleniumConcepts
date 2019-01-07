@@ -17,27 +17,30 @@ public class PrimeNumbers {
 				}
 			}
 		}
-		isPrimeNumber();
+		Boolean primeNumber_flag = isPrimeNumber();
+		if (primeNumber_flag) {
+			System.out.println("This is a prime number");
+		} else {
+			System.out.println("This is not a prime number");
+		}
 	}
 
-	public static void isPrimeNumber() {
-		int num, i, count = 0;
-
+	public static boolean isPrimeNumber() {
+		int num;
 		Scanner scan = new Scanner(System.in);
 		System.out.print("Enter a Number to check if it is a prime number: ");
 		num = scan.nextInt();
 		scan.close();
 
-		for (i = 2; i < num; i++) {
+		if (num <= 1) {
+			return false;
+		}
+
+		for (int i = 2; i < num; i++) {
 			if (num % i == 0) {
-				count++;
-				break;
+				return false;
 			}
 		}
-		if (count == 0) {
-			System.out.print("This is a Prime Number");
-		} else {
-			System.out.print("This is not a Prime Number");
-		}
+		return true;
 	}
 }
