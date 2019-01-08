@@ -5,24 +5,15 @@ import java.util.Scanner;
 public class PrimeNumbers {
 
 	public static void main(String[] args) {
-		int remainder = 0;
-		System.out.println("-------Prime mumbers between 1 and 100------");
-		for (int i = 2; i < 100; i++) {
-			for (int j = 2; j <= i; j++) {
-				remainder = i % j;
-				if (remainder == 0 && i != j) {
-					break;
-				} else if (remainder == 0 && i == j) {
-					System.out.println(i);
-				}
-			}
-		}
 		Boolean primeNumber_flag = isPrimeNumber();
+
 		if (primeNumber_flag) {
 			System.out.println("This is a prime number");
 		} else {
 			System.out.println("This is not a prime number");
 		}
+
+		getPrimeNumbers(100);
 	}
 
 	public static boolean isPrimeNumber() {
@@ -42,5 +33,19 @@ public class PrimeNumbers {
 			}
 		}
 		return true;
+	}
+
+	public static void getPrimeNumbers(int num) {
+
+		System.out.println("****--Prime numbers upto " + num + "--****");
+		for (int i = 2; i <= num; i++) {
+			for (int j = 2; j <= i; j++) {
+				if (i % j == 0 && i != j) {
+					break;
+				} else if (i % j == 0 && i == j) {
+					System.out.print(i + " ");
+				}
+			}
+		}
 	}
 }
