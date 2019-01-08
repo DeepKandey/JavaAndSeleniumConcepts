@@ -2,7 +2,7 @@ package javaPrograms;
 
 public class LinkedList {
 
-	Node head; // head of list
+	private Node head; // head of list
 
 	static class Node {
 		int data;
