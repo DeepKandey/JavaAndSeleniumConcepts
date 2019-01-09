@@ -3,6 +3,7 @@ package seleniumPrograms;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,7 +20,10 @@ public class Udemy_Exercise1 {
 	public void checkBoxTest() throws InterruptedException {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://www.qaclickacademy.com/practice.php");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		String url = "https://www.qaclickacademy.com/practice.php";
+		String script = "window.location=\'" + url + "\'"; // Using JavaScript to open url
+		js.executeScript(script);
 
 		driver.findElement(By.xpath("//*[@id='checkbox-example']/fieldset/label[2]/input")).click();
 		String text = driver.findElement(By.xpath("//*[@id='checkbox-example']/fieldset/label[2]")).getText();
