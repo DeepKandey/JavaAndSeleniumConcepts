@@ -1,4 +1,4 @@
-package javaPrograms;
+package dataStructures;
 
 public class LinkedList {
 

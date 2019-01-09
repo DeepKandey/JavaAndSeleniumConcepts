@@ -1,4 +1,4 @@
-package javaPrograms;
+package dataStructures;
 
 // https://www.techiedelight.com/stack-implementation-using-linked-list/
 
