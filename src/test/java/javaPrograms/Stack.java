@@ -76,6 +76,5 @@ public class Stack {
 		obj.printStack();
 		obj.pop();
 		System.out.println("Is stack Empty? " + obj.isEmpty());
-
 	}
 }
