@@ -17,7 +17,9 @@ public class HashTable {
 		String value;
 		HashEntry next;
 
-		public HashEntry(String key, String value) {
+		public HashEntry(String key, String value) { // creating hash entry as a linked list so that in case of
+														// collision, it contains the reference of next key having same
+														// index
 			this.key = key;
 			this.value = value;
 			this.next = null;
@@ -26,6 +28,24 @@ public class HashTable {
 
 	HashTable() {
 		data = new HashEntry[INITIAL_SIZE];
+	}
+
+	public int getIndex(String key) {
+
+		// Get the hash code
+		int hashCode = key.hashCode();
+		System.out.println("HashCode corresponding key: " + key + " is " + hashCode);
+
+		// Convert to index
+		int index = (hashCode & 0x7fffffff) % INITIAL_SIZE;
+
+		// Hack to force collision for testing
+		if (key.equals("John Smith") || key.equals("Sandra Dee")) {
+			index = 4;
+		}
+
+		System.out.println("index corresponding key: " + key + " is " + index);
+		return index;
 	}
 
 	public void put(String key, String value) {
@@ -62,6 +82,8 @@ public class HashTable {
 		// Get the current list of entries
 		HashEntry entries = data[index];
 
+		System.out.print("Value corresponding key: " + key + " is ");
+
 		// if we have existing entries against the key...
 		if (entries != null) {
 			// else walk chain until find a match
@@ -75,24 +97,6 @@ public class HashTable {
 
 		// if we have no entries against this key...
 		return null;
-	}
-
-	public int getIndex(String key) {
-
-		// Get the hash code
-		int hashCode = key.hashCode();
-		System.out.println("HashCode corresponding key: " + key + " is " + hashCode);
-
-		// Convert to index
-		int index = (hashCode & 0x7fffffff) % INITIAL_SIZE;
-
-		// Hack to force collision for testing
-		if (key.equals("John Smith") || key.equals("Sandra Dee")) {
-			index = 4;
-		}
-
-		System.out.println("index = " + index);
-		return index;
 	}
 
 	@Override
@@ -119,6 +123,13 @@ public class HashTable {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		HashTable obj = new HashTable();
+		obj.put("Deepak Rai", "1");
+		obj.put("John Smith", "2");
+		obj.put("Sandra Dee", "3");
+		System.out.println(obj.get("Deepak Rai"));
+		System.out.println(obj.get("John Smith"));
+		System.out.println(obj.get("Sandra Dee"));
+		System.out.println(obj.toString());
 	}
 }
