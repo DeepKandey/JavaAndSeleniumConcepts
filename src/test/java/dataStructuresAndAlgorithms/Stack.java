@@ -1,4 +1,4 @@
-package dataStructures;
+package dataStructuresAndAlgorithms;
 
 // https://www.techiedelight.com/stack-implementation-using-linked-list/
 

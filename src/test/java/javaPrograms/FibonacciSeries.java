@@ -42,14 +42,12 @@ public class FibonacciSeries {
 	public static void printFibonacciAtGivenPosition(int number) {
 		int a = 0, b = 1, c;
 
-		if (number == 0)
-			System.out.println("Fibonacci number at position " + number + " is: " + a);
-
 		for (int i = 2; i < number; i++) {
 			c = a + b;
 			a = b;
 			b = c;
 		}
-		System.out.println("Fibonacci number at position " + number + " is: " + b);
+		if (number > 0)
+			System.out.println("Fibonacci number at position " + number + " is: " + b);
 	}
 }
