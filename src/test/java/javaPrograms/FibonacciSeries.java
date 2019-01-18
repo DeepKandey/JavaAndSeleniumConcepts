@@ -7,14 +7,20 @@ public class FibonacciSeries {
 	private static Scanner scan;
 
 	public static void main(String[] args) {
+
 		System.out.println("How many numbers you want in Fibonacci:-");
 		scan = new Scanner(System.in);
-		int fibonacciSeriesNumber = scan.nextInt();
+		long fibonacciSeriesNumber = scan.nextLong();
 
+		long preTime = System.currentTimeMillis();
+		System.out.println(preTime);
 		printFibonacci(fibonacciSeriesNumber);
+		long postTime = System.currentTimeMillis();
+		System.out.println(postTime);
+		System.out.println("Time taken to compute in milliseconds->" + (postTime - preTime));
 	}
 
-	public static void printFibonacci(int number) {
+	public static void printFibonacci(long number) {
 		int previousNumber = 0, nextNumber = 1, sum;
 		int fibNumberAtNthPosition = 0;
 
