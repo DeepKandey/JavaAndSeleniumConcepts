@@ -8,7 +8,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class ReadFromTextFile {
+public class EditTextFile {
 
 	public static void main(String[] args) throws IOException {
 		// We need to provide file path as the parameter:
