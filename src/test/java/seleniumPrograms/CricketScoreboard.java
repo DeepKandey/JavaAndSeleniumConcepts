@@ -37,13 +37,20 @@ public class CricketScoreboard {
 			for (int j = 1; j <= batsman_ScoreCard.size(); j++) {
 				String var = driver.findElement(By.xpath("(" + xpath1 + "[" + i + "]" + xpath2 + ")" + "[" + j + "]"))
 						.getAttribute("innerText");
-				System.out.print(var + "\t\t");
+				if (j != 2) {
+					if (j == 1 && var.length()<=8)
+						System.out.print(var + "\t\t"+ "  ");
+					else {
+						System.out.print(var + "\t\t");
+					}
+				}
+
 			}
 			System.out.println();
 		}
 		System.out.println();
 	}
-	
+
 	@AfterTest
 	public void tearDown() {
 		driver.quit();
