@@ -44,7 +44,6 @@ public class CricketScoreboard {
 						System.out.print(var + "\t\t");
 					}
 				}
-
 			}
 			System.out.println();
 		}
