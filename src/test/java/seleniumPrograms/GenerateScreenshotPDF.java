@@ -56,7 +56,7 @@ public class GenerateScreenshotPDF {
 		document.add(img);
 		document.add(new Paragraph(""));
 
-		// close the files and write to the local systen
+		// close the files and write to the local system
 		document.close();
 		writer.close();
 
