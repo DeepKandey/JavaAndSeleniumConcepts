@@ -15,6 +15,7 @@ public class TestBase {
 	protected static WebDriver driver = null;
 	protected static WebDriverWait wait;
 
+	// Initializing browser
 	public static void initialization(String browserName) {
 		if (driver == null) {
 			if (browserName == "chrome") {
@@ -32,16 +33,7 @@ public class TestBase {
 				wait = new WebDriverWait(driver, 20);
 			} else if (browserName == "IE") {
 				WebDriverManager.iedriver().setup();
-
-				/*
-				 * DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
-				 * caps.setCapability(InternetExplorerDriver.
-				 * INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
-				 * caps.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
-				 */
 				InternetExplorerOptions options = new InternetExplorerOptions();
-				// options.introduceFlakinessByIgnoringSecurityDomains();
-				// options.ignoreZoomSettings();
 				options.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
 				options.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
 
@@ -55,6 +47,7 @@ public class TestBase {
 		System.out.println("Initialising " + browserName + " browser");
 	}
 
+	// Closing browser
 	public static void close() {
 		if (driver != null) {
 			System.out.println("Quitting the driver");
