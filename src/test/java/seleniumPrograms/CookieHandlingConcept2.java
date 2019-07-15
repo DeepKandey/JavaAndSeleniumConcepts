@@ -88,7 +88,7 @@ public class CookieHandlingConcept2 extends TestBase {
 				if ((token.nextToken()).equals("null")) {
 					expiry = new Date();
 				}
-				boolean isSecure = new Boolean(token.nextToken()).booleanValue();
+				boolean isSecure = Boolean.parseBoolean(token.nextToken());
 				Cookie cookie = new Cookie(name, value, domain, path, expiry, isSecure);
 				System.out.println(cookie);
 				driver.manage().addCookie(cookie);

@@ -10,24 +10,24 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
 public class ImageDisableOptions {
+	private static WebDriver driver;
 
 	public static void main(String[] args) {
 
-		/*
-		 * System.setProperty("webdriver.chrome.driver",
-		 * "C:\\Users\\deepa\\Downloads\\Browser Drivers\\Chrome Drivers\\chromedriver_win.exe"
-		 * );
-		 * 
-		 * ChromeOptions options = new ChromeOptions(); disableImageChrome(options);
-		 * 
-		 * WebDriver driver = new ChromeDriver(options);
-		 */
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\deepa\\Downloads\\Browser Drivers\\Chrome Drivers\\chromedriver_win.exe");
 
+		ChromeOptions chromeOptions = new ChromeOptions();
+		disableImageChrome(chromeOptions);
+
+		driver = new ChromeDriver(chromeOptions);
+
+		//------------------FireFox-----------------------
 		System.setProperty("webdriver.gecko.driver",
 				"C:\\Users\\deepa\\Downloads\\Browser Drivers\\FireFoxDrivers\\geckodriver.exe");
 		FirefoxOptions options = new FirefoxOptions();
 		disableImageFireFox(options);
-		WebDriver driver = new FirefoxDriver(options);
+		driver = new FirefoxDriver(options);
 
 		driver.get("https://www.amazon.in");
 		System.out.println(driver.getTitle());
@@ -48,5 +48,4 @@ public class ImageDisableOptions {
 		options.setProfile(profile);
 		options.setCapability(FirefoxDriver.PROFILE, profile);
 	}
-
 }
