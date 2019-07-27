@@ -11,10 +11,10 @@ public class StringManipulation2 {
 		System.out.println(val1);
 
 		try {
-			String str2 = "1232355467345546$";
-			Integer val2;
+			String str2 = "1232355467345546";
+			Long val2;
 			if (NumberUtils.isCreatable(str2)) {
-				val2 = Integer.valueOf(str2); // Using valueOf method which returns Integer object
+				val2 = Long.valueOf(str2); // Using valueOf method which returns Integer object
 				System.out.println(val2.toString());
 			} else
 				System.out.println("String is not proper number");
