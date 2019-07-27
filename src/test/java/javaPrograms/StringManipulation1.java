@@ -18,7 +18,6 @@ public class StringManipulation1 {
 					System.out.print(s + " ");
 					break;
 				}
-
 			}
 		}
 	}
