@@ -16,5 +16,4 @@ public class Child extends Parent {
 		System.out.println(pObj.a);
 		pObj.m1();
 	}
-
 }
