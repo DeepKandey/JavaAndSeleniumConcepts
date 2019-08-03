@@ -15,7 +15,7 @@ interface A {
  * anonymous class defining show method. At last using lamda expression,
  * defining and calling show method
  */
-public class LamdaDemo {
+public class LambdaDemo {
 
 	public static void main(String[] args) {
 
