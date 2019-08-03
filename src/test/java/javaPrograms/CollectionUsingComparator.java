@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 // Using Comparator interface defining own logic of sorting
-public class CollectionDemo2 {
+public class CollectionUsingComparator {
 
 	public static void main(String[] args) {
 
