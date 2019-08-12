@@ -25,9 +25,15 @@ public class ReflectionDemo {
 		method.setAccessible(true);
 		method.invoke(test, null);
 
+		// Calling parameterized private method
+		Method methodObj = classObj.getDeclaredMethod("cube", new Class[] { int.class });
+		methodObj.setAccessible(true);
+		methodObj.invoke(test, 4);
+
 		// To determine whether given class is a class or interface
 		Class<?> classObj2 = Class.forName("javaPrograms.ReflectionAPI.ABC");
 		System.out.println(classObj2.isInterface());
+
 		// To determine the super class of the given class
 		System.out.println(classObj2.getSuperclass());
 	}
