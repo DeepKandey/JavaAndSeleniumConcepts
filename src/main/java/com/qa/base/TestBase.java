@@ -3,6 +3,7 @@ package com.qa.base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeDriverService;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
@@ -19,22 +20,31 @@ public class TestBase {
 	public static void initialization(String browserName) {
 		if (driver == null) {
 			if (browserName == "chrome") {
-				WebDriverManager.chromedriver().setup();
+				// WebDriverManager.chromedriver().setup();
+				System.setProperty("webdriver.chrome.driver",
+						"C:/Users/deepa/Downloads/Browser Drivers/Chrome Drivers/chromedriver.exe");
+
 				driver = new ChromeDriver();
 				driver.manage().window().fullscreen();
 				wait = new WebDriverWait(driver, 20);
 			} else if (browserName == "FF") {
-				WebDriverManager.firefoxdriver().setup();
+				// WebDriverManager.firefoxdriver().setup();
+				System.setProperty("webdriver.gecko.driver",
+						"C:/Users/deepa/Downloads/Browser Drivers/FireFoxDrivers/geckodriver.exe");
+
 				driver = new FirefoxDriver();
 				wait = new WebDriverWait(driver, 20);
 			} else if (browserName == "Edge") {
-				WebDriverManager.edgedriver().setup();
-				driver = new EdgeDriver();
+				EdgeDriverService service = EdgeDriverService.createDefaultService();
+
+				driver = new EdgeDriver(service);
 				wait = new WebDriverWait(driver, 20);
 			} else if (browserName == "IE") {
 				WebDriverManager.iedriver().setup();
+				
 				InternetExplorerOptions options = new InternetExplorerOptions();
 				options.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+				options.setCapability(InternetExplorerDriver.INITIAL_BROWSER_URL, "");
 				options.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
 
 				// options.merge(caps);

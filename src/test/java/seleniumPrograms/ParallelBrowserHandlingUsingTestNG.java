@@ -5,7 +5,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeDriverService;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -30,12 +29,6 @@ public class ParallelBrowserHandlingUsingTestNG {
 			driver = new FirefoxDriver();
 			System.out.println("Launching " + browserName + " browser");
 		} else if (browserName.equalsIgnoreCase("Edge")) {
-			/*
-			 * System.setProperty("webdriver.edge.driver",
-			 * "C:\\Users\\deepa\\Downloads\\Browser Drivers\\EdgeDriver\\msedgedriver.exe"
-			 * );
-			 */
-			// WebDriverManager.edgedriver().setup();
 			EdgeDriverService service = EdgeDriverService.createDefaultService();
 			driver = new EdgeDriver(service);
 			System.out.println("Launching " + browserName + " browser");
