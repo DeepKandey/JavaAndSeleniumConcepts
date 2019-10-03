@@ -6,25 +6,24 @@
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class
-				name="seleniumPrograms.ParalleBrowserHandlingUsingTestNG" />
+				name="seleniumPrograms.ParallelBrowserHandlingUsingTestNG" />
 		</classes>
-	</test> <!-- Test -->
-
+	</test>
 
 	<test thread-count="5" name="FireFoxTest">
 		<parameter name="browser" value="firefox"></parameter>
 		<classes>
 			<class
-				name="seleniumPrograms.ParalleBrowserHandlingUsingTestNG" />
+				name="seleniumPrograms.ParallelBrowserHandlingUsingTestNG" />
 		</classes>
-	</test> <!-- Test -->
+	</test>
 
 	<test thread-count="5" name="EdgeTest">
 		<parameter name="browser" value="Edge"></parameter>
 		<classes>
 			<class
-				name="seleniumPrograms.ParalleBrowserHandlingUsingTestNG" />
+				name="seleniumPrograms.ParallelBrowserHandlingUsingTestNG" />
 		</classes>
-	</test> <!-- Test -->
+	</test>
 
 </suite> <!-- Suite -->
