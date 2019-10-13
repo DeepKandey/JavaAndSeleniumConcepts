@@ -6,7 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class ChromeLogsDemo {
+
+// Class to generate Chrome logs while Selenium API interacts with the browser
+public class ChromeLogsInSelenium {
 
 	public static void main(String[] args) {
 		System.setProperty("webdriver.chrome.driver",
