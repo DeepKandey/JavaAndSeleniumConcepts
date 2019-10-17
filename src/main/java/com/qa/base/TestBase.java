@@ -23,6 +23,8 @@ public class TestBase {
 				// WebDriverManager.chromedriver().setup();
 				System.setProperty("webdriver.chrome.driver",
 						"C:/Users/deepa/Downloads/Browser Drivers/Chrome Drivers/chromedriver.exe");
+				System.setProperty("webdriver.chrome.silentOutput", "true"); // To suppress the Chrome logs on console
+																				// before launch
 
 				driver = new ChromeDriver();
 				driver.manage().window().fullscreen();
@@ -32,6 +34,8 @@ public class TestBase {
 				System.setProperty("webdriver.gecko.driver",
 						"C:/Users/deepa/Downloads/Browser Drivers/FireFoxDrivers/geckodriver.exe");
 
+				System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "null"); // To suppress FF logs on
+																							// console
 				driver = new FirefoxDriver();
 				wait = new WebDriverWait(driver, 20);
 			} else if (browserName == "Edge") {
@@ -41,7 +45,7 @@ public class TestBase {
 				wait = new WebDriverWait(driver, 20);
 			} else if (browserName == "IE") {
 				WebDriverManager.iedriver().setup();
-				
+
 				InternetExplorerOptions options = new InternetExplorerOptions();
 				options.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
 				options.setCapability(InternetExplorerDriver.INITIAL_BROWSER_URL, "");
