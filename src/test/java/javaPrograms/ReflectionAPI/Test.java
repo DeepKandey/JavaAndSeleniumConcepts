@@ -7,7 +7,7 @@ public class Test {
 	}
 
 	private void cube(int n) {
-		System.out.println("Cube of the given number: " + n * n * n);
+		System.out.println("Cube of " + n + " : " + n * n * n);
 	}
 
 }

@@ -37,5 +37,4 @@ public class ReflectionDemo {
 		// To determine the super class of the given class
 		System.out.println(classObj2.getSuperclass());
 	}
-
 }
