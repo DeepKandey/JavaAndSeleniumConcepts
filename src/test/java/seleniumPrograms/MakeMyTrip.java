@@ -38,7 +38,7 @@ public class MakeMyTrip {
         //1-Allow, 2-Block, 0-default
         option.setExperimentalOption("prefs",prefs); 
         
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepa\\Downloads\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepa\\Downloads\\Browser Drivers\\Chrome Drivers\\chromedriver.exe");
 		driver = new ChromeDriver(option);
 		eventDriver = new EventFiringWebDriver(driver);
 		eventHandler = new EventHandler();
@@ -91,7 +91,7 @@ public class MakeMyTrip {
 	    log.info("Entered Destination Location: "+ js.executeScript(scriptForDestination));
 		
 		//Selecting Departure date
-		driver.findElement(By.id("hp-widget__depart")).click();
+		driver.findElement(By.id("departure")).click();
 		
 		while(!driver.findElement(By.xpath("descendant::div[@class ='ui-datepicker-title'][1]/span[@class='ui-datepicker-month']")).getText().contains("OCTOBER")) {
 			driver.findElement(By.xpath("descendant::a[@data-handler='next'][1]//span[@class='ui-icon ui-icon-circle-triangle-e']")).click();
