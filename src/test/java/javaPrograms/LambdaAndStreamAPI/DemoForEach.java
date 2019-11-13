@@ -1,4 +1,4 @@
-package javaPrograms;
+package javaPrograms.LambdaAndStreamAPI;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +14,7 @@ public class DemoForEach {
 			System.out.print(values.get(i) + " ");
 		}
 
-		System.out.println("\n" + "Using For Each loop");
+		System.out.println("\n" + "Using enhanced For loop");
 
 		for (int i : values) {
 			System.out.print(i + " ");

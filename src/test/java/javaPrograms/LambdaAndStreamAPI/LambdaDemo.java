@@ -1,4 +1,4 @@
-package javaPrograms;
+package javaPrograms.LambdaAndStreamAPI;
 
 interface A {
 	void show();
