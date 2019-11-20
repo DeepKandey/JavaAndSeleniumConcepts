@@ -12,7 +12,7 @@ interface A {
 
 /*
  * Here we are first calling show method using Xyz object, then using
- * anonymous class defining show method. At last using lamda expression,
+ * anonymous class defining show method. At last using lambda expression,
  * defining and calling show method
  */
 public class LambdaDemo {
