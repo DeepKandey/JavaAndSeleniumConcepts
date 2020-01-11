@@ -29,7 +29,7 @@ public class GetJSErrorsConcept extends TestBase {
 		chromeOptions.setCapability(CapabilityType.LOGGING_PREFS, logPreferences);
 
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\deepa\\Downloads\\Drivers\\Chrome Drivers\\chromedriver_win.exe");
+				"C:\\Users\\deepa\\Downloads\\Browser Drivers\\Chrome Drivers\\chromedriver.exe");
 		driver = new ChromeDriver(chromeOptions);
 	}
 
