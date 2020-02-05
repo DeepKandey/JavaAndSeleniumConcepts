@@ -1,0 +1,15 @@
+<Person>
+	<firstName>Deepak</firstName>
+	<lastName>Rai</lastName>
+	<age>30</age>
+	<address>
+		<street>C1404</street>
+		<city>Pune</city>
+		<zip>411057</zip>
+	</address>
+	<cars>
+		<cars>Toyota</cars>
+		<cars>Mercedez</cars>
+		<cars>Jeep</cars>
+	</cars>
+</Person>

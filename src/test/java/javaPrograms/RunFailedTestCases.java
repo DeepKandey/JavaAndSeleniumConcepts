@@ -15,5 +15,5 @@ public class RunFailedTestCases {
 		arrayList.add("C:\\Users\\deepa\\workspace\\JavaAndSeleniumConcepts\\test-output\\testng-failed.xml");
 		testNGRunner.setTestSuites(arrayList);
 		testNGRunner.run();
-	}
-}
+	}// End of method testNGRunnerForFailedTests
+} // End of class RunFailedTestCases
