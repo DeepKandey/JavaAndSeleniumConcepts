@@ -63,6 +63,14 @@ public class SelectDemo {
 			System.out.print(fieldNames.next() + " ");
 		}
 
+		// Where clause
+		String selectWithWhereQuery = "Select * from Sheet1 where DecimalNumber=23";
+		recordset = connection.executeQuery(selectWithWhereQuery);
+
+		while (recordset.next()) {
+			System.out.println("\n"+ recordset.getField("String") + "--" + recordset.getField("Date"));
+		}
+
 		recordset.close();
 		connection.close();
 	} // End of main method
