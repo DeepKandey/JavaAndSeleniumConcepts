@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.Command;
 import org.openqa.selenium.remote.CommandExecutor;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -25,12 +24,8 @@ public class NetworkBandwidthUseConceptInChrome extends TestBase {
 
 	@Test(dataProvider = "networkBandwidths")
 	public void test(int downloadThroughput, int uploadThroughput) throws IOException {
-
-		System.setProperty("webdriver.chrome.driver",
-				"C:/Users/deepa/Downloads/Browser Drivers/Chrome Drivers/chromedriver.exe");
-		System.setProperty("webdriver.chrome.silentOutput", "true"); // To suppress the Chrome logs on console
-																		// before launch
-		driver = new ChromeDriver();
+        // Launch browser
+		initialization("chrome");
 
 		if (downloadThroughput > 0 && uploadThroughput > 0) {
 			CommandExecutor executor = ((RemoteWebDriver) driver).getCommandExecutor();

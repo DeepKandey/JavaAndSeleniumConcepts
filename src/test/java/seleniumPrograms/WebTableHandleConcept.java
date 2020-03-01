@@ -18,7 +18,8 @@ public class WebTableHandleConcept {
 
 	@BeforeMethod
 	public void setUp() {
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\deepa\\Downloads\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",
+				"C:/Users/deepa/Downloads/Browser Drivers/Chrome Drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		eventDriver = new EventFiringWebDriver(driver);
 		eventHandler = new EventHandler();
