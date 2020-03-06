@@ -35,7 +35,7 @@ public class CommitUsingJGit {
 					session.setUserInfo(new UserInfo() {
 						@Override
 						public String getPassphrase() {
-							return "900654";
+							return "passphrase";
 						}
 
 						@Override
