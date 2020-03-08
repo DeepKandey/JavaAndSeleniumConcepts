@@ -19,7 +19,7 @@ public class TestBase {
 	// Initializing browser
 	public static void initialization(String browserName) {
 		if (driver == null) {
-			if (browserName == "chrome") {
+			if (browserName.equalsIgnoreCase("chrome")) {
 				// WebDriverManager.chromedriver().setup();
 				System.setProperty("webdriver.chrome.driver",
 						"C:/Users/deepa/Downloads/Browser Drivers/Chrome Drivers/chromedriver.exe");
@@ -29,7 +29,7 @@ public class TestBase {
 				driver = new ChromeDriver();
 				driver.manage().window().fullscreen();
 				wait = new WebDriverWait(driver, 20);
-			} else if (browserName == "FF") {
+			} else if (browserName.equalsIgnoreCase("FF")) {
 				// WebDriverManager.firefoxdriver().setup();
 				System.setProperty("webdriver.gecko.driver",
 						"C:/Users/deepa/Downloads/Browser Drivers/FireFoxDrivers/geckodriver.exe");
@@ -38,12 +38,12 @@ public class TestBase {
 																							// console
 				driver = new FirefoxDriver();
 				wait = new WebDriverWait(driver, 20);
-			} else if (browserName == "Edge") {
+			} else if (browserName.equalsIgnoreCase("Edge")) {
 				EdgeDriverService service = EdgeDriverService.createDefaultService();
 
 				driver = new EdgeDriver(service);
 				wait = new WebDriverWait(driver, 20);
-			} else if (browserName == "IE") {
+			} else if (browserName.equalsIgnoreCase("IE")) {
 				WebDriverManager.iedriver().setup();
 
 				InternetExplorerOptions options = new InternetExplorerOptions();
@@ -59,7 +59,7 @@ public class TestBase {
 		}
 		driver.manage().window().maximize();
 		System.out.println("Initialising " + browserName + " browser");
-	}
+	} // End of method initialization()
 
 	// Closing browser
 	public static void close() {
@@ -67,5 +67,5 @@ public class TestBase {
 			System.out.println("Quitting the driver");
 			driver.quit();
 		}
-	}
-}
+	} // End of method close()
+} // End of class TestBase
