@@ -19,6 +19,7 @@ public class TestBase {
 	// Initializing browser
 	public static void initialization(String browserName) {
 		if (driver == null) {
+
 			if (browserName.equalsIgnoreCase("chrome")) {
 				// WebDriverManager.chromedriver().setup();
 				System.setProperty("webdriver.chrome.driver",
@@ -33,7 +34,6 @@ public class TestBase {
 				// WebDriverManager.firefoxdriver().setup();
 				System.setProperty("webdriver.gecko.driver",
 						"C:/Users/deepa/Downloads/Browser Drivers/FireFoxDrivers/geckodriver.exe");
-
 				System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "null"); // To suppress FF logs on
 																							// console
 				driver = new FirefoxDriver();
@@ -57,8 +57,10 @@ public class TestBase {
 				wait = new WebDriverWait(driver, 20);
 			}
 		}
+		
 		driver.manage().window().maximize();
 		System.out.println("Initialising " + browserName + " browser");
+		
 	} // End of method initialization()
 
 	// Closing browser

@@ -28,18 +28,20 @@ public class RetrieveTextFromListUsingStreamAPI extends TestBase {
 		// Click on Google Applications link
 		driver.findElement(By.xpath("//a[@title='Google apps']")).click();
 		// Take list of all Google Applications names link
-		List<WebElement> listOfGoogleApps = driver.findElements(By.xpath("//*[@class='gb_t']"));
+		List<WebElement> listOfGoogleApps = driver.findElements(By.xpath("//*[@class='j1ei8c']/a/span[2]"));
+		System.out.println(listOfGoogleApps.size());
 		Thread.sleep(5000);
 		// Add all the link names to allGoogleAppsName list using Stream API
-		listOfGoogleApps.stream().forEach(app -> allGoogleAppsName.add(app.getText()));
+		listOfGoogleApps.stream().forEach(app -> allGoogleAppsName.add(app.getAttribute("innerHTML")));
 
 		// Print out application names
 		System.out.println("All product names are: ");
 		allGoogleAppsName.forEach(name -> System.out.println(name));
+		allGoogleAppsName.forEach(System.out::println);
 	}
 
 	@AfterMethod
 	public void tearDown() {
 		close();
 	}
-}
+} // End of class RetrieveTextFromListUsingStream

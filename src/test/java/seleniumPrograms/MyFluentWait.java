@@ -1,6 +1,7 @@
 package seleniumPrograms;
 
 import java.time.Duration;
+import java.util.function.Function;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -34,21 +35,27 @@ public class MyFluentWait extends TestBase {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30))
 				.pollingEvery(Duration.ofMillis(500)).ignoring(NoSuchElementException.class);
 
+		// 1. One way to use Function interface using lambda. Passing function interface reference variable
+		Function<WebDriver, WebElement> function = driver -> driver.findElement(By.linkText("Hotels"));
+		WebElement hotelsLink1 = wait.until(function);
+
 		/*
 		 * WebElement hotelsLink = wait.until(new Function<WebDriver, WebElement>() {
 		 * public WebElement apply(WebDriver driver) { return
 		 * driver.findElement(By.id("header_tab_hotels")); } });
 		 */
 
-		// Lambda expression used for Fluent wait
-		WebElement hotelsLink = wait.until((WebDriver driver) -> {
-			return driver.findElement(By.linkText("Hotels"));
-		});
+		// 2. Second way to use Function interface using lambda. Directly pass the implementation code
+		WebElement hotelsLink = wait.until(driver -> driver.findElement(By.linkText("Hotels")));
 
 		System.out.println("Hotels Link is displayed-->" + hotelsLink.getText());
 
-		String backGroundColorSearchBtn = driver.findElement(By.xpath("//a[@class='primaryBtn font24 latoBlack widgetSearchBtn ']")).getCssValue("background-color");
-		String textColorSearchBtn = driver.findElement(By.xpath("//a[@class='primaryBtn font24 latoBlack widgetSearchBtn ']")).getCssValue("color");
+		String backGroundColorSearchBtn = driver
+				.findElement(By.xpath("//a[@class='primaryBtn font24 latoBlack widgetSearchBtn ']"))
+				.getCssValue("background-color");
+		String textColorSearchBtn = driver
+				.findElement(By.xpath("//a[@class='primaryBtn font24 latoBlack widgetSearchBtn ']"))
+				.getCssValue("color");
 		System.out.println("Background Color of search button-->" + backGroundColorSearchBtn);
 		System.out.println("Text Color of search button-->" + textColorSearchBtn);
 		System.out.println(
