@@ -1,4 +1,4 @@
-package javaPrograms.ThreadLocal;
+package javaPrograms;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

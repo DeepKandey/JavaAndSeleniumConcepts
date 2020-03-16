@@ -1,4 +1,4 @@
-package javaPrograms.ThreadLocal;
+package javaPrograms;
 
 public class TestThreadLocal {
 
