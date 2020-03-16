@@ -41,9 +41,7 @@ public class MyFluentWait extends TestBase {
 		 */
 
 		// Lambda expression used for Fluent wait
-		WebElement hotelsLink = wait.until((WebDriver driver) -> {
-			return driver.findElement(By.linkText("Hotels"));
-		});
+		WebElement hotelsLink = wait.until(driver -> driver.findElement(By.linkText("Hotels")));
 
 		System.out.println("Hotels Link is displayed-->" + hotelsLink.getText());
 
