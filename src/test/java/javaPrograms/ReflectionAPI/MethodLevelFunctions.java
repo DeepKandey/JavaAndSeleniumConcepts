@@ -17,5 +17,5 @@ public class MethodLevelFunctions {
 			int modifier=method.getModifiers();
 			System.out.println("Modifier used for the method -->" + Modifier.toString(modifier));
 		}
-	}
-}
+	} // End of method main
+} // End of class MethodLevelFunctions
