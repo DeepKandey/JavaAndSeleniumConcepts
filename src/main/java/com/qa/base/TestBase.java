@@ -3,7 +3,6 @@ package com.qa.base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeDriverService;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
@@ -39,9 +38,13 @@ public class TestBase {
 				driver = new FirefoxDriver();
 				wait = new WebDriverWait(driver, 20);
 			} else if (browserName.equalsIgnoreCase("Edge")) {
-				EdgeDriverService service = EdgeDriverService.createDefaultService();
-
-				driver = new EdgeDriver(service);
+				/*
+				 * EdgeDriverService service = EdgeDriverService.createDefaultService(); driver
+				 * = new EdgeDriver(service);
+				 */
+				System.setProperty("webdriver.edge.driver",
+						"C:/Users/deepa/Downloads/Browser Drivers/EdgeDriver/msedgedriver.exe");
+				driver = new EdgeDriver();
 				wait = new WebDriverWait(driver, 20);
 			} else if (browserName.equalsIgnoreCase("IE")) {
 				WebDriverManager.iedriver().setup();
