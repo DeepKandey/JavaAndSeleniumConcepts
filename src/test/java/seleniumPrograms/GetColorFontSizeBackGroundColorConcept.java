@@ -29,6 +29,6 @@ public class GetColorFontSizeBackGroundColorConcept extends TestBase {
 
 	@AfterMethod
 	public void tearDown() {
-		close();
+		closeDriver();
 	}
 }

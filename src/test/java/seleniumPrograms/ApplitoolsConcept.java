@@ -18,7 +18,7 @@ public class ApplitoolsConcept extends TestBase {
 
 	@AfterMethod
 	public void tearDown() {
-		close();
+		closeDriver();
 		// If the test was aborted before eyes.close was called, ends the test as
 		// aborted.
 		eyes.abortIfNotClosed();

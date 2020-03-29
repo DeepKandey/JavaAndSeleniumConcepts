@@ -22,7 +22,7 @@ public class BrokenLinkConcept extends TestBase {
 
 	@AfterMethod
 	public void tearDown() {
-		close();
+		closeDriver();
 	}
 
 	@Test

@@ -40,6 +40,6 @@ public class RetrieveTextFromListUsingStreamAPI extends TestBase {
 
 	@AfterMethod
 	public void tearDown() {
-		close();
+		closeDriver();
 	}
 }

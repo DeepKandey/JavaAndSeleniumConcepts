@@ -18,16 +18,15 @@ public class TestBase {
 	// Initializing browser
 	public static void initialization(String browserName) {
 		if (driver == null) {
+
 			if (browserName.equalsIgnoreCase("chrome")) {
 				// WebDriverManager.chromedriver().setup();
 				System.setProperty("webdriver.chrome.driver",
 						"C:/Users/deepa/Downloads/Browser Drivers/Chrome Drivers/chromedriver.exe");
 				System.setProperty("webdriver.chrome.silentOutput", "true"); // To suppress the Chrome logs on console
 																				// before launch
-
 				driver = new ChromeDriver();
-				driver.manage().window().fullscreen();
-				wait = new WebDriverWait(driver, 20);
+
 			} else if (browserName.equalsIgnoreCase("FF")) {
 				// WebDriverManager.firefoxdriver().setup();
 				System.setProperty("webdriver.gecko.driver",
@@ -36,7 +35,7 @@ public class TestBase {
 				System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "null"); // To suppress FF logs on
 																							// console
 				driver = new FirefoxDriver();
-				wait = new WebDriverWait(driver, 20);
+
 			} else if (browserName.equalsIgnoreCase("Edge")) {
 				/*
 				 * EdgeDriverService service = EdgeDriverService.createDefaultService(); driver
@@ -45,7 +44,7 @@ public class TestBase {
 				System.setProperty("webdriver.edge.driver",
 						"C:/Users/deepa/Downloads/Browser Drivers/EdgeDriver/msedgedriver.exe");
 				driver = new EdgeDriver();
-				wait = new WebDriverWait(driver, 20);
+
 			} else if (browserName.equalsIgnoreCase("IE")) {
 				WebDriverManager.iedriver().setup();
 
@@ -56,16 +55,15 @@ public class TestBase {
 
 				// options.merge(caps);
 				driver = new InternetExplorerDriver(options);
-				driver.manage().window().maximize();
-				wait = new WebDriverWait(driver, 20);
 			}
 		}
 		driver.manage().window().maximize();
+		wait = new WebDriverWait(driver, 20);
 		System.out.println("Initialising " + browserName + " browser");
 	} // End of method initialization()
 
 	// Closing browser
-	public static void close() {
+	public static void closeDriver() {
 		if (driver != null) {
 			System.out.println("Quitting the driver");
 			driver.quit();

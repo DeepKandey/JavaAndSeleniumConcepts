@@ -29,7 +29,7 @@ public class BarCodeReader extends TestBase {
 
 	@AfterTest
 	public void tearDown() {
-		close();
+		closeDriver();
 	}
 
 	@Test

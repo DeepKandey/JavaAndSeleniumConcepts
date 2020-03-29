@@ -24,7 +24,7 @@ public class MyFluentWait extends TestBase {
 
 	@AfterMethod
 	public void tearDown() {
-		close();
+		closeDriver();
 	}
 
 	@Test
