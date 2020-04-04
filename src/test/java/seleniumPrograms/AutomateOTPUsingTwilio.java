@@ -33,9 +33,11 @@ public class AutomateOTPUsingTwilio extends TestBase {
 		driver.findElement(By.id("ap_customer_name")).sendKeys("testDeepakAutomationLab");
 		driver.findElement(By.xpath("//span[@class='a-dropdown-prompt']")).click();
 		driver.findElement(By.xpath("//ul[@role='application']//li//a[text()='United States +1']")).click();
-		driver.findElement(By.id("ap_phone_number")).sendKeys("4355710253");
+		driver.findElement(By.id("ap_phone_number")).sendKeys("");
 		driver.findElement(By.id("ap_password")).sendKeys("abc@123");
 		driver.findElement(By.id("continue")).click();
+		
+		System.out.println(ACCOUNT_SID);
 
 		// Using Twilio API to fetch OTP sent.
 		Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
@@ -51,7 +53,7 @@ public class AutomateOTPUsingTwilio extends TestBase {
 	// Fetch the latest message sent to the given number
 	private static String getMessage() {
 		return getMessages().filter(m -> m.getDirection().compareTo(Message.Direction.INBOUND) == 0)
-				.filter(m -> m.getTo().equals("+14355710253")).map(Message::getBody).findFirst()
+				.filter(m -> m.getTo().equals("+1")).map(Message::getBody).findFirst()
 				.orElseThrow(IllegalStateException::new);
 	}
 
