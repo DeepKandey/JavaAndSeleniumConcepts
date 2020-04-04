@@ -14,8 +14,8 @@ import com.twilio.rest.api.v2010.account.Message;
 
 public class AutomateOTPUsingTwilio extends TestBase {
 
-	private static final String ACCOUNT_SID = "AC510dcdfae9814bf9b346c8e64b8dfbeb";
-	private static final String AUTH_TOKEN = "f82a388b53db598bc7ce69f4e0ea001c";
+	private static final String ACCOUNT_SID = System.getenv("TWILIO_ACCOUNT_SID");
+	private static final String AUTH_TOKEN = System.getenv("TWILIO_AUTH_TOKEN");
 
 	@Test
 	public void HandleOTPMessage() throws InterruptedException {
