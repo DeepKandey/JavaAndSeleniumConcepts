@@ -59,7 +59,7 @@ public class TestBase {
 		}
 		driver.manage().window().maximize();
 		wait = new WebDriverWait(driver, 20);
-		System.out.println("Initialising " + browserName + " browser");
+		System.out.println("Launching " + browserName + " browser");
 	} // End of method initialization()
 
 	// Closing browser
