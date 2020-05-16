@@ -11,6 +11,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.google.common.collect.ImmutableMap;
+import com.qa.base.BrowserNames;
 import com.qa.base.TestBase;
 
 public class NetworkBandwidthUseConceptInChrome extends TestBase {
@@ -25,7 +26,7 @@ public class NetworkBandwidthUseConceptInChrome extends TestBase {
 	@Test(dataProvider = "networkBandwidths")
 	public void test(int downloadThroughput, int uploadThroughput) throws IOException {
         // Launch browser
-		initialization("chrome");
+		initialization(BrowserNames.CHROME);
 
 		if (downloadThroughput > 0 && uploadThroughput > 0) {
 			CommandExecutor executor = ((RemoteWebDriver) driver).getCommandExecutor();

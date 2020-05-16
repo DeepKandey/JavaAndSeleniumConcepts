@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
+import com.qa.base.BrowserNames;
 import com.qa.base.TestBase;
 import com.twilio.Twilio;
 import com.twilio.base.ResourceSet;
@@ -19,7 +20,7 @@ public class AutomateOTPUsingTwilio extends TestBase {
 
 	@Test
 	public void HandleOTPMessage() throws InterruptedException {
-		initialization("chrome");
+		initialization(BrowserNames.CHROME);
 		driver.get("https://www.amazon.in/");
 		try {
 			if (driver.findElement(By.linkText("Start here.")).isDisplayed())
@@ -36,8 +37,6 @@ public class AutomateOTPUsingTwilio extends TestBase {
 		driver.findElement(By.id("ap_phone_number")).sendKeys("");
 		driver.findElement(By.id("ap_password")).sendKeys("abc@123");
 		driver.findElement(By.id("continue")).click();
-		
-		System.out.println(ACCOUNT_SID);
 
 		// Using Twilio API to fetch OTP sent.
 		Twilio.init(ACCOUNT_SID, AUTH_TOKEN);

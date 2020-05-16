@@ -11,13 +11,14 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.qa.base.BrowserNames;
 import com.qa.base.TestBase;
 
 public class TrainLineAssignment extends TestBase {
 
 	@BeforeTest
 	public void setup() {
-		initialization("chrome");
+		initialization(BrowserNames.CHROME);
 	}
 
 	@Test

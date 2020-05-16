@@ -18,13 +18,14 @@ import com.google.zxing.NotFoundException;
 import com.google.zxing.Result;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
+import com.qa.base.BrowserNames;
 import com.qa.base.TestBase;
 
 public class BarCodeReader extends TestBase {
 
 	@BeforeTest
 	public void setup() {
-		initialization("chrome");
+		initialization(BrowserNames.CHROME);
 	}
 
 	@AfterTest

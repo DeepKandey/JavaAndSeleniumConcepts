@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: TestSuite
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 33.742 s <<< FAILURE! - in TestSuite
-visualTesting(seleniumPrograms.ApplitoolsConcept)  Time elapsed: 22.947 s  <<< FAILURE!
-com.applitools.eyes.exceptions.DiffsFoundException: Test 'Hello World' of 'Applitools' detected differences! See details at: https://eyes.applitools.com/app/batches/00000251859529292562/00000251859529292468?accountId=jwvloF1AokmoWvEQcfv8zw~~
-	at seleniumPrograms.ApplitoolsConcept.visualTesting(ApplitoolsConcept.java:32)
-

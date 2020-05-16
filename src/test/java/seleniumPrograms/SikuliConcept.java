@@ -7,13 +7,14 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.qa.base.BrowserNames;
 import com.qa.base.TestBase;
 
 public class SikuliConcept extends TestBase {
 
 	@BeforeMethod
 	public void setup() {
-		initialization("chrome");
+		initialization(BrowserNames.CHROME);
 	}
 
 	@Test

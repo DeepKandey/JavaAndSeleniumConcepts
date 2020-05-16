@@ -12,7 +12,7 @@ public class FireFoxLogsInSelenium {
 		System.setProperty("webdriver.gecko.driver",
 				"C:/Users/deepa/Downloads/Browser Drivers/FireFoxDrivers/geckodriver.exe");
 
-		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "./FFlog.txt");
+		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "./src/test/resources/BrowserLogs/FireFoxlogs.txt");
 		WebDriver driver = new FirefoxDriver();
 		driver.manage().window().maximize();
 

@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.applitools.eyes.selenium.Eyes;
+import com.qa.base.BrowserNames;
 import com.qa.base.TestBase;
 
 public class ApplitoolsConcept extends TestBase {
@@ -13,7 +14,7 @@ public class ApplitoolsConcept extends TestBase {
 
 	@BeforeMethod
 	public void setUp() {
-		initialization("chrome");
+		initialization(BrowserNames.CHROME);
 	}
 
 	@AfterMethod

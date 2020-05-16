@@ -6,13 +6,14 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.qa.base.BrowserNames;
 import com.qa.base.TestBase;
 
 public class GetColorFontSizeBackGroundColorConcept extends TestBase {
 
 	@BeforeTest
 	public void setUp() {
-		initialization("FF");
+		initialization(BrowserNames.FF);
 	}
 
 	@Test

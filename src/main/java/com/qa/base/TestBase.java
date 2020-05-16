@@ -16,19 +16,16 @@ public class TestBase {
 	protected static WebDriverWait wait;
 
 	// Initializing browser
-	public static void initialization(String browserName) {
+	public static void initialization(BrowserNames browserName) {
 		if (driver == null) {
-
-			if (browserName.equalsIgnoreCase("chrome")) {
-				// WebDriverManager.chromedriver().setup();
+			if (browserName == BrowserNames.CHROME) {
 				System.setProperty("webdriver.chrome.driver",
 						"C:/Users/deepa/Downloads/Browser Drivers/Chrome Drivers/chromedriver.exe");
 				System.setProperty("webdriver.chrome.silentOutput", "true"); // To suppress the Chrome logs on console
 																				// before launch
 				driver = new ChromeDriver();
 
-			} else if (browserName.equalsIgnoreCase("FF")) {
-				// WebDriverManager.firefoxdriver().setup();
+			} else if (browserName == BrowserNames.FF) {
 				System.setProperty("webdriver.gecko.driver",
 						"C:/Users/deepa/Downloads/Browser Drivers/FireFoxDrivers/geckodriver.exe");
 
@@ -36,7 +33,7 @@ public class TestBase {
 																							// console
 				driver = new FirefoxDriver();
 
-			} else if (browserName.equalsIgnoreCase("Edge")) {
+			} else if (browserName == BrowserNames.EDGE) {
 				/*
 				 * EdgeDriverService service = EdgeDriverService.createDefaultService(); driver
 				 * = new EdgeDriver(service);
@@ -45,7 +42,7 @@ public class TestBase {
 						"C:/Users/deepa/Downloads/Browser Drivers/EdgeDriver/msedgedriver.exe");
 				driver = new EdgeDriver();
 
-			} else if (browserName.equalsIgnoreCase("IE")) {
+			} else if (browserName == BrowserNames.IE) {
 				WebDriverManager.iedriver().setup();
 
 				InternetExplorerOptions options = new InternetExplorerOptions();
@@ -53,13 +50,17 @@ public class TestBase {
 				options.setCapability(InternetExplorerDriver.INITIAL_BROWSER_URL, "");
 				options.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
 
-				// options.merge(caps);
 				driver = new InternetExplorerDriver(options);
+			} else {
+				System.out.println("Print provide valid browser names");
 			}
 		}
-		driver.manage().window().maximize();
-		wait = new WebDriverWait(driver, 20);
-		System.out.println("Launching " + browserName + " browser");
+		if (driver != null) {
+			driver.manage().window().maximize();
+			wait = new WebDriverWait(driver, 20);
+			System.out.println("Launching " + browserName + " browser");
+		}
+
 	} // End of method initialization()
 
 	// Closing browser
