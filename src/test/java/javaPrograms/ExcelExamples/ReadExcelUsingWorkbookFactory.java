@@ -1,4 +1,4 @@
-package seleniumPrograms;
+package javaPrograms.ExcelExamples;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,10 +15,6 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 public class ReadExcelUsingWorkbookFactory {
 
 	public static void main(String[] args) {
-		/*
-		 * It creates the appropriate HSSFWorkbook / XSSFWorkbook from the given File,
-		 * which must exist and be readable. In this case it will create a XSSFWorkbook
-		 */
 		try {
 			// kill the excel process if it is already open
 			Process p = Runtime.getRuntime().exec("tasklist");
@@ -32,14 +28,22 @@ public class ReadExcelUsingWorkbookFactory {
 			}
 
 			Thread.sleep(1000);
+
+			/*
+			 * It creates the appropriate HSSFWorkbook / XSSFWorkbook from the given File,
+			 * which must exist and be readable. In this case it will create a XSSFWorkbook
+			 */
+
 			Workbook workBook = WorkbookFactory
-					.create(new File("C:/Users/deepa/Downloads/RBC Automation Framework ReviewV2.xlsx"));
+					.create(new File(System.getProperty("user.dir") + "/src/test/resources/ExcelFiles/TestDocument.xlsx"));
+			
 			// get sheet with the given sheet name
-			Sheet sheet = workBook.getSheet("Mobile Fw Review Comments");
-			// Returns the number of physically defined rows (NOT the number of rows in the
-			// sheet)
+			Sheet sheet = workBook.getSheet("Sheet2");
+
+			// Returns the number of physically defined rows
 			int rowCount = sheet.getPhysicalNumberOfRows();
 			System.out.println("Total number of rows in sheet: " + rowCount);
+
 			// Iterating rows
 			for (int i = 1; i < rowCount; i++) {
 				// Returns the logical row (not physical) 0-based. If you ask for a row that is
@@ -49,7 +53,7 @@ public class ReadExcelUsingWorkbookFactory {
 				// row!).That is to say if only columns 0,4,5 have values then there would be 3
 				int columnCount = row.getPhysicalNumberOfCells();
 				// iterating columns
-				for (int j = 1; j < columnCount; j++) {
+				for (int j = 0; j < columnCount; j++) {
 					Cell cell = row.getCell(j);
 					/*
 					 * Get the value of the cell as a string For numeric cells we throw an

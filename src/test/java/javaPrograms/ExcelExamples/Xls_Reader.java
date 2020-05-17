@@ -2,7 +2,7 @@
  * author: Naveen Khunteta
  */
 
-package javaPrograms;
+package javaPrograms.ExcelExamples;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -48,7 +48,7 @@ public class Xls_Reader {
 	}
 
 	public static void main(String[] args) {
-		Xls_Reader reader = new Xls_Reader("C:\\Users\\deepa\\Downloads\\TestDocument.xlsx");
+		Xls_Reader reader = new Xls_Reader(System.getProperty("user.dir") + "/src/test/resources/ExcelFiles/TestDocument.xlsx");
 		System.out.println("Number of rows in the sheet: " + reader.getRowCount("Sheet1"));
 		reader.getExcelData("Sheet1");
 		System.out.println("Value of the given cell: " + reader.getCellData("Sheet1", "Link", 2));

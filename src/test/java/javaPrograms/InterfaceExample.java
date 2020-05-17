@@ -27,12 +27,12 @@ class Android implements Phone {
 	}
 }
 
-public class DemoInterface implements Phone, Tablet {
+public class InterfaceExample implements Phone, Tablet {
 
 	public static void main(String[] args) {
 		Phone p = new Android();
-		Phone p1 = new DemoInterface();
-		DemoInterface demoObj = new DemoInterface();
+		Phone p1 = new InterfaceExample();
+		InterfaceExample demoObj = new InterfaceExample();
 		demoObj.message(); // Message defined is common to both interface
 		p.call();
 		p1.call();
