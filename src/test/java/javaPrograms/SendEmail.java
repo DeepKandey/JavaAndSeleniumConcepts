@@ -19,7 +19,7 @@ public class SendEmail {
 		Email email = new SimpleEmail();
 		email.setHostName("smtp.gmail.com");
 		email.setSmtpPort(465);
-		email.setAuthenticator(new DefaultAuthenticator("deepak1234pu@gmail.com", "xxxxxx"));
+		email.setAuthenticator(new DefaultAuthenticator("deepak1234@gmail.com", "****"));
 		email.setSSLOnConnect(true);
 		email.setFrom("deepakggsipu@gmail.com");
 		email.setSubject("TestMail");
@@ -33,7 +33,7 @@ public class SendEmail {
 	private void sendEmailWithAttachment() throws EmailException {
 		// Create the attachment
 		EmailAttachment attachment = new EmailAttachment();
-		attachment.setPath("C:/Users/deepa/Pictures/Screenshots/Screenshot (15).png");
+		attachment.setPath("Captcha.png");
 		attachment.setDisposition(EmailAttachment.ATTACHMENT);
 		attachment.setDescription("Picture of John");
 		attachment.setName("John");
@@ -42,7 +42,7 @@ public class SendEmail {
 		MultiPartEmail email = new MultiPartEmail();
 		email.setHostName("smtp.gmail.com");
 		email.setSmtpPort(465);
-		email.setAuthenticator(new DefaultAuthenticator("deepa1234pu@gmail.com", "xxxxxx"));
+		email.setAuthenticator(new DefaultAuthenticator("deepak1234ipu@gmail.com", "****"));
 		email.setSSLOnConnect(true);
 		email.setFrom("deepakggsipu@gmail.com", "Me");
 		email.setSubject("The picture");
