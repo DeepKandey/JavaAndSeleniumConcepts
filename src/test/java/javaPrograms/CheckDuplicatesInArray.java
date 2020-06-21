@@ -89,7 +89,7 @@ public class CheckDuplicatesInArray {
 			} else
 				hash_Map.put(i, input[i]);
 		}
-		System.out.println("Hash Map without dupliactes-->" + hash_Map);
+		System.out.println("Hash Map without duplicates-->" + hash_Map);
 	}
 
 	public static void printDuplicateUsingSet(Object[] input) {
