@@ -7,10 +7,11 @@ import java.util.List;
 public class RemoveZeroFromArray {
 
 	public static void main(String[] args) {
+		
 		// Array with zero and non-zero numbers
 		Integer[] numbers = { 1, 3, 6, 0, 4, 0, 3 };
 
-		List<Integer> list = new ArrayList<Integer>(Arrays.asList(numbers));
+		List<Integer> list = new ArrayList<>(Arrays.asList(numbers));
 		// Removing all zero from the list
 		list.removeAll(Arrays.asList(Integer.valueOf(0)));
 		// Assigning the list with non-zero numbers into array using toArray() method

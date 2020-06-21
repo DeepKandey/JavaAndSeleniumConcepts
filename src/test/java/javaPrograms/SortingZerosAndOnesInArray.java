@@ -3,7 +3,6 @@ package javaPrograms;
 public class SortingZerosAndOnesInArray {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		int[] Array1 = new int[] { 0, 1, 0, 0, 1, 1, 1, 0 };
 		int n = Array1.length;

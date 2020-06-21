@@ -6,7 +6,7 @@ import java.util.List;
 import org.testng.TestNG;
 import org.testng.annotations.Test;
 
-public class RunFailedTestCases {
+public class RunFailedTestCasesUsingTestNG {
 
 	@Test
 	public void testNGRunnerForFailedTests() {

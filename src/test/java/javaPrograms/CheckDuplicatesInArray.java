@@ -80,7 +80,7 @@ public class CheckDuplicatesInArray {
 
 	// Checking Duplicates Using HashMap using containsValue method
 	public static void printDuplicateStringusingHashMap(Object[] input) {
-		HashMap<Integer, Object> hash_Map = new HashMap<Integer, Object>();
+		HashMap<Integer, Object> hash_Map = new HashMap<>();
 
 		System.out.println("------Using HashMap------");
 		for (int i = 0; i < input.length; i++) {

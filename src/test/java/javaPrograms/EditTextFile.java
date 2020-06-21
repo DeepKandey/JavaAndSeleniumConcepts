@@ -15,7 +15,7 @@ public class EditTextFile {
 		// double back quote is to avoid compiler interpret words
 		// like \test as \t (ie. as a escape sequence)
 
-		File file = new File("C:\\Users\\deepa\\Downloads\\Workflow.txt");
+		File file = new File("C:\\Users\\deepa\\Downloads\\jiraLinks.txt");
 		BufferedReader br = new BufferedReader(new FileReader(file));
 
 		String st = "";

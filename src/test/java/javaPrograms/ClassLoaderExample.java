@@ -13,7 +13,7 @@ import java.net.URL;
 public class ClassLoaderExample {
 
 	/**
-	 * {@summary }
+	 * {@summary method to fetch file path using ClassLoader class}
 	 * 
 	 * @param
 	 * @return

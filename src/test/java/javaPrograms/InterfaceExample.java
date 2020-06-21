@@ -14,8 +14,9 @@ interface Phone {
 }
 
 interface Tablet {
+	
 	default void message() {
-		System.out.println("Tablet message");
+		System.out.println("Message defined default in Tablet interface");
 	}
 	
 }
@@ -49,7 +50,6 @@ public class InterfaceExample implements Phone, Tablet {
 
 	@Override
 	public void message() {
-		// TODO Auto-generated method stub
-		System.out.println("Demo Message");
+		System.out.println("Message method overriden in InterfaceExample");
 	}
 }

@@ -16,16 +16,16 @@ public class PalindromeNumber {
 	public static boolean isPalindrome(int originalNumber) {
 		boolean flag = false;
 		int numberToBeReversed = originalNumber;
-		int temp=0, reversedNumber = 0;
+		int temp = 0, reversedNumber = 0;
 
 		while (numberToBeReversed > 0) {
 			temp = numberToBeReversed % 10;
 			numberToBeReversed = numberToBeReversed / 10;
-			reversedNumber = temp + reversedNumber * 10;
+			reversedNumber = reversedNumber * 10 + temp;
 		}
 		if (reversedNumber == originalNumber) {
 			flag = true;
 		}
-		return flag;	
+		return flag;
 	}
 }

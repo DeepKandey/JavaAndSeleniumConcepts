@@ -12,7 +12,7 @@ public class PDFReader {
 
 	public static void main(String[] args) throws IOException {
 
-		URL url = new URL("file:///C:/Users/deepa/Downloads/JKT%20QA%20Assignment.pdf");
+		URL url = new URL("file:///C:/Users/deepa/Downloads/Certificate.pdf");
 		InputStream getInputStream = url.openStream();
 		BufferedInputStream bufferInputStream = new BufferedInputStream(getInputStream);
 

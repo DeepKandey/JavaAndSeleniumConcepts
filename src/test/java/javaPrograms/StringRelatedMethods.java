@@ -1,8 +1,9 @@
 package javaPrograms;
 
-public class StringHandling {
+public class StringRelatedMethods {
 	
 	public static void main(String[] args) {
+		
 		String s= "Deepak Rai";
 		String j = s.replace(" ", "");
 		System.out.println("String after removing spaces: " +j);
