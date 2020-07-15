@@ -14,5 +14,10 @@ public class UniqueSquareNumbersFromList {
 
 		// Used Lambda expression to print square of unique numbers using HashSet
 		new HashSet<>(al).forEach(n -> System.out.println(n + "\t" + (int) Math.pow(n, 2)));
+		new HashSet<>(al).stream().map(n-> (int) Math.pow(n, 2)).forEach(UniqueSquareNumbersFromList::printMethod);
+	}
+	
+	public static void printMethod(int i) {
+		System.out.print(i + " ");
 	}
 }

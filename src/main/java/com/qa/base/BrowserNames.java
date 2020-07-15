@@ -4,7 +4,7 @@
 package com.qa.base;
 
 /**
- * @author deepa
+ * @author deepak Rai
  *
  */
 public enum BrowserNames {
