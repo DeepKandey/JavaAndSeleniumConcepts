@@ -3,7 +3,7 @@ package javaPrograms.ThreadLocal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ThreadLocalDemo1 implements Runnable {
+public class ThreadLocalDemo implements Runnable {
 
 	private static final ThreadLocal<SimpleDateFormat> dateFormat = new ThreadLocal<SimpleDateFormat>() {
 		@Override
@@ -18,5 +18,6 @@ public class ThreadLocalDemo1 implements Runnable {
 		System.out.println("Thread run execution started for - " + Thread.currentThread().getName());
 		System.out.println("Date formatter pattern is- " + dateFormat.get().toPattern());
 		System.out.println("Formatted date is " + dateFormat.get().format(new Date()));
+		System.out.println("Thread run execution ended for - " + Thread.currentThread().getName());
 	}
 }

@@ -11,6 +11,8 @@ public class HashMapDemo {
 		Map<String, String> hashMap = new HashMap<>();
 		hashMap.put("myName", "Deepak");
 		hashMap.put("actor", "Salman");
+		hashMap.putIfAbsent("cricketer", "Sachin"); // putIfAbsent added in Java 8
+		hashMap.putIfAbsent("player", "Virat");
 
 		// keys in Map are set so we can use method KeySet() to take them in a Set and
 		// iterate to fetch values
@@ -31,5 +33,9 @@ public class HashMapDemo {
 		for (Map.Entry<String, String> e : entrySet) {
 			System.out.println("Key: " + e.getKey() + " , value: " + e.getValue());
 		}
+
+		// Non- existing data in Map
+		System.out.println(hashMap.get("director"));
+		System.out.println(hashMap.getOrDefault("director", "No Name")); // getOrDefault added in Java 8
 	}
 }

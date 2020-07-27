@@ -26,5 +26,4 @@ public class GridBasicConcept {
 		System.out.println("WebPage Title: " + driver.getTitle());
 		driver.quit();
 	}
-
 }

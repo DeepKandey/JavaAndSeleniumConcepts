@@ -6,9 +6,8 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-
 // Have used Collection, List Interface and Collections, ArrayList class
-public class CollectionDemo1 {
+public class CollectionDemo {
 
 	public static void main(String[] args) {
 
