@@ -15,14 +15,12 @@ public class TestBase {
 	protected static WebDriver driver = null;
 	protected static WebDriverWait wait;
 
-	// Initializing browser
 	public static void initialization(BrowserNames browserName) {
 		if (driver == null) {
 			if (browserName == BrowserNames.CHROME) {
 				System.setProperty("webdriver.chrome.driver",
 						"C:/Users/deepa/Downloads/Browser Drivers/Chrome Drivers/chromedriver.exe");
-				System.setProperty("webdriver.chrome.silentOutput", "true"); // To suppress the Chrome logs on console
-																				// before launch
+				System.setProperty("webdriver.chrome.silentOutput", "true"); // To suppress the Chrome logs
 				driver = new ChromeDriver();
 
 			} else if (browserName == BrowserNames.FF) {
@@ -30,14 +28,9 @@ public class TestBase {
 						"C:/Users/deepa/Downloads/Browser Drivers/FireFoxDrivers/geckodriver.exe");
 
 				System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "null"); // To suppress FF logs on
-																							// console
 				driver = new FirefoxDriver();
 
 			} else if (browserName == BrowserNames.EDGE) {
-				/*
-				 * EdgeDriverService service = EdgeDriverService.createDefaultService(); driver
-				 * = new EdgeDriver(service);
-				 */
 				System.setProperty("webdriver.edge.driver",
 						"C:/Users/deepa/Downloads/Browser Drivers/EdgeDriver/msedgedriver.exe");
 				driver = new EdgeDriver();
@@ -51,23 +44,23 @@ public class TestBase {
 				options.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
 
 				driver = new InternetExplorerDriver(options);
-			} else {
+			} else 
 				System.out.println("Print provide valid browser names");
-			}
 		}
+
 		if (driver != null) {
 			driver.manage().window().maximize();
 			wait = new WebDriverWait(driver, 20);
 			System.out.println("Launching " + browserName + " browser");
 		}
-
 	} // End of method initialization()
 
-	// Closing browser
 	public static void closeDriver() {
+
 		if (driver != null) {
 			System.out.println("Quitting the driver");
 			driver.quit();
+
 		}
 	} // End of method close()
 } // End of class TestBase
