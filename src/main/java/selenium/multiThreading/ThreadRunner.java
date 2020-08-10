@@ -19,9 +19,8 @@ public class ThreadRunner {
 
 		for (int i = 0, j = 0; i < chromeCount || j < fireFoxCount; i++, j++) {
 			new GoogleThread("Chrome Thread", "chrome").start();
-			;
+			
 			new GoogleThread("FireFox Thread", "FF").start();
-			;
 		}
 	}
 
