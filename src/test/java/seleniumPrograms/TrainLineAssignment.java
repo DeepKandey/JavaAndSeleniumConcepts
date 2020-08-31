@@ -22,7 +22,7 @@ public class TrainLineAssignment extends TestBase {
 	}
 
 	@Test
-	public void verifyTicketFare() throws InterruptedException {
+	public void verifyTicketFare() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		driver.get("https://www.thetrainline.com/");
 
@@ -56,7 +56,6 @@ public class TrainLineAssignment extends TestBase {
 						.findElement(By.xpath(
 								"descendant::input[@type='radio'][5]/parent::div/following-sibling::div//span/span"))
 						.getText();
-			// .getAttribute("innerHTML");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
