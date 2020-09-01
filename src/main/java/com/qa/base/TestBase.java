@@ -8,6 +8,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.qa.constants.CommonConstants;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
@@ -18,21 +20,18 @@ public class TestBase {
 	public static void initialization(BrowserNames browserName) {
 		if (driver == null) {
 			if (browserName == BrowserNames.CHROME) {
-				System.setProperty("webdriver.chrome.driver",
-						"C:/Users/deepa/Downloads/Browser Drivers/Chrome Drivers/chromedriver.exe");
-				System.setProperty("webdriver.chrome.silentOutput", "true"); // To suppress the Chrome logs
+				System.setProperty("webdriver.chrome.driver", CommonConstants.DRIVERPATH_CHROME);
+				System.setProperty("webdriver.chrome.silentOutput", "true"); // To suppress browser logs
 				driver = new ChromeDriver();
 
 			} else if (browserName == BrowserNames.FF) {
-				System.setProperty("webdriver.gecko.driver",
-						"C:/Users/deepa/Downloads/Browser Drivers/FireFoxDrivers/geckodriver.exe");
+				System.setProperty("webdriver.gecko.driver", CommonConstants.DRIVERPATH_FIREFOX);
 
 				System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "null"); // To suppress FF logs on
 				driver = new FirefoxDriver();
 
 			} else if (browserName == BrowserNames.EDGE) {
-				System.setProperty("webdriver.edge.driver",
-						"C:/Users/deepa/Downloads/Browser Drivers/EdgeDriver/msedgedriver.exe");
+				System.setProperty("webdriver.edge.driver", CommonConstants.DRIVERPATH_EDGE);
 				driver = new EdgeDriver();
 
 			} else if (browserName == BrowserNames.IE) {
@@ -44,7 +43,7 @@ public class TestBase {
 				options.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
 
 				driver = new InternetExplorerDriver(options);
-			} else 
+			} else
 				System.out.println("Print provide valid browser names");
 		}
 
