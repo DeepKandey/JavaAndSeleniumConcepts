@@ -9,10 +9,12 @@ public class CommonConstants {
 
 	}
 
-	public static final String DRIVERPATH_CHROME = "C:/Users/deepa/Downloads/Browser Drivers/Chrome Drivers/chromedriver.exe";
+	public static final String DRIVERPATH_CHROME = "C:/Users/deepa/Downloads/BrowserDrivers/chromedriver.exe";
 
-	public static final String DRIVERPATH_FIREFOX = "C:/Users/deepa/Downloads/Browser Drivers/FireFoxDrivers/geckodriver.exe";
+	public static final String DRIVERPATH_FIREFOX = "C:/Users/deepa/Downloads/BrowserDrivers/geckodriver.exe";
 
-	public static final String DRIVERPATH_EDGE = "C:/Users/deepa/Downloads/Browser Drivers/EdgeDriver/msedgedriver.exe";
+	public static final String DRIVERPATH_EDGE = "C:/Users/deepa/Downloads/BrowserDrivers/msedgedriver.exe";
+	
+	public static final String GRID_SERVER_PATH="C:/Users/deepa/Downloads/BrowserDrivers/selenium-server-4.0.0-alpha-6.jar";
 
 }// End of class CommonConstants
