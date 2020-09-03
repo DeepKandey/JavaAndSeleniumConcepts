@@ -1,6 +1,7 @@
 package seleniumPrograms;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -17,8 +18,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import com.qa.constants.CommonConstants;
 
 public class GridBasicConcept {
 
@@ -46,14 +45,25 @@ public class GridBasicConcept {
 		}
 	}
 
+	@BeforeClass
+	public void startGridServer() throws IOException {
+
+		closeGridServer();
+
+		String path = "/Users/deepa/Downloads/BrowserDrivers";
+		ProcessBuilder b = new ProcessBuilder();
+		b.directory(new File(path));
+		b.command("cmd", "/k", "start" + " java -jar selenium-server-4.0.0-alpha-6.jar standalone").start();
+	}
+
 	@Test()
 	public static void gridOnFirefoxTest() throws IOException {
 
-		closeGridServer();
-		Runtime.getRuntime().exec("cmd /c start cmd.exe /K " + "java -jar " + CommonConstants.GRID_SERVER_PATH + HUB);
-		
-		Runtime.getRuntime().exec("cmd /c start cmd.exe /K " + "java -Dwebdriver.gecko.driver="
-				+ CommonConstants.DRIVERPATH_FIREFOX + " -jar " + CommonConstants.GRID_SERVER_PATH + NODE);
+//		closeGridServer();
+//		Runtime.getRuntime().exec("cmd /c start cmd.exe /K " + "java -jar " + CommonConstants.GRID_SERVER_PATH + HUB);
+//		
+//		Runtime.getRuntime().exec("cmd /c start cmd.exe /K " + "java -Dwebdriver.gecko.driver="
+//				+ CommonConstants.DRIVERPATH_FIREFOX + " -jar " + CommonConstants.GRID_SERVER_PATH + NODE);
 
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setPlatform(Platform.WINDOWS);
@@ -73,12 +83,12 @@ public class GridBasicConcept {
 
 	@Test()
 	public static void gridOnChromeTest() throws IOException {
-		
-		closeGridServer();
-		Runtime.getRuntime().exec("cmd /c start cmd.exe /K " + "java -jar " + CommonConstants.GRID_SERVER_PATH + HUB);
-		
-		Runtime.getRuntime().exec("cmd /c start cmd.exe /K " + "java -Dwebdriver.chrome.driver="
-				+ CommonConstants.DRIVERPATH_CHROME + " -jar " + CommonConstants.GRID_SERVER_PATH + NODE);
+
+//		closeGridServer();
+//		Runtime.getRuntime().exec("cmd /c start cmd.exe /K " + "java -jar " + CommonConstants.GRID_SERVER_PATH + HUB);
+//		
+//		Runtime.getRuntime().exec("cmd /c start cmd.exe /K " + "java -Dwebdriver.chrome.driver="
+//				+ CommonConstants.DRIVERPATH_CHROME + " -jar " + CommonConstants.GRID_SERVER_PATH + NODE);
 
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setPlatform(Platform.WINDOWS);
@@ -98,11 +108,11 @@ public class GridBasicConcept {
 	@Test()
 	public static void gridOnEdgeTest() throws IOException {
 
-		closeGridServer();
-		Runtime.getRuntime().exec("cmd /c start cmd.exe /K " + "java -jar " + CommonConstants.GRID_SERVER_PATH + HUB);
-		
-		Runtime.getRuntime().exec("cmd /c start cmd.exe /K " + "java -Dwebdriver.edge.driver="
-				+ CommonConstants.DRIVERPATH_EDGE + " -jar " + CommonConstants.GRID_SERVER_PATH + NODE);
+//		closeGridServer();
+//		Runtime.getRuntime().exec("cmd /c start cmd.exe /K " + "java -jar " + CommonConstants.GRID_SERVER_PATH + HUB);
+//		
+//		Runtime.getRuntime().exec("cmd /c start cmd.exe /K " + "java -Dwebdriver.edge.driver="
+//				+ CommonConstants.DRIVERPATH_EDGE + " -jar " + CommonConstants.GRID_SERVER_PATH + NODE);
 
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setPlatform(Platform.WINDOWS);

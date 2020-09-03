@@ -3,11 +3,8 @@
  */
 package javaPrograms;
 
-import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class JavaPractice {
 
@@ -20,24 +17,17 @@ public class JavaPractice {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-
-		Process process = Runtime.getRuntime().exec("cmd /c netstat -ano | findstr :4444");
-
-		BufferedReader lineReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-		List<String> list= lineReader.lines().map(str-> str.substring(str.indexOf("LISTENING")+ ("LISTENING").length()).trim()).distinct().collect(Collectors.toList());
-		
-	    lineReader.lines().map(str-> str.substring(str.indexOf("LISTENING"))).forEach(System.out::println);;
-		
-	    System.out.println(list.get(0));
-	
-		
-//		if(!list.isEmpty()) {
-//			Process process1 = Runtime.getRuntime().exec("cmd /c taskkill /pid "+ list.get(0) + " /f");
-//			BufferedReader lineReader1 = new BufferedReader(new InputStreamReader(process1.getInputStream()));
-//			lineReader1.lines().forEach(System.out::println);
 //
-//		}
-
-
+//		Runtime.getRuntime().exec("cmd /c start cmd.exe /K" + "cd /Users/deepa/Downloads/BrowserDrivers" + "java -jar "
+//				+ CommonConstants.GRID_SERVER_PATH + " standalone");
+//
+//		String[] amdarray = new String[] { "cmd /c start cmd.exe /K","cd /Users/deepa/Downloads/BrowserDrivers",
+//				"java -jar selenium-server-4.0.0-alpha-6.jar standalone" };
+//		Runtime.getRuntime().exec(  amdarray);
+		
+		String path = "/Users/deepa/Downloads/BrowserDrivers";   
+		ProcessBuilder b = new ProcessBuilder();
+		b.directory(new File(path));
+		b.command("cmd", "/k", "start" + " java -jar selenium-server-4.0.0-alpha-6.jar standalone").start(); 
 	}
 }
