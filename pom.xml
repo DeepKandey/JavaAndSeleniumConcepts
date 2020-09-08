@@ -102,14 +102,14 @@
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
-			<version>3.7.1</version>
+			<version>4.2.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
 		<dependency>
 			<groupId>org.apache.pdfbox</groupId>
 			<artifactId>pdfbox</artifactId>
-			<version>2.0.16</version>
+			<version>2.0.21</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email -->
@@ -123,14 +123,14 @@
 		<dependency>
 			<groupId>com.applitools</groupId>
 			<artifactId>eyes-selenium-java3</artifactId>
-			<version>3.158.6</version>
+			<version>3.176.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
-			<version>1.7.29</version>
+			<version>1.7.30</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -138,7 +138,7 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.7.29</version>
+			<version>1.7.30</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
@@ -186,14 +186,14 @@
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
-			<version>4.3.0</version>
+			<version>4.3.1</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured-common -->
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured-common</artifactId>
-			<version>4.3.0</version>
+			<version>4.3.1</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.google.guava/guava-jdk5 -->
@@ -221,7 +221,7 @@
 		<dependency>
 			<groupId>net.sourceforge.tess4j</groupId>
 			<artifactId>tess4j</artifactId>
-			<version>4.4.1</version>
+			<version>4.5.3</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.codoid.products/fillo -->
@@ -235,7 +235,7 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
-			<version>2.10.2</version>
+			<version>2.11.2</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.eclipse.jgit/org.eclipse.jgit -->

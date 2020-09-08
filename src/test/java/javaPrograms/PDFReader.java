@@ -10,9 +10,12 @@ import org.apache.pdfbox.text.PDFTextStripper;
 
 public class PDFReader {
 
+	/*
+	 * PDF box
+	 */
 	public static void main(String[] args) throws IOException {
 
-		URL url = new URL("file:///C:/Users/deepa/Downloads/Certificate.pdf");
+		URL url = new URL("file:///C:/Users/deepa/Downloads/form13.pdf");
 		InputStream getInputStream = url.openStream();
 		BufferedInputStream bufferInputStream = new BufferedInputStream(getInputStream);
 

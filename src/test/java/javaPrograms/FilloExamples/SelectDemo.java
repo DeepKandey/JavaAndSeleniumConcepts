@@ -8,19 +8,20 @@ import com.codoid.products.exception.FilloException;
 import com.codoid.products.fillo.Connection;
 import com.codoid.products.fillo.Fillo;
 import com.codoid.products.fillo.Recordset;
+import com.qa.constants.CommonConstants;
 
 public class SelectDemo {
 
 	public static void main(String[] args) throws FilloException {
 
 		Fillo fillo = new Fillo();
-		Connection connection = fillo.getConnection("C:/Users/deepa/Downloads/TestDocument.xlsx");
+		Connection connection = fillo.getConnection(CommonConstants.TESTDOCUMENT_FILEPATH);
 
 		String selectQuery = "select * from Sheet1";
 		Recordset recordset = connection.executeQuery(selectQuery);
 
 		// Adding records to ArrayList and Print first Record
-		List<String> dataList = new ArrayList<String>();
+		List<String> dataList = new ArrayList<>();
 		while (recordset.next()) {
 			dataList.add("Names: " + recordset.getField("String") + " Date: " + recordset.getField("Date"));
 		}
@@ -64,11 +65,11 @@ public class SelectDemo {
 		}
 
 		// Where clause
-		String selectWithWhereQuery = "Select * from Sheet1 where DecimalNumber=23";
+		String selectWithWhereQuery = "Select * from Sheet1 where DecimalNumber=23.89";
 		recordset = connection.executeQuery(selectWithWhereQuery);
 
 		while (recordset.next()) {
-			System.out.println("\n"+ recordset.getField("String") + "--" + recordset.getField("Date"));
+			System.out.print("\n"+ recordset.getField("String") + "--" + recordset.getField("Date"));
 		}
 
 		recordset.close();

@@ -2,19 +2,21 @@ package javaPrograms.ExcelExamples;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
-import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
+import com.qa.constants.CommonConstants;
+
 public class ReadExcelUsingWorkbookFactory {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+
+		Workbook workBook = WorkbookFactory.create(new File(CommonConstants.TESTDOCUMENT_FILEPATH));
 		try {
 			// kill the excel process if it is already open
 			Process p = Runtime.getRuntime().exec("tasklist");
@@ -34,9 +36,6 @@ public class ReadExcelUsingWorkbookFactory {
 			 * which must exist and be readable. In this case it will create a XSSFWorkbook
 			 */
 
-			Workbook workBook = WorkbookFactory
-					.create(new File(System.getProperty("user.dir") + "/src/test/resources/ExcelFiles/TestDocument.xlsx"));
-			
 			// get sheet with the given sheet name
 			Sheet sheet = workBook.getSheet("Sheet2");
 
@@ -65,10 +64,11 @@ public class ReadExcelUsingWorkbookFactory {
 				}
 				System.out.println();
 			}
-			workBook.close();
-		} catch (EncryptedDocumentException | IOException | InterruptedException e) {
-			// TODO Auto-generated catch block
+
+		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			workBook.close();
 		}
 	}// End of method main
 }// end of class ReadExcelUsingWorkbookFactory

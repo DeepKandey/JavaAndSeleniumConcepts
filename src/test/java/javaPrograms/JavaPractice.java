@@ -3,8 +3,9 @@
  */
 package javaPrograms;
 
-import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class JavaPractice {
 
@@ -16,18 +17,47 @@ public class JavaPractice {
 	 * @author deepak rai
 	 * @throws IOException
 	 */
-	public static void main(String[] args) throws IOException {
-//
-//		Runtime.getRuntime().exec("cmd /c start cmd.exe /K" + "cd /Users/deepa/Downloads/BrowserDrivers" + "java -jar "
-//				+ CommonConstants.GRID_SERVER_PATH + " standalone");
-//
-//		String[] amdarray = new String[] { "cmd /c start cmd.exe /K","cd /Users/deepa/Downloads/BrowserDrivers",
-//				"java -jar selenium-server-4.0.0-alpha-6.jar standalone" };
-//		Runtime.getRuntime().exec(  amdarray);
-		
-		String path = "/Users/deepa/Downloads/BrowserDrivers";   
-		ProcessBuilder b = new ProcessBuilder();
-		b.directory(new File(path));
-		b.command("cmd", "/k", "start" + " java -jar selenium-server-4.0.0-alpha-6.jar standalone").start(); 
+
+	public static void main(String args[]) {
+
+		Player[] player = new Player[5];
+		Checker checker = new Checker();
+
+		player[0] = new Player("amy", 100);
+		player[1] = new Player("david", 100);
+		player[2] = new Player("heraldo", 50);
+		player[3] = new Player("aakansha ", 75);
+		player[4] = new Player("aleksa ", 150);
+
+		Arrays.sort(player, checker);
+
+		for (int i = 0; i < player.length; i++) {
+			System.out.printf("%s %s\n", player[i].name, player[i].score);
+		}
+	}
+
+}
+
+class Player {
+	String name;
+	int score;
+
+	Player(String name, int score) {
+		this.name = name;
+		this.score = score;
+	}
+}
+
+class Checker implements Comparator<Player> {
+
+	@Override
+	public int compare(Player o1, Player o2) {
+
+		if (o1.score == o2.score)
+			return o1.name.compareTo(o2.name);
+		else if (o2.score > o1.score)
+			return 1;
+		else
+			return -1;
 	}
 }

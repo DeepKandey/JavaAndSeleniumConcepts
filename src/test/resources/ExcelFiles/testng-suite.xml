@@ -1,0 +1,1 @@
+<suite name="TestAutomationGuru"><test name="TestCaseDescription1"><parameter name="Data" value="data1"/><classes><class name="com.testautomation.test"/></classes></test></suite>

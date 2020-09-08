@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.qa.constants.CommonConstants;
+
 public class ParallelBrowserHandlingUsingTestNG {
 
 	WebDriver driver;
@@ -16,24 +18,23 @@ public class ParallelBrowserHandlingUsingTestNG {
 	@BeforeMethod
 	@Parameters("browser")
 	public void setUp(String browserName) {
+
 		if (browserName.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver",
-					"C:/Users/deepa/Downloads/Browser Drivers/Chrome Drivers/chromedriver.exe");
+
+			System.setProperty("webdriver.chrome.driver", CommonConstants.DRIVERPATH_CHROME);
 			driver = new ChromeDriver();
 			System.out.println("Launching " + browserName + " browser");
 			driver.manage().window().maximize();
+
 		} else if (browserName.equalsIgnoreCase("firefox")) {
-			System.setProperty("webdriver.gecko.driver",
-					"C:/Users/deepa/Downloads/Browser Drivers/FireFoxDrivers/geckodriver.exe");
+
+			System.setProperty("webdriver.gecko.driver", CommonConstants.DRIVERPATH_FIREFOX);
 			driver = new FirefoxDriver();
 			System.out.println("Launching " + browserName + " browser");
+
 		} else if (browserName.equalsIgnoreCase("Edge")) {
-			/*
-			 * EdgeDriverService service = EdgeDriverService.createDefaultService(); driver
-			 * = new EdgeDriver(service);
-			 */
-			System.setProperty("webdriver.edge.driver",
-					"C:/Users/deepa/Downloads/Browser Drivers/EdgeDriver/msedgedriver.exe");
+
+			System.setProperty("webdriver.edge.driver", CommonConstants.DRIVERPATH_EDGE);
 			driver = new EdgeDriver();
 			System.out.println("Launching " + browserName + " browser");
 		}

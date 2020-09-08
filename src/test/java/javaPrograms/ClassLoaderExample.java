@@ -23,15 +23,15 @@ public class ClassLoaderExample {
 
 		ClassLoaderExample cleObj = new ClassLoaderExample();
 		// get Absolute File Path
-		System.out.println(cleObj.getFileFroResources("Credentials/GMAILcredential.json").getAbsolutePath());
-		System.out.println(cleObj.getFileFroResources("Images/TitleError.PNG"));
+		System.out.println(cleObj.getFileFromResources("Credentials/GMAILcredential.json").getAbsolutePath());
+		System.out.println(cleObj.getFileFromResources("Images/TitleError.PNG"));
 
 		// Using new line
-		System.out.println(cleObj.getFileFroResources("Credentials/GMAILcredential.json") + "\n"
-				+ cleObj.getFileFroResources("Images/TitleError.PNG"));
+		System.out.println(cleObj.getFileFromResources("Credentials/GMAILcredential.json") + "\n"
+				+ cleObj.getFileFromResources("Images/TitleError.PNG"));
 	}
 
-	private File getFileFroResources(String fileName) {
+	private File getFileFromResources(String fileName) {
 		ClassLoader classLoader = getClass().getClassLoader();
 		URL resource = classLoader.getResource(fileName);
 		if (resource == null) {

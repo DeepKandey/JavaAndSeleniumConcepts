@@ -19,7 +19,7 @@ public class Suite {
 
 	public Suite(String name) {
 		this.name = name;
-		this.tests = new ArrayList<Suite.Test>();
+		this.tests = new ArrayList<>();
 	}
 
 	public void addTest(String testname, String paramName, String paramValue, String className) {
@@ -29,6 +29,12 @@ public class Suite {
 		this.tests.add(test);
 	}
 
+	/**
+	 * class for test node in xml
+	 * 
+	 * @author Deepak Rai
+	 *
+	 */
 	class Test {
 
 		@JacksonXmlProperty(isAttribute = true)
@@ -38,11 +44,11 @@ public class Suite {
 		private Parameter param;
 
 		@JacksonXmlProperty(localName = "classes")
-		private Classes klasses;
+		private Classes classes;
 
 		public Test(String name) {
 			this.name = name;
-			klasses = new Classes();
+			classes = new Classes();
 		}
 
 		public void addParam(String name, String value) {
@@ -50,10 +56,13 @@ public class Suite {
 		}
 
 		public void addClass(String name) {
-			klasses.assClasses(name);
+			classes.addClasses(name);
 		}
 	} // End of class Test
 
+	/*
+	 * class for parameter node in xml
+	 */
 	class Parameter {
 		@JacksonXmlProperty(isAttribute = true)
 		private String name;
@@ -67,6 +76,9 @@ public class Suite {
 		}
 	} // End of class Parameter
 
+	/*
+	 * class for Classes node in xml
+	 */
 	class Classes {
 
 		@JacksonXmlProperty(localName = "class")
@@ -74,14 +86,20 @@ public class Suite {
 		private List<Class> classes;
 
 		public Classes() {
-			this.classes = new ArrayList<Suite.Class>();
+			this.classes = new ArrayList<>();
 		}
 
-		public void assClasses(String name) {
+		public void addClasses(String name) {
 			this.classes.add(new Class(name));
 		}
 	} // End of class Classes
 
+	/**
+	 * class for class node in xml
+	 * 
+	 * @author Deepak Rai
+	 *
+	 */
 	class Class {
 
 		@JacksonXmlProperty(isAttribute = true)
@@ -91,4 +109,5 @@ public class Suite {
 			this.name = name;
 		}
 	} // End of class Class
+
 } // End of class Suite

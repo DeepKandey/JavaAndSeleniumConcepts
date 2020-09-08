@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 class Student implements Comparable<Student> {
+
 	int roll_no;
 	int marks;
 
@@ -20,7 +21,6 @@ class Student implements Comparable<Student> {
 
 	@Override
 	public int compareTo(Student obj) {
-		// TODO Auto-generated method stub
 		return this.marks > obj.marks ? -1 : 1;
 	}
 }
@@ -41,7 +41,7 @@ public class CollectionUsingObjectGenerics {
 		for (Student s : listObj) {
 			System.out.println(s);
 		}
-		
+
 		System.out.println("---Using Comparator----");
 		Collections.sort(listObj, (obj1, obj2) -> {
 			return obj1.marks > obj2.marks ? 1 : -1;
@@ -51,6 +51,5 @@ public class CollectionUsingObjectGenerics {
 			System.out.println(s);
 		}
 
-		
 	}
 }

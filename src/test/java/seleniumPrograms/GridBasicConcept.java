@@ -25,6 +25,7 @@ public class GridBasicConcept {
 	private static final String NODE = " node";
 	private static final String HUB_URL = "http://localhost:4444/";
 	private static final String URL_TO_NAVIGATE = "https://www.google.com/";
+	private static final String PATH = "/Users/deepa/Downloads/BrowserDrivers";
 
 	public static void closeGridServer() throws IOException {
 
@@ -50,9 +51,8 @@ public class GridBasicConcept {
 
 		closeGridServer();
 
-		String path = "/Users/deepa/Downloads/BrowserDrivers";
 		ProcessBuilder b = new ProcessBuilder();
-		b.directory(new File(path));
+		b.directory(new File(PATH));
 		b.command("cmd", "/k", "start" + " java -jar selenium-server-4.0.0-alpha-6.jar standalone").start();
 	}
 
