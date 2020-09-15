@@ -8,11 +8,13 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.qa.constants.CommonConstants;
+
 public class KeyPressEventConcept {
 
 	@Test
 	public void keyEventTest() {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepa\\Downloads\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", CommonConstants.DRIVERPATH_CHROME);
 		WebDriver driver = new ChromeDriver();
 
 		driver.get("https://the-internet.herokuapp.com/key_presses");

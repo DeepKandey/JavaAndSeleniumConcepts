@@ -14,6 +14,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.qa.constants.CommonConstants;
+
 public class DownloadFileConcept {
 
 	WebDriver driver;
@@ -21,12 +23,12 @@ public class DownloadFileConcept {
 
 	@BeforeMethod
 	public void setUp() {
+		
 		folder = new File(UUID.randomUUID().toString());
 		folder.mkdir();
 
-		// chrome
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\deepa\\Downloads\\Drivers\\Chrome Drivers\\chromedriver_win.exe");
+				CommonConstants.DRIVERPATH_CHROME);
 		ChromeOptions options = new ChromeOptions();
 
 		Map<String, Object> pref = new HashMap<String, Object>();

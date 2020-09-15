@@ -2,22 +2,19 @@ package seleniumPrograms;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class ScrollingConcept {
-	public WebDriver driver;
+import com.qa.base.BrowserNames;
+import com.qa.base.TestBase;
+
+public class ScrollingConcept extends TestBase {
 
 	@BeforeMethod
 	public void setUp() {
-		// chrome
-		System.setProperty("webdriver.chrome.driver", "C:/Users/deepa/Downloads/chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
+		initialization(BrowserNames.CHROME);
 	}
 
 	@Test
@@ -49,6 +46,6 @@ public class ScrollingConcept {
 
 	@AfterMethod
 	public void tearDown() {
-		driver.quit();
+		closeDriver();
 	}
 }

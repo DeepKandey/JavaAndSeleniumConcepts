@@ -17,6 +17,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.qa.constants.CommonConstants;
+
 public class GoIbiboAssignment {
 
 	WebDriver driver;
@@ -32,7 +34,7 @@ public class GoIbiboAssignment {
 		 */
 
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\deepa\\Downloads\\Drivers\\Chrome Drivers\\chromedriver_win.exe");
+				CommonConstants.DRIVERPATH_CHROME);
 		driver = new ChromeDriver();
 
 		wait = new WebDriverWait(driver, 20);
@@ -47,6 +49,7 @@ public class GoIbiboAssignment {
 
 	@Test
 	public void flightBookingTest() throws InterruptedException {
+		
 		driver.get("https://www.goibibo.com/");
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 

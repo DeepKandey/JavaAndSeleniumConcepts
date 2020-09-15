@@ -16,8 +16,8 @@ public class ReadExcelUsingWorkbookFactory {
 
 	public static void main(String[] args) throws Exception {
 
-		Workbook workBook = WorkbookFactory.create(new File(CommonConstants.TESTDOCUMENT_FILEPATH));
-		try {
+		try (Workbook workBook = WorkbookFactory.create(new File(CommonConstants.TESTDOCUMENT_FILEPATH));) {
+			
 			// kill the excel process if it is already open
 			Process p = Runtime.getRuntime().exec("tasklist");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -67,8 +67,6 @@ public class ReadExcelUsingWorkbookFactory {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			workBook.close();
 		}
 	}// End of method main
 }// end of class ReadExcelUsingWorkbookFactory

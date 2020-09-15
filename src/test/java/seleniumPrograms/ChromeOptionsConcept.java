@@ -7,13 +7,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import com.qa.constants.CommonConstants;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class ChromeOptionsConcept {
 
 	public static void main(String[] args) {
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\deepa\\Downloads\\Drivers\\Chrome Drivers\\chromedriver_win.exe");
+				CommonConstants.DRIVERPATH_CHROME);
 		
 		WebDriverManager.chromedriver().setup();
 

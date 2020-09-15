@@ -21,6 +21,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.qa.constants.CommonConstants;
+
 public class CookieHandlingConcept {
 	WebDriver driver;
 	WebDriverWait wait;
@@ -29,7 +31,7 @@ public class CookieHandlingConcept {
 	public void setup() {
 
 		System.setProperty("webdriver.gecko.driver",
-				"C:\\Users\\deepa\\Downloads\\Drivers\\FireFoxDrivers\\geckodriver.exe");
+				CommonConstants.DRIVERPATH_FIREFOX);
 		driver = new FirefoxDriver();
 		wait = new WebDriverWait(driver, 20);
 		driver.manage().window().maximize();
@@ -50,7 +52,7 @@ public class CookieHandlingConcept {
 		driver.findElement(By.id("loginsubmit")).click();
 
 		// Getting Excel Sheet
-		FileInputStream fis = new FileInputStream("C:\\Users\\deepa\\Downloads\\TestDocument.xlsx");
+		FileInputStream fis = new FileInputStream(CommonConstants.TESTDOCUMENT_FILEPATH);
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		int index = workbook.getSheetIndex("Cookie");
 		XSSFSheet sheet = workbook.getSheetAt(index);
@@ -72,7 +74,7 @@ public class CookieHandlingConcept {
 			row.createCell(4).setCellValue(cookie.getExpiry());
 			row.createCell(5).setCellValue(cookie.isSecure());
 			row.createCell(6).setCellValue(cookie.isHttpOnly());
-			FileOutputStream out = new FileOutputStream("C:\\Users\\deepa\\Downloads\\TestDocument.xlsx");
+			FileOutputStream out = new FileOutputStream(CommonConstants.TESTDOCUMENT_FILEPATH);
 			workbook.write(out);
 		}
 		workbook.close();

@@ -16,6 +16,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.qa.base.TestBase;
+import com.qa.constants.CommonConstants;
 
 public class GetJSErrorsConcept extends TestBase {
 	private WebDriver driver;
@@ -29,7 +30,7 @@ public class GetJSErrorsConcept extends TestBase {
 		chromeOptions.setCapability(CapabilityType.LOGGING_PREFS, logPreferences);
 
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\deepa\\Downloads\\Browser Drivers\\Chrome Drivers\\chromedriver.exe");
+				CommonConstants.DRIVERPATH_CHROME);
 		driver = new ChromeDriver(chromeOptions);
 	}
 

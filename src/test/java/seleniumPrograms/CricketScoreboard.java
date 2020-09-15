@@ -10,6 +10,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.qa.constants.CommonConstants;
+
 public class CricketScoreboard {
 
 	WebDriver driver;
@@ -17,7 +19,7 @@ public class CricketScoreboard {
 	@BeforeTest
 	public void setUp() {
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\deepa\\Downloads\\Browser Drivers\\Chrome Drivers\\chromedriver_win.exe");
+				CommonConstants.DRIVERPATH_CHROME);
 		driver = new ChromeDriver();
 	}
 

@@ -28,7 +28,7 @@ public class BrokenLinkConcept extends TestBase {
 
 	@Test
 	public void verifyBrokenLinks() {
-		// driver.get("https://www.thetrainline.com/");
+
 		driver.get("https://www.makemytrip.com/");
 
 		// 1. Getting total number of links on the WebPage
@@ -36,11 +36,12 @@ public class BrokenLinkConcept extends TestBase {
 		linksList.addAll(driver.findElements(By.tagName("img")));
 		System.out.println("Size of full list of links and images -->" + linksList.size());
 
-		List<WebElement> activeLinks = new ArrayList<WebElement>();
+		List<WebElement> activeLinks = new ArrayList<>();
 
 		// 2. Iterating linksList and excluding the links/images which does not have
 		// valid href attribute
 		for (int j = 0; j < linksList.size(); j++) {
+
 			if (linksList.get(j).getAttribute("href") != null
 					&& (!linksList.get(j).getAttribute("href").contains("javascript"))) {
 				activeLinks.add(linksList.get(j));
@@ -58,12 +59,12 @@ public class BrokenLinkConcept extends TestBase {
 
 	public void verifyLink(String urlLink) {
 		try {
+
 			URL link = new URL(urlLink);
 			HttpURLConnection httpCon = (HttpURLConnection) link.openConnection();
 			httpCon.connect();
-			if (httpCon.getResponseCode() == 200) {
-				System.out.println(urlLink + " -- " + httpCon.getResponseMessage() + " " + httpCon.getResponseCode());
-			} else if (httpCon.getResponseCode() == 400) {
+
+			if (httpCon.getResponseCode() == 200 || httpCon.getResponseCode() == 400) {
 				System.out.println(urlLink + " -- " + httpCon.getResponseMessage() + " " + httpCon.getResponseCode());
 			}
 		} catch (Exception e) {

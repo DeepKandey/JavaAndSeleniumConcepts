@@ -19,6 +19,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.qa.constants.CommonConstants;
+
 
 public class MakeMyTrip {
 	WebDriver driver;
@@ -38,7 +40,7 @@ public class MakeMyTrip {
         //1-Allow, 2-Block, 0-default
         option.setExperimentalOption("prefs",prefs); 
         
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepa\\Downloads\\Browser Drivers\\Chrome Drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", CommonConstants.DRIVERPATH_CHROME);
 		driver = new ChromeDriver(option);
 		eventDriver = new EventFiringWebDriver(driver);
 		eventHandler = new EventHandler();

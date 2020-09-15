@@ -16,6 +16,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import com.qa.constants.CommonConstants;
+
 /**
  * @author deepak
  *
@@ -31,7 +33,7 @@ public class DuplicateTabWithHistory {
 		chromeOptions.addExtensions(new File(fileURL + "/src/test/resources/Extensions/DuplicateTabShortcut.crx"));
 
 		System.setProperty("webdriver.chrome.driver",
-				"C:/Users/deepa/Downloads/Browser Drivers/Chrome Drivers/chromedriver.exe");
+				CommonConstants.DRIVERPATH_CHROME);
 		System.setProperty("webdriver.chrome.silentOutput", "true"); // To suppress the Chrome logs on console
 		WebDriver driver = new ChromeDriver(chromeOptions);
 

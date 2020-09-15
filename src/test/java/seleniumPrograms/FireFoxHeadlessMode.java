@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.Test;
 
 import com.qa.base.TestBase;
+import com.qa.constants.CommonConstants;
 
 public class FireFoxHeadlessMode extends TestBase {
 
@@ -20,7 +21,7 @@ public class FireFoxHeadlessMode extends TestBase {
 		options.setBinary(binary);
 
 		System.setProperty("webdriver.gecko.driver",
-				"C:\\Users\\deepa\\Downloads\\Drivers\\FireFoxDrivers\\geckodriver.exe");
+				CommonConstants.DRIVERPATH_FIREFOX);
 		WebDriver driver = new FirefoxDriver(options);
 
 		driver.get(
@@ -32,7 +33,7 @@ public class FireFoxHeadlessMode extends TestBase {
 	@Test
 	public void launchEdgeBrowser() {
 		System.setProperty("webdriver.edge.driver",
-				"C:\\Users\\deepa\\Downloads\\Drivers\\EdgeDriver\\MicrosoftWebDriver.exe");
+				CommonConstants.DRIVERPATH_EDGE);
 		WebDriver driver = new EdgeDriver();
 		driver.get(
 				"http://learn-automation.com/launch-microsoft-edge-browser-using-selenium-webdriver");

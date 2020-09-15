@@ -10,6 +10,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
+import com.qa.constants.CommonConstants;
+
 public class DownloadDirInChrome {
 
 	@Test
@@ -17,7 +19,7 @@ public class DownloadDirInChrome {
 
 		// Setting chrome driver path
 		System.setProperty("webdriver.chrome.driver",
-				"C:/Users/deepa/Downloads/Browser Drivers/Chrome Drivers/chromedriver.exe");
+				CommonConstants.DRIVERPATH_CHROME);
 
 		// Setting new download directory path
 		Map<String, Object> chromePrefs = new HashMap<String, Object>();

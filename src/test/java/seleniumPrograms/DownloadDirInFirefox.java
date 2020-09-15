@@ -9,6 +9,8 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.testng.annotations.Test;
 
+import com.qa.constants.CommonConstants;
+
 public class DownloadDirInFirefox {
 
 	@Test
@@ -16,7 +18,7 @@ public class DownloadDirInFirefox {
 
 		// Setting chrome driver path
 		System.setProperty("webdriver.gecko.driver",
-				"C:\\Users\\deepa\\Downloads\\Drivers\\FireFox Drivers\\geckodriver.exe");
+				CommonConstants.DRIVERPATH_FIREFOX);
 
 		// Creating firefox profile
 		FirefoxProfile profile = new FirefoxProfile();

@@ -14,13 +14,16 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.qa.constants.CommonConstants;
+
 public class JqueryGrowlConcept {
+	
 	static WebDriver driver;
 	static JavascriptExecutor js;
 
 	@BeforeMethod
 	public void setUp() {
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\deepa\\Downloads\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",CommonConstants.DRIVERPATH_CHROME);
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		js = (JavascriptExecutor) driver;

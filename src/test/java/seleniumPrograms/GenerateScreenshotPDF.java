@@ -1,8 +1,6 @@
 package seleniumPrograms;
 
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -13,11 +11,11 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.qa.constants.CommonConstants;
 
 public class GenerateScreenshotPDF {
 	WebDriver driver;
@@ -25,13 +23,14 @@ public class GenerateScreenshotPDF {
 	@BeforeTest
 	public void setup() {
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\deepa\\Downloads\\Browser Drivers\\Chrome Drivers\\chromedriver_win.exe");
+				CommonConstants.DRIVERPATH_CHROME);
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 	}
 
 	@Test
-	public void screenshotInPDF() throws DocumentException, MalformedURLException, IOException {
+	public void screenshotInPDF() throws Exception {
+		
 		driver.get("https://www.google.com");
 		// Capture Screenshot and store it in byte[] array format
 		byte[] input = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
