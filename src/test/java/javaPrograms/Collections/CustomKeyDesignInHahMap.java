@@ -43,7 +43,6 @@ public class CustomKeyDesignInHahMap {
 		System.out.println(hashMapObj.get(emp2));
 
 	}
-
 }
 
 class Employee {

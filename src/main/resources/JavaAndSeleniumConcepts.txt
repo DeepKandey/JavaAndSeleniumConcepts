@@ -1,0 +1,1 @@
+Each time when you are using lambda expression to just referring a method, you can replace your lambda expression with method reference.
