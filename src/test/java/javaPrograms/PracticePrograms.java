@@ -3,7 +3,11 @@
  */
 package javaPrograms;
 
-public class ProgramsPractice {
+/**
+ * @author Deepak Rai
+ *
+ */
+public class PracticePrograms {
 
 	/**
 	 * {@summary }
@@ -12,11 +16,7 @@ public class ProgramsPractice {
 	 * @return
 	 * @author deepak rai
 	 */
-
-	public static void main(String args[]) {
-
+	public static void main(String[] args) throws Exception {
 
 	}
-
-	
 }
