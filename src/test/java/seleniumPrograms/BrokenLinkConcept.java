@@ -2,8 +2,8 @@ package seleniumPrograms;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -26,6 +26,13 @@ public class BrokenLinkConcept extends TestBase {
 		closeDriver();
 	}
 
+	/**
+	 * 
+		 * {@summary verifyBrokenLinks}
+		 * @param
+		 * @return
+		 * @author deepak rai
+	 */
 	@Test
 	public void verifyBrokenLinks() {
 
@@ -36,27 +43,28 @@ public class BrokenLinkConcept extends TestBase {
 		linksList.addAll(driver.findElements(By.tagName("img")));
 		System.out.println("Size of full list of links and images -->" + linksList.size());
 
-		List<WebElement> activeLinks = new ArrayList<>();
+		// 2. Iterating linksList and excluding the links/images which are not valid
+		List<WebElement> activeLinksUsingLambda = linksList.stream()
+				.filter(a -> a.getAttribute("href") != null && !a.getAttribute("href").contains("javascript"))
+				.collect(Collectors.toList());
 
-		// 2. Iterating linksList and excluding the links/images which does not have
-		// valid href attribute
-		for (int j = 0; j < linksList.size(); j++) {
+		System.out.println("Size of active links and images using lambda-->" + activeLinksUsingLambda.size());
 
-			if (linksList.get(j).getAttribute("href") != null
-					&& (!linksList.get(j).getAttribute("href").contains("javascript"))) {
-				activeLinks.add(linksList.get(j));
-			}
-		}
-		System.out.println("Size of active links and images -->" + activeLinks.size());
-
-		for (int i = 0; i < activeLinks.size(); i++) {
-			String url = activeLinks.get(i).getAttribute("href");
-			System.out.print(i + ":");
-			verifyLink(url);
+		// Using Lambda
+		activeLinksUsingLambda.forEach(a -> {
+			verifyLink(a.getAttribute("href"));
 			System.lineSeparator();
-		}
+		});
+
 	}
 
+	/**
+	 * 
+		 * {@summary verifyLink}
+		 * @param urlLink
+		 * @return
+		 * @author deepak rai
+	 */
 	public void verifyLink(String urlLink) {
 		try {
 

@@ -41,7 +41,7 @@ public class SingletonClass {
 		System.out.println("Hashcode for Y: " + y.hashCode() + " " + y.str);
 		System.out.println("Hashcode for Z: " + z.hashCode() + " " + z.str);
 		
-		PrintStream out = new PrintStream(new FileOutputStream("C:\\Users\\deepa\\Desktop\\s.txt"));
+		PrintStream out = new PrintStream(new FileOutputStream("C:/Users/deepa/Desktop/s.txt"));
 		System.setOut(out);
 		System.out.println("Hashcode for Z: " + z.hashCode() + " " + z.str);
 	}

@@ -22,6 +22,7 @@ public class AcceptSSLCertificates {
 	@Test(enabled = false)
 	public void handlingSSLInChrome() {
 		WebDriverManager.chromedriver().setup();
+		
 		ChromeOptions options = new ChromeOptions();
 		options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 		driver = new ChromeDriver(options);
