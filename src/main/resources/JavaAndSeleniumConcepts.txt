@@ -1,3 +1,10 @@
 Each time when you are using lambda expression to just referring a method, you can replace your lambda expression with method reference.
 
 Regular Expressions in Java: https://www.vogella.com/tutorials/JavaRegularExpressions/article.html
+
+With the help of static import, we can access the static members of a class directly without class name or any object.
+
+A Data Provider is a method on your class that returns an array of array of objects.
+ 
+BigInteger class is used for mathematical operation which involves very big integer calculations 
+that are outside the limit of all available primitive data types.
