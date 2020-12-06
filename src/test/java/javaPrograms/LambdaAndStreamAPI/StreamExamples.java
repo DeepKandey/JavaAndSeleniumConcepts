@@ -3,6 +3,10 @@
  */
 package javaPrograms.LambdaAndStreamAPI;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -24,8 +28,9 @@ public class StreamExamples {
 	 * @param
 	 * @return
 	 * @author deepak rai
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		List<Integer> a = new ArrayList<>();
 		a.add(1);
@@ -132,6 +137,19 @@ public class StreamExamples {
 		// toUnmodifiableList() Java 10
 		var newList = listOfNumber.stream().filter(i -> i % 2 == 0).collect(Collectors.toUnmodifiableList());
 
+		String s = " ";
+		System.out.println("isEmpty: " + s.isEmpty());
+		System.out.println("isBlank: " + s.isBlank()); // isBlank() Java 11
+
+		String str = "hi\nhello\nhow are you?";
+		str.lines().forEach(System.out::println); // lines() Java 11
+		
+		String repeat= "5";
+		System.out.println(repeat.repeat(5)); // repeat() Java 11
+		
+		Path path = Paths.get("");
+		Files.writeString(path, "Java is cool");
+		System.out.println(Files.readString(path));
 	}
 }
 

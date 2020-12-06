@@ -38,5 +38,10 @@ public class OptionalConcept {
 		Optional<String> optionalNull = Optional.ofNullable(null);
 		System.out.println(optionalNull.orElse("Java 8 Optional orElse() method").toUpperCase());
 
+		Optional<String> optionaIsEmpty = Optional.empty();
+		// isEmpty()
+		if (optionaIsEmpty.isEmpty())
+			System.out.println(optionalString);
+
 	}
 }
