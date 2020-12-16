@@ -30,15 +30,24 @@ public class FakerAPIExamples {
         System.out.println("Animal name is: " + faker.animal().name());
 
         // Generate random digit between 0-9 both inclusive
-        System.out.println(faker.number().digit());
-        System.out.println(faker.number().randomDigit());
+        System.out.println("Random digit: " + faker.number().digit());
+        System.out.println("Random digit: " + faker.number().randomDigit());
 
         // Generate random digit between 1-9 both inclusive
-        System.out.println(faker.number().randomDigitNotZero());
+        System.out.println("Random digit excluding zero: " + faker.number().randomDigitNotZero());
 
         // Generate digit of specific length
-        System.out.println(faker.number().digits(3));
-        System.out.println(faker.number().digits(5));
+        System.out.println("Random digit of length 3: " + faker.number().digits(3));
+        System.out.println("Random digit of length 5: " + faker.number().digits(5));
+
+        // # characters replaced with random digits 0-9
+        System.out.println("# replaced with digits: " + faker.numerify("Deepak##Rai"));
+
+        // # characters replaced with random digits 0-9
+        System.out.println("? replaced with characters: " + faker.letterify("167??89"));
+
+        // Applies both # and ?
+        System.out.println("# and ? replaced with digits and characters resp: " + faker.bothify("Deepak##??167??89"));
 
     }
 }
