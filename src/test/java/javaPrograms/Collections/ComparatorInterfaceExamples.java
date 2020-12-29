@@ -31,7 +31,7 @@ public class ComparatorInterfaceExamples {
 		Collections.sort(valuesList, (o1, o2) -> {
 			return o1 % 10 > o2 % 10 ? 1 : -1;
 		});
-		System.out.println("--------Sorted without using comparator object");
+		System.out.println("--------Sorted without using Comparator object");
 		valuesList.forEach(System.out::println);
 	}
 }

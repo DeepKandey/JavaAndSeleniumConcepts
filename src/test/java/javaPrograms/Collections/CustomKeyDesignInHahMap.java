@@ -36,7 +36,7 @@ public class CustomKeyDesignInHahMap {
 		Set<Map.Entry<Employee, String>> entrySet = hashMapObj.entrySet();
 
 		for (Map.Entry<Employee, String> entry : entrySet) {
-			System.out.println(entry.getKey() + " " + entry.getValue());
+			System.out.println(entry.getKey().toString() + " " + entry.getValue());
 		}
 		
 		System.out.println(hashMapObj.get(emp1));
