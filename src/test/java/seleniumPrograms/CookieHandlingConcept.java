@@ -48,8 +48,8 @@ public class CookieHandlingConcept {
             By.xpath("descendant::a[@data-target='#login_popup'][2]")));
     driver.findElement(By.xpath("descendant::a[@data-target='#login_popup'][2]")).click();
 
-    driver.findElement(By.id("email")).sendKeys("Deepakggsipu@gmail.com");
-    driver.findElement(By.id("password")).sendKeys("TAGG123");
+    driver.findElement(By.id("email")).sendKeys("");
+    driver.findElement(By.id("password")).sendKeys("");
     driver.findElement(By.id("loginsubmit")).click();
 
     // Getting Excel Sheet
@@ -95,7 +95,7 @@ public class CookieHandlingConcept {
 
   @Test
   public void setCookie() throws IOException {
-    FileInputStream fis = new FileInputStream("C:\\Users\\deepa\\Downloads\\TestDocument.xlsx");
+    FileInputStream fis = new FileInputStream(CommonConstants.TESTDOCUMENT_FILEPATH);
     XSSFWorkbook workbook = new XSSFWorkbook(fis);
     int index = workbook.getSheetIndex("Cookie");
     XSSFSheet sheet = workbook.getSheetAt(index);
