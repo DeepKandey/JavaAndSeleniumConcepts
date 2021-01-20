@@ -1,7 +1,12 @@
 package seleniumPrograms;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.qa.constants.CommonConstants;
 import java.io.FileOutputStream;
-
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -10,59 +15,50 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
-import com.qa.constants.CommonConstants;
-
 public class GenerateScreenshotPDF {
-	WebDriver driver;
+  WebDriver driver;
 
-	@BeforeTest
-	public void setup() {
-		System.setProperty("webdriver.chrome.driver",
-				CommonConstants.DRIVERPATH_CHROME);
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-	}
+  @BeforeTest
+  public void setup() {
+    System.setProperty("webdriver.chrome.driver", CommonConstants.DRIVERPATH_CHROME);
+    driver = new ChromeDriver();
+    driver.manage().window().maximize();
+  }
 
-	@Test
-	public void screenshotInPDF() throws Exception {
-		
-		driver.get("https://www.google.com");
-		// Capture Screenshot and store it in byte[] array format
-		byte[] input = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-		Document document = new Document();
-		String output = System.getProperty("user.dir") + "\\Image" + ".pdf";
-		FileOutputStream fos = new FileOutputStream(output);
+  @Test
+  public void screenshotInPDF() throws Exception {
 
-		// Instantiate the PDF writer
-		PdfWriter writer = PdfWriter.getInstance(document, fos);
+    driver.get("https://www.google.com");
+    // Capture Screenshot and store it in byte[] array format
+    byte[] input = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    Document document = new Document();
+    String output = System.getProperty("user.dir") + "\\Image" + ".pdf";
+    FileOutputStream fos = new FileOutputStream(output);
 
-		// Open the PDF for Writing
-		writer.open();
-		document.open();
+    // Instantiate the PDF writer
+    PdfWriter writer = PdfWriter.getInstance(document, fos);
 
-		// Process content into image
-		Image img = Image.getInstance(input);
+    // Open the PDF for Writing
+    writer.open();
+    document.open();
 
-		// set the size of the image
-		img.scaleToFit(PageSize.A4.getWidth() / 2, PageSize.A4.getHeight() / 2);
+    // Process content into image
+    Image img = Image.getInstance(input);
 
-		// Add the captured image to PDF
-		document.add(img);
-		document.add(new Paragraph(""));
+    // set the size of the image
+    img.scaleToFit(PageSize.A4.getWidth() / 2, PageSize.A4.getHeight() / 2);
 
-		// close the files and write to the local system
-		document.close();
-		writer.close();
+    // Add the captured image to PDF
+    document.add(img);
+    document.add(new Paragraph(""));
 
-	}
+    // close the files and write to the local system
+    document.close();
+    writer.close();
+  }
 
-	@AfterTest
-	public void tearDown() {
-		driver.quit();
-	}
+  @AfterTest
+  public void tearDown() {
+    driver.quit();
+  }
 }

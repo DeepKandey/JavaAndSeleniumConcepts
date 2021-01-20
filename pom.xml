@@ -155,14 +155,14 @@
         <dependency>
             <groupId>com.google.api-client</groupId>
             <artifactId>google-api-client</artifactId>
-            <version>1.30.9</version>
+            <version>1.31.1</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-jetty -->
         <dependency>
             <groupId>com.google.oauth-client</groupId>
             <artifactId>google-oauth-client-jetty</artifactId>
-            <version>1.30.6</version>
+            <version>1.31.2</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-gmail -->
@@ -189,14 +189,14 @@
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>4.3.1</version>
+            <version>4.3.3</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured-common -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured-common</artifactId>
-            <version>4.3.1</version>
+            <version>4.3.3</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.google.guava/guava-jdk5 -->
@@ -268,6 +268,13 @@
             <version>1.0.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20190722</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -287,6 +294,20 @@
                         <suiteXmlFiles>
                             <suiteXmlFile>${basedir}/testngParallel.xml</suiteXmlFile>
                         </suiteXmlFiles>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>com.diffplug.spotless</groupId>
+                    <artifactId>spotless-maven-plugin</artifactId>
+                    <version>2.5.0</version>
+                    <configuration>
+                        <java>
+                            <googleJavaFormat>
+                                <version>1.9</version>
+                                <style>GOOGLE</style>
+                            </googleJavaFormat>
+                        </java>
                     </configuration>
                 </plugin>
 

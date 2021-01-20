@@ -1,5 +1,6 @@
 package seleniumPrograms;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,67 +15,72 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 public class AcceptSSLCertificates {
-	WebDriver driver;
+  WebDriver driver;
 
-	@Test(enabled = false)
-	public void handlingSSLInChrome() {
-		WebDriverManager.chromedriver().setup();
-		
-		ChromeOptions options = new ChromeOptions();
-		options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-		driver = new ChromeDriver(options);
-		driver.manage().window().maximize();
-		driver.get("https://www.cacert.org/");
-		driver.quit();
-	}
+  @Test(enabled = false)
+  public void handlingSSLInChrome() {
+    WebDriverManager.chromedriver().setup();
 
-	@Test(enabled = false)
-	public void handlingSSLInIE() {
-		WebDriverManager.iedriver().setup();
+    ChromeOptions options = new ChromeOptions();
+    options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+    driver = new ChromeDriver(options);
+    driver.manage().window().maximize();
+    driver.get("https://www.cacert.org/");
+    driver.quit();
+  }
 
-		InternetExplorerOptions options = new InternetExplorerOptions();
-		options.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
-		options.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
+  @Test(enabled = false)
+  public void handlingSSLInIE() {
+    WebDriverManager.iedriver().setup();
 
-		driver = new InternetExplorerDriver(options);
-		driver.manage().window().maximize();
-		driver.get("https://www.cacert.org/");
-		driver.navigate().to("javascript:document.getElementById('overridelink').click()");
-		new WebDriverWait(driver, 10).until(ExpectedConditions
-				.elementToBeClickable(driver.findElement(By.xpath("//a[@href='http://www.cacert.org']"))));
-		driver.quit();
-	}
+    InternetExplorerOptions options = new InternetExplorerOptions();
+    options.setCapability(
+        InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+    options.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
 
-	@Test(enabled = false)
-	public void handlingSSLInEdge() {
-		WebDriverManager.edgedriver().setup();
+    driver = new InternetExplorerDriver(options);
+    driver.manage().window().maximize();
+    driver.get("https://www.cacert.org/");
+    driver.navigate().to("javascript:document.getElementById('overridelink').click()");
+    new WebDriverWait(driver, 10)
+        .until(
+            ExpectedConditions.elementToBeClickable(
+                driver.findElement(By.xpath("//a[@href='http://www.cacert.org']"))));
+    driver.quit();
+  }
 
-		driver = new EdgeDriver();
-		driver.manage().window().maximize();
-		driver.get("https://www.cacert.org/");
-		driver.navigate().to("javascript:document.getElementById('overridelink').click()");
-		new WebDriverWait(driver, 10).until(ExpectedConditions
-				.elementToBeClickable(driver.findElement(By.xpath("//a[@href='http://www.cacert.org']"))));
-		driver.quit();
-	}
+  @Test(enabled = false)
+  public void handlingSSLInEdge() {
+    WebDriverManager.edgedriver().setup();
 
-	@Test
-	public void handlingSSLInFF() {
-		WebDriverManager.firefoxdriver().setup();
+    driver = new EdgeDriver();
+    driver.manage().window().maximize();
+    driver.get("https://www.cacert.org/");
+    driver.navigate().to("javascript:document.getElementById('overridelink').click()");
+    new WebDriverWait(driver, 10)
+        .until(
+            ExpectedConditions.elementToBeClickable(
+                driver.findElement(By.xpath("//a[@href='http://www.cacert.org']"))));
+    driver.quit();
+  }
 
-		FirefoxOptions options = new FirefoxOptions();
-		options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-		options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+  @Test
+  public void handlingSSLInFF() {
+    WebDriverManager.firefoxdriver().setup();
 
-		driver = new FirefoxDriver(options);
-		driver.manage().window().maximize();
-		driver.get("https://www.cacert.org/");
+    FirefoxOptions options = new FirefoxOptions();
+    options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+    options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 
-		new WebDriverWait(driver, 10).until(ExpectedConditions
-				.elementToBeClickable(driver.findElement(By.xpath("//a[@href='http://www.cacert.org']"))));
-		driver.quit();
-	}
+    driver = new FirefoxDriver(options);
+    driver.manage().window().maximize();
+    driver.get("https://www.cacert.org/");
+
+    new WebDriverWait(driver, 10)
+        .until(
+            ExpectedConditions.elementToBeClickable(
+                driver.findElement(By.xpath("//a[@href='http://www.cacert.org']"))));
+    driver.quit();
+  }
 }

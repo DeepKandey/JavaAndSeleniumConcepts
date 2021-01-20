@@ -7,15 +7,13 @@ import com.qa.constants.CommonConstants;
 
 public class DeleteDemo {
 
-	public static void main(String[] args) throws FilloException {
-		Fillo fillo = new Fillo();
-        Connection connection = fillo.getConnection(CommonConstants.TESTDOCUMENT_FILEPATH);
-        
-        String insertQuery=
-                "DELETE from Sheet1 where String='Harsh'";
+  public static void main(String[] args) throws FilloException {
+    Fillo fillo = new Fillo();
+    Connection connection = fillo.getConnection(CommonConstants.TESTDOCUMENT_FILEPATH);
 
-        connection.executeUpdate(insertQuery);
-        connection.close();
+    String insertQuery = "DELETE from Sheet1 where String='Harsh'";
 
-    } // End of method main
+    connection.executeUpdate(insertQuery);
+    connection.close();
+  } // End of method main
 } // End of class DeleteDemo

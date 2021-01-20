@@ -1,29 +1,23 @@
-/**
- * 
- */
+/** */
 package javaPrograms.PracticePrograms;
 
-/**
- * @author Deepak Rai
- *
- */
+/** @author Deepak Rai */
 public class FactorsOfNumber {
 
-	/**
-	 * {@summary Factors Of a Number}
-	 * 
-	 * @param
-	 * @return
-	 * @author deepak
-	 */
-	public static void main(String[] args) {
+  /**
+   * {@summary Factors Of a Number}
+   *
+   * @param
+   * @return
+   * @author deepak
+   */
+  public static void main(String[] args) {
 
-		int num = 111;
+    int num = 111;
 
-		System.out.println("Factors of the number: " + num);
-		for (int i = 1; i <= num; i++) {
-			if (num % i == 0)
-				System.out.print(i + " ");
-		}
-	}
+    System.out.println("Factors of the number: " + num);
+    for (int i = 1; i <= num; i++) {
+      if (num % i == 0) System.out.print(i + " ");
+    }
+  }
 }

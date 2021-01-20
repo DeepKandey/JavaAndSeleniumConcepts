@@ -1,40 +1,41 @@
 package javaPrograms.ReadWriteWithXML;
 
 public class Address {
-	String street;
-	String city;
-	String zip;
-	
-	public Address() {};
-	
-	public Address(String street, String city, String zip) {
-		super();
-		this.street = street;
-		this.city = city;
-		this.zip = zip;
-	} // End of constructor Address
+  String street;
+  String city;
+  String zip;
 
-	public String getStreet() {
-		return street;
-	}
+  public Address() {}
+  ;
 
-	public void setStreet(String street) {
-		this.street = street;
-	}
+  public Address(String street, String city, String zip) {
+    super();
+    this.street = street;
+    this.city = city;
+    this.zip = zip;
+  } // End of constructor Address
 
-	public String getCity() {
-		return city;
-	}
+  public String getStreet() {
+    return street;
+  }
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+  public void setStreet(String street) {
+    this.street = street;
+  }
 
-	public String getZip() {
-		return zip;
-	}
+  public String getCity() {
+    return city;
+  }
 
-	public void setZip(String zip) {
-		this.zip = zip;
-	}
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+  public String getZip() {
+    return zip;
+  }
+
+  public void setZip(String zip) {
+    this.zip = zip;
+  }
 } // End of class Address

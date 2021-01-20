@@ -1,10 +1,10 @@
 package seleniumPrograms;
 
+import com.qa.constants.CommonConstants;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,54 +14,51 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.qa.constants.CommonConstants;
-
 public class DownloadFileConcept {
 
-	WebDriver driver;
-	File folder;
+  WebDriver driver;
+  File folder;
 
-	@BeforeMethod
-	public void setUp() {
-		
-		folder = new File(UUID.randomUUID().toString());
-		folder.mkdir();
+  @BeforeMethod
+  public void setUp() {
 
-		System.setProperty("webdriver.chrome.driver",
-				CommonConstants.DRIVERPATH_CHROME);
-		ChromeOptions options = new ChromeOptions();
+    folder = new File(UUID.randomUUID().toString());
+    folder.mkdir();
 
-		Map<String, Object> pref = new HashMap<String, Object>();
-		pref.put("profile.default_content_settings.popups", 0);
-		pref.put("download.default_directory", folder.getAbsolutePath());
+    System.setProperty("webdriver.chrome.driver", CommonConstants.DRIVERPATH_CHROME);
+    ChromeOptions options = new ChromeOptions();
 
-		options.setExperimentalOption("prefs", pref);
+    Map<String, Object> pref = new HashMap<String, Object>();
+    pref.put("profile.default_content_settings.popups", 0);
+    pref.put("download.default_directory", folder.getAbsolutePath());
 
-		driver = new ChromeDriver(options);
-	}
+    options.setExperimentalOption("prefs", pref);
 
-	@Test
-	public void downloadFilesTest() throws InterruptedException {
-		driver.get("https://the-internet.herokuapp.com/download");
-		driver.findElement(By.linkText("some-file.txt")).click();
+    driver = new ChromeDriver(options);
+  }
 
-		Thread.sleep(2000);
+  @Test
+  public void downloadFilesTest() throws InterruptedException {
+    driver.get("https://the-internet.herokuapp.com/download");
+    driver.findElement(By.linkText("some-file.txt")).click();
 
-		File[] listOfFiles = folder.listFiles();
-		// make sure directory is not empty
-		Assert.assertTrue(listOfFiles.length > 0);
+    Thread.sleep(2000);
 
-		for (File file : folder.listFiles()) {
-			Assert.assertTrue(file.length() > 0);
-		}
-	}
+    File[] listOfFiles = folder.listFiles();
+    // make sure directory is not empty
+    Assert.assertTrue(listOfFiles.length > 0);
 
-	@AfterMethod
-	public void tearDown() {
-		driver.quit();
-		for (File file : folder.listFiles()) {
-			file.delete();
-		}
-		folder.delete();
-	}
+    for (File file : folder.listFiles()) {
+      Assert.assertTrue(file.length() > 0);
+    }
+  }
+
+  @AfterMethod
+  public void tearDown() {
+    driver.quit();
+    for (File file : folder.listFiles()) {
+      file.delete();
+    }
+    folder.delete();
+  }
 }

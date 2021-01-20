@@ -1,9 +1,8 @@
 package javaPrograms.LambdaAndStreamAPI;
 
 interface A {
-	void show();
+  void show();
 }
-
 
 // Class to implement show method of interface
 /*
@@ -17,14 +16,14 @@ interface A {
  */
 public class LambdaDemo {
 
-	public static void main(String[] args) {
+  public static void main(String[] args) {
 
-		A obj;
-		/* obj = new Xyz(); */
+    A obj;
+    /* obj = new Xyz(); */
 
-		// obj = new A() { public void show() { System.out.println("Hello"); } };
+    // obj = new A() { public void show() { System.out.println("Hello"); } };
 
-		obj = () -> System.out.println("Hello");
-		obj.show();
-	}
+    obj = () -> System.out.println("Hello");
+    obj.show();
+  }
 }

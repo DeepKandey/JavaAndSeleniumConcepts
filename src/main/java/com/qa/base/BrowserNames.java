@@ -1,13 +1,10 @@
-/**
- * 
- */
+/** */
 package com.qa.base;
 
-/**
- * @author deepak Rai
- *
- */
+/** @author deepak Rai */
 public enum BrowserNames {
-
-	CHROME, FF, IE, EDGE
+  CHROME,
+  FF,
+  IE,
+  EDGE
 }

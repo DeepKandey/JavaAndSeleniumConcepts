@@ -1,6 +1,4 @@
-/**
- * @author Deepak Rai
- */
+/** @author Deepak Rai */
 package javaPrograms.PracticePrograms;
 
 import java.util.List;
@@ -9,27 +7,27 @@ import java.util.stream.Stream;
 
 public class FindWeekDayAFromTheGivenDay {
 
-	/**
-	 * {@summary }
-	 * 
-	 * @param
-	 * @return
-	 * @author deepak rai
-	 */
+  /**
+   * {@summary }
+   *
+   * @param
+   * @return
+   * @author deepak rai
+   */
+  public static void main(String args[]) {
 
-	public static void main(String args[]) {
+    String S = "Wed";
+    int k = 7;
 
-		String S = "Wed";
-		int k = 7;
+    System.out.println(findWeekDay(S, k));
+  }
 
-		System.out.println(findWeekDay(S, k));
-	}
+  public static String findWeekDay(String s, int k) {
 
-	public static String findWeekDay(String s, int k) {
+    List<String> days =
+        Stream.of("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun").collect(Collectors.toList());
 
-		List<String> days = Stream.of("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun").collect(Collectors.toList());
-
-		int index = days.indexOf(s);
-		return days.get((index + k) % 7);
-	}
+    int index = days.indexOf(s);
+    return days.get((index + k) % 7);
+  }
 }

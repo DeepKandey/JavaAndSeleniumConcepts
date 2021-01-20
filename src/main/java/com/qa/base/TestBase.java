@@ -1,5 +1,7 @@
 package com.qa.base;
 
+import com.qa.constants.CommonConstants;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -8,63 +10,59 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.qa.constants.CommonConstants;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 public class TestBase {
 
-	protected static WebDriver driver = null;
-	protected static WebDriverWait wait;
+  protected static WebDriver driver = null;
+  protected static WebDriverWait wait;
 
-	public static void initialization(BrowserNames browserName) {
-		
-		if (driver == null) {
-			if (browserName == BrowserNames.CHROME) {
+  public static void initialization(BrowserNames browserName) {
 
-				System.setProperty("webdriver.chrome.driver", CommonConstants.DRIVERPATH_CHROME);
-				System.setProperty("webdriver.chrome.silentOutput", "true"); // To suppress browser logs
-				driver = new ChromeDriver();
+    if (driver == null) {
+      if (browserName == BrowserNames.CHROME) {
 
-			} else if (browserName == BrowserNames.FF) {
+        System.setProperty("webdriver.chrome.driver", CommonConstants.DRIVERPATH_CHROME);
+        System.setProperty("webdriver.chrome.silentOutput", "true"); // To suppress browser logs
+        driver = new ChromeDriver();
 
-				System.setProperty("webdriver.gecko.driver", CommonConstants.DRIVERPATH_FIREFOX);
-				System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "null"); // To suppress FF logs on
-				driver = new FirefoxDriver();
+      } else if (browserName == BrowserNames.FF) {
 
-			} else if (browserName == BrowserNames.EDGE) {
+        System.setProperty("webdriver.gecko.driver", CommonConstants.DRIVERPATH_FIREFOX);
+        System.setProperty(
+            FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "null"); // To suppress FF logs on
+        driver = new FirefoxDriver();
 
-				System.setProperty("webdriver.edge.driver", CommonConstants.DRIVERPATH_EDGE);
-				driver = new EdgeDriver();
+      } else if (browserName == BrowserNames.EDGE) {
 
-			} else if (browserName == BrowserNames.IE) {
+        System.setProperty("webdriver.edge.driver", CommonConstants.DRIVERPATH_EDGE);
+        driver = new EdgeDriver();
 
-				WebDriverManager.iedriver().setup();
+      } else if (browserName == BrowserNames.IE) {
 
-				InternetExplorerOptions options = new InternetExplorerOptions();
-				options.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
-				options.setCapability(InternetExplorerDriver.INITIAL_BROWSER_URL, "");
-				options.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
-				driver = new InternetExplorerDriver(options);
+        WebDriverManager.iedriver().setup();
 
-			} else
-				System.out.println("Print provide valid browser names");
-		}
+        InternetExplorerOptions options = new InternetExplorerOptions();
+        options.setCapability(
+            InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+        options.setCapability(InternetExplorerDriver.INITIAL_BROWSER_URL, "");
+        options.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
+        driver = new InternetExplorerDriver(options);
 
-		if (driver != null) {
-			
-			driver.manage().window().maximize();
-			wait = new WebDriverWait(driver, 20);
-			System.out.println("Launching " + browserName + " browser");
-			
-		}
-	} // End of method initialization()
+      } else System.out.println("Print provide valid browser names");
+    }
 
-	public static void closeDriver() {
+    if (driver != null) {
 
-		if (driver != null) {
-			System.out.println("Driver quit");
-			driver.quit();
-		}
-	} // End of method close()
+      driver.manage().window().maximize();
+      wait = new WebDriverWait(driver, 20);
+      System.out.println("Launching " + browserName + " browser");
+    }
+  } // End of method initialization()
+
+  public static void closeDriver() {
+
+    if (driver != null) {
+      System.out.println("Driver quit");
+      driver.quit();
+    }
+  } // End of method close()
 } // End of class TestBase
