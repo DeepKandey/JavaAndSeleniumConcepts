@@ -17,7 +17,7 @@ public class AutomateOTPUsingTwilio extends TestBase {
   private static final String AUTH_TOKEN = System.getenv("TWILIO_AUTH_TOKEN");
 
   @Test
-  public void HandleOTPMessage() throws InterruptedException {
+  public void HandleOTPMessage() {
     initialization(BrowserNames.CHROME);
     driver.get("https://www.amazon.in/");
     try {

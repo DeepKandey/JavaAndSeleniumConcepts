@@ -1,24 +1,22 @@
 package seleniumPrograms;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import java.util.List;
+import com.qa.base.BrowserNames;
+import com.qa.base.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class BootstrapDropdownConcept {
-  WebDriver driver;
+import java.util.List;
+
+public class BootstrapDropdownConcept extends TestBase {
 
   @BeforeMethod
   public void setup() {
-    WebDriverManager.chromedriver().setup();
-    driver = new ChromeDriver();
-    driver.manage().window().maximize();
+    initialization(BrowserNames.CHROME);
   }
 
   // Clicking on web element from bootstrap drop down
@@ -30,17 +28,17 @@ public class BootstrapDropdownConcept {
     Thread.sleep(5000);
     List<WebElement> element = driver.findElements(By.xpath("//ul[@class='dropdown-menu']//li/a"));
     System.out.println(element.size());
-    for (int i = 0; i < element.size(); i++) {
-      if (element.get(i).getAttribute("innerHTML").equals("JavaScript")) {
-        System.out.println(element.get(i).getAttribute("innerHTML"));
-        element.get(i).click();
+    for (WebElement webElement : element) {
+      if (webElement.getAttribute("innerHTML").equals("JavaScript")) {
+        System.out.println(webElement.getAttribute("innerHTML"));
+        webElement.click();
         break;
       }
     }
   }
 
   // Clicking the web element in bootstrap pop up
-  @Test
+  @Test(enabled = false)
   public void bootStrapClick() throws InterruptedException {
     driver.get("https://www.gliffy.com/");
     driver.findElement(By.xpath("//li[@class='hs-menu-item hs-menu-depth-1']/span")).click();
@@ -50,7 +48,7 @@ public class BootstrapDropdownConcept {
   }
 
   // Getting tool tip text
-  @Test
+  @Test(enabled = false)
   public void tooltip() throws InterruptedException {
     driver.get("https://www.seleniumhq.org/");
 
@@ -71,6 +69,6 @@ public class BootstrapDropdownConcept {
 
   @AfterMethod
   public void tearDown() {
-    if (driver != null) driver.quit();
+    closeDriver();
   }
 }

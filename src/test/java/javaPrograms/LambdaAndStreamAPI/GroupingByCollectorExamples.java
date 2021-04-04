@@ -48,7 +48,7 @@ public class GroupingByCollectorExamples {
     // Grouping and Calculating an Average per Group
     Map<Integer, Double> resultAveragePerGroup =
         strings.stream().collect(groupingBy(String::length, averagingInt(String::hashCode)));
-    System.out.println("Map(average per group: " + resultAveragePerGroup);
+    System.out.println("Map(average per group): " + resultAveragePerGroup);
 
     // Grouping and Calculating a Sum per Group
     Map<Integer, Integer> resultSumPerGroup =
@@ -59,6 +59,14 @@ public class GroupingByCollectorExamples {
     Map<Integer, IntSummaryStatistics> resultStatisticalSummary =
         strings.stream().collect(groupingBy(String::length, summarizingInt(String::hashCode)));
     System.out.println("Map(Statistical Summary per group): " + resultStatisticalSummary);
+
+    // Grouping and Calculating Max/Min Item
+    Map<Integer, Optional<String>> resultGroupAndCalculateMax =
+        strings.stream()
+            .collect(
+                groupingBy(
+                    String::length, Collectors.maxBy(Comparator.comparing(String::toUpperCase))));
+    System.out.println("Map(Group and Calculate Max): " + resultGroupAndCalculateMax);
 
     // Grouping and Reducing Items
     Map<Integer, List<Character>> resultGroupAndReduceItems =
@@ -72,14 +80,6 @@ public class GroupingByCollectorExamples {
                         (l1, l2) -> Stream.concat(l1.stream(), l2.stream()).collect(toList()))));
     System.out.println("Map(Group and Reduce Items: )" + resultGroupAndReduceItems);
 
-    // Grouping and Calculating Max/Min Item
-    Map<Integer, Optional<String>> resultGroupAndCalculateMax =
-        strings.stream()
-            .collect(
-                groupingBy(
-                    String::length, Collectors.maxBy(Comparator.comparing(String::toUpperCase))));
-    System.out.println("Map(Group and Calculate Max): " + resultGroupAndCalculateMax);
-
     // Composing Downstream Collectors
     Map<Integer, TreeSet<String>> resultDownstreamCollector1 =
         strings.stream()
@@ -90,7 +90,7 @@ public class GroupingByCollectorExamples {
                         String::toUpperCase,
                         filtering(s -> s.length() > 1, toCollection(TreeSet::new)))));
     System.out.println(
-        "Map(Compose Downstream Collector into TreeSet): " + resultDownstreamCollector1);
+        "Map(Mapping,Filter,Compose Downstream into TreeSet): " + resultDownstreamCollector1);
 
     Map<Integer, String> resultDownstreamCollector2 =
         strings.stream()

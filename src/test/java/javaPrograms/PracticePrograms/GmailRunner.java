@@ -22,6 +22,7 @@ import java.net.URLEncoder;
 import java.security.GeneralSecurityException;
 import java.util.*;
 import org.json.JSONObject;
+import java.util.Base64;
 
 /**
  * @since May 8, 2020
