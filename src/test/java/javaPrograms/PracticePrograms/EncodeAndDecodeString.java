@@ -11,6 +11,7 @@ public class EncodeAndDecodeString {
     // Encoding String
     byte[] encodedString = Base64.encodeBase64(testString.getBytes());
     System.out.println("Encoded String: " + new String(encodedString));
+
     // Decoding String
     byte[] decodedString = Base64.decodeBase64(encodedString);
     System.out.println("Decoded String: " + new String(decodedString));

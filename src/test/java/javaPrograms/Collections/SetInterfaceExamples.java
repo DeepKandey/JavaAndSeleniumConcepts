@@ -1,5 +1,7 @@
 package javaPrograms.Collections;
 
+import org.apache.commons.codec.language.bm.Lang;
+
 import java.util.*;
 
 public class SetInterfaceExamples {
@@ -44,26 +46,26 @@ public class SetInterfaceExamples {
     // In Java (from 1.5), enums are represented using enum data type.
     // The main objective of enum is to define our own data types(Enumerated Data Types).
 
-    enum Lang {
-      JAVA,
-      JAVASCRIPT,
-      PHP,
-      PYTHON,
-      CSHARP
-    }
-    enum TechLang {
-      RUBY
-    }
+    //    enum Lang {
+    //      JAVA,
+    //      JAVASCRIPT,
+    //      PHP,
+    //      PYTHON,
+    //      CSHARP
+    //    }
+    //    enum TechLang {
+    //      RUBY
+    //    }
 
-    EnumSet<Lang> langEnumSet = EnumSet.allOf(Lang.class);
-    System.out.println("EnumSet:" + langEnumSet);
-
-    for (Lang lang : langEnumSet) System.out.print(lang + " ");
-
-    EnumSet<Lang> emptyEnumSet = EnumSet.noneOf(Lang.class);
-    System.out.println("\nEmpty EnumSet:" + emptyEnumSet);
-
-    langEnumSet.remove(Lang.PHP);
-    System.out.println("EnumSet after removing Python:" + langEnumSet);
+    //    EnumSet<Lang> langEnumSet = EnumSet.allOf(Lang.class);
+    //    System.out.println("EnumSet:" + langEnumSet);
+    //
+    //    for (Lang lang : langEnumSet) System.out.print(lang + " ");
+    //
+    //    EnumSet<Lang> emptyEnumSet = EnumSet.noneOf(Lang.class);
+    //    System.out.println("\nEmpty EnumSet:" + emptyEnumSet);
+    //
+    //    langEnumSet.remove(Lang.PHP);
+    //    System.out.println("EnumSet after removing Python:" + langEnumSet);
   }
 }
