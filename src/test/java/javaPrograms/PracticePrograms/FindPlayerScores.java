@@ -1,6 +1,8 @@
 package javaPrograms.PracticePrograms;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.stream.IntStream;
 
 public class FindPlayerScores {
 
