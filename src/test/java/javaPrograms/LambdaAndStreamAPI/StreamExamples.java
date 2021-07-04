@@ -1,6 +1,11 @@
 /** @author Deepak Rai */
 package javaPrograms.LambdaAndStreamAPI;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -151,44 +156,13 @@ public class StreamExamples {
   }
 }
 
+@Getter
+@Setter
+@AllArgsConstructor
+@ToString
 class Student {
 
   private String name;
   private int score;
   private int height;
-
-  public Student(String name, int score, int height) {
-    this.name = name;
-    this.score = score;
-    this.height = height;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public int getScore() {
-    return score;
-  }
-
-  public void setScore(int score) {
-    this.score = score;
-  }
-
-  public int getHeight() {
-    return height;
-  }
-
-  public void setHeight(int height) {
-    this.height = height;
-  }
-
-  @Override
-  public String toString() {
-    return "Student { " + "name" + name + " ,score= " + score + " ,height=" + height + "}";
-  }
 }

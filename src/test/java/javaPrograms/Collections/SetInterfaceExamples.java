@@ -39,33 +39,33 @@ public class SetInterfaceExamples {
     LinkedHashSet<Integer> linkedHashSet = new LinkedHashSet<>(numbers);
     System.out.println("Removing duplicates using LinkedHashSet: " + linkedHashSet);
 
-    // EnumSet - The EnumSet is one of the specialized implementation of the Set interface for use
-    // with the enumeration type.
-    // Enumerations serve the purpose of representing a group of named constants in a programming
-    // language.
-    // In Java (from 1.5), enums are represented using enum data type.
-    // The main objective of enum is to define our own data types(Enumerated Data Types).
+//     EnumSet - The EnumSet is one of the specialized implementation of the Set interface for use
+//     with the enumeration type.
+//     Enumerations serve the purpose of representing a group of named constants in a programming
+//     language.
+//     In Java (from 1.5), enums are represented using enum data type.
+//     The main objective of enum is to define our own data types(Enumerated Data Types).
 
-    //    enum Lang {
-    //      JAVA,
-    //      JAVASCRIPT,
-    //      PHP,
-    //      PYTHON,
-    //      CSHARP
-    //    }
-    //    enum TechLang {
-    //      RUBY
-    //    }
+        enum Lang {
+          JAVA,
+          JAVASCRIPT,
+          PHP,
+          PYTHON,
+          CSHARP
+        }
+        enum TechLang {
+          RUBY
+        }
 
-    //    EnumSet<Lang> langEnumSet = EnumSet.allOf(Lang.class);
-    //    System.out.println("EnumSet:" + langEnumSet);
-    //
-    //    for (Lang lang : langEnumSet) System.out.print(lang + " ");
-    //
-    //    EnumSet<Lang> emptyEnumSet = EnumSet.noneOf(Lang.class);
-    //    System.out.println("\nEmpty EnumSet:" + emptyEnumSet);
-    //
-    //    langEnumSet.remove(Lang.PHP);
-    //    System.out.println("EnumSet after removing Python:" + langEnumSet);
+        EnumSet<Lang> langEnumSet = EnumSet.allOf(Lang.class);
+        System.out.println("EnumSet:" + langEnumSet);
+
+        for (Lang lang : langEnumSet) System.out.print(lang + " ");
+
+        EnumSet<Lang> emptyEnumSet = EnumSet.noneOf(Lang.class);
+        System.out.println("\nEmpty EnumSet:" + emptyEnumSet);
+
+        langEnumSet.remove(Lang.PHP);
+        System.out.println("EnumSet after removing Python:" + langEnumSet);
   }
 }
