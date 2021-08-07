@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LargestSum2DArray {
-  
+
   public static void main(String[] args) throws IOException {
 
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
