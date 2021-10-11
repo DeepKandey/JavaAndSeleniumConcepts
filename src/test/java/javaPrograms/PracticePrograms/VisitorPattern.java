@@ -35,19 +35,11 @@ public class VisitorPattern {
       int v = scanner.nextInt();
 
       /* Edges are undirected: Add 1st direction */
-      HashSet<Integer> uNeighbors = map.get(u);
-      if (uNeighbors == null) {
-        uNeighbors = new HashSet();
-        map.put(u, uNeighbors);
-      }
+      HashSet<Integer> uNeighbors = map.computeIfAbsent(u, k -> new HashSet<>());
       uNeighbors.add(v);
 
       /* Edges are undirected: Add 2nd direction */
-      HashSet<Integer> vNeighbors = map.get(v);
-      if (vNeighbors == null) {
-        vNeighbors = new HashSet();
-        map.put(v, vNeighbors);
-      }
+      HashSet<Integer> vNeighbors = map.computeIfAbsent(v, k -> new HashSet<>());
       vNeighbors.add(u);
     }
     scanner.close();

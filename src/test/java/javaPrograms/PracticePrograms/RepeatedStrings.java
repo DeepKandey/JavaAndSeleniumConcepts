@@ -12,12 +12,9 @@ public class RepeatedStrings {
 
     long n = Long.parseLong(String.valueOf(scanner.nextLong()));
 
-    long result = Result.repeatedString(s, n);
+    long result = repeatedString(s, n);
     System.out.println(result);
   }
-}
-
-class Result {
 
   /*
    * Complete the 'repeatedString' function below.

@@ -12,6 +12,8 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.GmailScopes;
+import com.google.api.services.gmail.model.Label;
+import com.google.api.services.gmail.model.ListLabelsResponse;
 import com.google.api.services.gmail.model.ListMessagesResponse;
 import com.google.api.services.gmail.model.Message;
 import io.restassured.path.json.JsonPath;
@@ -19,6 +21,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.util.*;
 import org.json.JSONObject;
@@ -30,7 +33,7 @@ import java.util.Base64;
  */
 public class GmailRunner {
 
-  private static final String APPLICATION_NAME = "DeepakAPILearning";
+  private static final String APPLICATION_NAME = "APILearning";
   private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
   private static final String USER_ID = "me";
 
@@ -245,11 +248,11 @@ public class GmailRunner {
         if (postData.length() != 0) {
           postData.append('&');
         }
-        postData.append(URLEncoder.encode(param.getKey(), "UTF-8"));
+        postData.append(URLEncoder.encode(param.getKey(), StandardCharsets.UTF_8));
         postData.append('=');
-        postData.append(URLEncoder.encode(String.valueOf(param.getValue()), "UTF-8"));
+        postData.append(URLEncoder.encode(String.valueOf(param.getValue()), StandardCharsets.UTF_8));
       }
-      byte[] postDataBytes = postData.toString().getBytes("UTF-8");
+      byte[] postDataBytes = postData.toString().getBytes(StandardCharsets.UTF_8);
 
       URL url = new URL("https://accounts.google.com/o/oauth2/token");
       HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -259,14 +262,13 @@ public class GmailRunner {
       con.getOutputStream().write(postDataBytes);
 
       BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
-      StringBuffer buffer = new StringBuffer();
+      StringBuilder buffer = new StringBuilder();
       for (String line = reader.readLine(); line != null; line = reader.readLine()) {
         buffer.append(line);
       }
 
       JSONObject json = new JSONObject(buffer.toString());
-      String accessToken = json.getString("access_token");
-      return accessToken;
+      return json.getString("access_token");
     } catch (Exception ex) {
       ex.printStackTrace();
     }
@@ -282,22 +284,22 @@ public class GmailRunner {
    */
   public static void main(String[] args) throws IOException, GeneralSecurityException {
 
-    HashMap<String, String> hm =
-        getGmailData("subject:IMPORTANT: Please Review and Book Your Appt");
-    System.out.println(hm.get("subject"));
-    System.out.println("===========");
-    System.out.println(hm.get("body"));
-    System.out.println("===========");
-    System.out.println(hm.get("link"));
-
-    System.out.println("===========");
-    System.out.println("Total count of email(entire mailbox) is: " + getTotalCountOfMails());
-
-    System.out.println("===========");
-    boolean exist = isMailExist("IMPORTANT: Please Review and Book Your Appt");
-    System.out.println("Mail with given subject exist or not: " + exist);
-
-    System.out.println(getAccessToken());
+//    HashMap<String, String> hm =
+//        getGmailData("subject:ICICI Bank Statement from 01-09-2021 to 30-09-2021 for XXXXXXXXXX19");
+//    System.out.println(hm.get("subject"));
+//    System.out.println("===========");
+//    System.out.println(hm.get("body"));
+//    System.out.println("===========");
+//    System.out.println(hm.get("link"));
+//
+//    System.out.println("===========");
+//    System.out.println("Total count of email(entire mailbox) is: " + getTotalCountOfMails());
+//
+//    System.out.println("===========");
+//    boolean exist = isMailExist("Electricity Bill Due! Pay Now at Paytm.");
+//    System.out.println("Mail with given subject exist or not: " + exist);
+//
+//    System.out.println(getAccessToken());
 
     // trashThread("176e5032b2b9249f");
 
@@ -309,5 +311,17 @@ public class GmailRunner {
     //    driver.switchTo().window(tabs.get(1));
     //    driver.get(hm.get("link"));
     //    driver.quit();
+
+    String user = "me";
+    ListLabelsResponse listResponse = getService().users().labels().list(user).execute();
+    List<Label> labels = listResponse.getLabels();
+    if (labels.isEmpty()) {
+      System.out.println("No labels found.");
+    } else {
+      System.out.println("Labels:");
+      for (Label label : labels) {
+        System.out.printf("- %s\n", label.getName());
+      }
+    }
   }
 } // end of class GmailRunner

@@ -14,10 +14,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <poi.version>4.1.1</poi.version>
-        <rest-assured.version>4.3.3</rest-assured.version>
+        <rest-assured.version>4.4.0</rest-assured.version>
         <lombok.version>1.18.20</lombok.version>
-        <maven.compiler.release>16</maven.compiler.release>
-        <maven.compiler.testRelease>16</maven.compiler.testRelease>
+        <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.testRelease>17</maven.compiler.testRelease>
     </properties>
 
     <dependencies>
@@ -25,13 +25,13 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
+            <version>4.0.0-rc-1</version>
         </dependency>
 
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.3.0</version>
+            <version>7.4.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -284,12 +284,19 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>7.5.1</version>
+        </dependency>
     </dependencies>
 
     <build>
 
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
@@ -346,7 +353,5 @@
                 </executions>
             </plugin>
         </plugins>
-
     </build>
-
 </project>

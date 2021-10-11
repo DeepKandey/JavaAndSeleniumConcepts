@@ -29,7 +29,7 @@ public class ChromeBetaTest {
     driver.manage().window().maximize();
     driver.get("https://www.cacert.org/");
     ((JavascriptExecutor) driver).executeScript("window.open('https://usefulangle.com','_blank')");
-    ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+    ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
     driver.switchTo().window(tabs.get(1));
   }
 }
