@@ -1,14 +1,7 @@
 package seleniumPrograms;
 
 import com.qa.constants.CommonConstants;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,6 +9,10 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class GoIbiboAssignment {
 
@@ -87,9 +84,9 @@ public class GoIbiboAssignment {
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@type='button']")));
 
     try {
-      driver
-          .switchTo()
-          .frame(driver.findElement(By.xpath("//iframe[contains(@name,'notification-frame-~')]")));
+      WebElement element =
+          driver.findElement(By.xpath("//iframe[contains(@name,'notification-frame-~')]"));
+      driver.switchTo().frame(element);
       driver.findElement(By.xpath("//div[@class='close tablecell']")).click();
       driver.switchTo().defaultContent();
     } catch (Exception e) {
@@ -116,9 +113,9 @@ public class GoIbiboAssignment {
 
     for (int i = 0; i < listOfDepartureTime.size(); i++) {
       if (listOfDepartureTime.get(i).getAttribute("innerHTML").equals(timeList.get(0))) {
+
         wait.until(
-            ExpectedConditions.elementToBeClickable(
-                driver.findElement(By.xpath(beforePath + (i + 1) + afterPath))));
+            ExpectedConditions.elementToBeClickable(By.xpath(beforePath + (i + 1) + afterPath)));
         driver.findElement(By.xpath(beforePath + (i + 1) + afterPath)).click();
         break;
       }
@@ -129,21 +126,21 @@ public class GoIbiboAssignment {
             By.xpath(
                 "//div[@id='retFltContainer']//div[@class='card-block fl width100 padT20 padB15']//div[@class='col-md-3 col-sm-4 col-xs-4']/span[1]"));
 
-    ArrayList<String> ReturntimeList = new ArrayList<String>();
+    ArrayList<String> ReturnTimeList = new ArrayList<String>();
 
     for (int i = 0; i < listOfReturnTime.size(); i++) {
-      ReturntimeList.add(listOfReturnTime.get(i).getAttribute("innerHTML"));
+      ReturnTimeList.add(listOfReturnTime.get(i).getAttribute("innerHTML"));
     }
 
-    Collections.sort(ReturntimeList);
-    System.out.println("While returning, time slots-->" + ReturntimeList);
+    Collections.sort(ReturnTimeList);
+    System.out.println("While returning, time slots-->" + ReturnTimeList);
 
     String beforePath1 =
         "(//div[@id='retFltContainer']//div[@class='card-block fl width100 padT20 padB15']//div[@class='col-md-3 col-sm-4 col-xs-4']/span[1])[";
     String afterPath1 =
         "]/parent::div/parent::div/parent::div/following-sibling::div//div/label/div";
     for (int i = 0; i < listOfReturnTime.size(); i++) {
-      if (listOfReturnTime.get(i).getAttribute("innerHTML").equals(ReturntimeList.get(0))) {
+      if (listOfReturnTime.get(i).getAttribute("innerHTML").equals(ReturnTimeList.get(0))) {
         try {
           WebElement close =
               driver.findElement(

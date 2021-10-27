@@ -2,14 +2,14 @@ package javaPrograms.PracticePrograms;
 
 interface Phone {
 
+  static void photo() {
+    System.out.println("Photo defined static in Interface");
+  }
+
   void call();
 
   default void message() {
     System.out.println("Message defined default in Phone Interface");
-  }
-
-  static void photo() {
-    System.out.println("Photo defined static in Interface");
   }
 }
 
@@ -38,7 +38,7 @@ public class InterfaceExample implements Phone, Tablet {
     p1.call();
     p.message();
     Phone.photo();
-    demoObj.equals(p1);
+    System.out.println(demoObj.equals(p1));
   }
 
   @Override
@@ -48,6 +48,6 @@ public class InterfaceExample implements Phone, Tablet {
 
   @Override
   public void message() {
-    System.out.println("Message method overriden in InterfaceExample");
+    System.out.println("Message method overridden in InterfaceExample");
   }
 }

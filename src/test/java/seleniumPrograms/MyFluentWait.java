@@ -31,7 +31,7 @@ public class MyFluentWait extends TestBase {
     driver.get("https://www.makemytrip.com/");
 
     Wait<WebDriver> wait =
-        new FluentWait<WebDriver>(driver)
+            new FluentWait<>(driver)
             .withTimeout(Duration.ofSeconds(30))
             .pollingEvery(Duration.ofMillis(500))
             .ignoring(NoSuchElementException.class);

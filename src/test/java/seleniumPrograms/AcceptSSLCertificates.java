@@ -3,6 +3,7 @@ package seleniumPrograms;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -43,10 +44,8 @@ public class AcceptSSLCertificates {
     driver.manage().window().maximize();
     driver.get("https://www.cacert.org/");
     driver.navigate().to("javascript:document.getElementById('overridelink').click()");
-    new WebDriverWait(driver, 10)
-        .until(
-            ExpectedConditions.elementToBeClickable(
-                driver.findElement(By.xpath("//a[@href='http://www.cacert.org']"))));
+    WebElement element = driver.findElement(By.xpath("//a[@href='http://www.cacert.org']"));
+    new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(element));
     driver.quit();
   }
 
@@ -58,10 +57,8 @@ public class AcceptSSLCertificates {
     driver.manage().window().maximize();
     driver.get("https://www.cacert.org/");
     driver.navigate().to("javascript:document.getElementById('overridelink').click()");
-    new WebDriverWait(driver, 10)
-        .until(
-            ExpectedConditions.elementToBeClickable(
-                driver.findElement(By.xpath("//a[@href='http://www.cacert.org']"))));
+    WebElement element = driver.findElement(By.xpath("//a[@href='http://www.cacert.org']"));
+    new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(element));
     driver.quit();
   }
 
@@ -77,10 +74,8 @@ public class AcceptSSLCertificates {
     driver.manage().window().maximize();
     driver.get("https://www.cacert.org/");
 
-    new WebDriverWait(driver, 10)
-        .until(
-            ExpectedConditions.elementToBeClickable(
-                driver.findElement(By.xpath("//a[@href='http://www.cacert.org']"))));
+    WebElement element = driver.findElement(By.xpath("//a[@href='http://www.cacert.org']"));
+    new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(element));
     driver.quit();
   }
 }

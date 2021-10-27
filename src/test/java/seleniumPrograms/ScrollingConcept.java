@@ -22,11 +22,9 @@ public class ScrollingConcept extends TestBase {
     JavascriptExecutor js = (JavascriptExecutor) (driver);
 
     Thread.sleep(6000);
-
-    driver
-        .switchTo()
-        .frame(
-            driver.findElement(By.id("webklipper-publisher-widget-container-notification-frame")));
+    WebElement element =
+        driver.findElement(By.id("webklipper-publisher-widget-container-notification-frame"));
+    driver.switchTo().frame(element);
     driver.findElement(By.xpath("//a[@class='close']")).click();
 
     // Scroll Page down to 550px
