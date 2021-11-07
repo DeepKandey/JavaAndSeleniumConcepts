@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class BrowserStackAndroid {
-  public static String userName = "deepakrai8";
-  public static String accessKey = "CN2L8kEobHZZxdewq6Jy";
+  public static String userName = "<username>";
+  public static String accessKey = "<accessKey>";
 
   public static void main(String args[]) throws MalformedURLException, InterruptedException {
 
