@@ -1,24 +1,25 @@
 /* @author Deepak Rai */
 package javaPrograms.PracticePrograms;
 
-import java.util.ArrayList;
-import java.util.List;
-
 class Practice {
 
   public static void main(String[] args) {
+    //
+    String a = "AbcDE";
+    String b = "ABDE";
+  }
 
-    List<Integer> integers = new ArrayList<>();
-    integers.add(1);
-    integers.add(2);
-    integers.add(3);
-    integers.add(4);
-    integers.add(5);
+  /*
+   * Complete the 'abbreviation' function below.
+   *
+   * The function is expected to return a STRING.
+   * The function accepts following parameters:
+   *  1. STRING a
+   *  2. STRING b
+   */
 
-    List<Integer> integers1 = integers.subList(4, integers.size());
-    List<Integer> integers2 = integers.subList(0, 4);
-    integers1.addAll(integers2);
+  public static String abbreviation(String a, String b) {
+    // Write your code here
 
-    System.out.println(integers1);
   }
 }

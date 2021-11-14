@@ -1,9 +1,8 @@
 package javaPrograms.Regex;
 
-import javaPrograms.Range;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javaPrograms.Range;
 
 public class PatternMatcherDemo {
 

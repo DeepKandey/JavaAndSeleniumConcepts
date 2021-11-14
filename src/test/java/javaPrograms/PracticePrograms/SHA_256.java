@@ -1,6 +1,5 @@
 package javaPrograms.PracticePrograms;
 
-import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
@@ -22,7 +21,7 @@ public class SHA_256 {
       Print the encode value in hexadecimal
        */
       for (byte b : digest) {
-        System.out.format("%02x",b);
+        System.out.format("%02x", b);
       }
 
     } catch (NoSuchAlgorithmException e) {

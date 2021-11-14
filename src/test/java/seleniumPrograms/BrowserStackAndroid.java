@@ -1,14 +1,12 @@
 package seleniumPrograms;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BrowserStackAndroid {
   public static String userName = "deepakrai8";

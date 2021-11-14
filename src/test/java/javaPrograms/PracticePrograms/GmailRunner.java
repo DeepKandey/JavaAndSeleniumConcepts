@@ -24,8 +24,8 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.util.*;
-import org.json.JSONObject;
 import java.util.Base64;
+import org.json.JSONObject;
 
 /**
  * @since May 8, 2020
@@ -250,7 +250,8 @@ public class GmailRunner {
         }
         postData.append(URLEncoder.encode(param.getKey(), StandardCharsets.UTF_8));
         postData.append('=');
-        postData.append(URLEncoder.encode(String.valueOf(param.getValue()), StandardCharsets.UTF_8));
+        postData.append(
+            URLEncoder.encode(String.valueOf(param.getValue()), StandardCharsets.UTF_8));
       }
       byte[] postDataBytes = postData.toString().getBytes(StandardCharsets.UTF_8);
 
@@ -284,22 +285,23 @@ public class GmailRunner {
    */
   public static void main(String[] args) throws IOException, GeneralSecurityException {
 
-//    HashMap<String, String> hm =
-//        getGmailData("subject:ICICI Bank Statement from 01-09-2021 to 30-09-2021 for XXXXXXXXXX19");
-//    System.out.println(hm.get("subject"));
-//    System.out.println("===========");
-//    System.out.println(hm.get("body"));
-//    System.out.println("===========");
-//    System.out.println(hm.get("link"));
-//
-//    System.out.println("===========");
-//    System.out.println("Total count of email(entire mailbox) is: " + getTotalCountOfMails());
-//
-//    System.out.println("===========");
-//    boolean exist = isMailExist("Electricity Bill Due! Pay Now at Paytm.");
-//    System.out.println("Mail with given subject exist or not: " + exist);
-//
-//    System.out.println(getAccessToken());
+    //    HashMap<String, String> hm =
+    //        getGmailData("subject:ICICI Bank Statement from 01-09-2021 to 30-09-2021 for
+    // XXXXXXXXXX19");
+    //    System.out.println(hm.get("subject"));
+    //    System.out.println("===========");
+    //    System.out.println(hm.get("body"));
+    //    System.out.println("===========");
+    //    System.out.println(hm.get("link"));
+    //
+    //    System.out.println("===========");
+    //    System.out.println("Total count of email(entire mailbox) is: " + getTotalCountOfMails());
+    //
+    //    System.out.println("===========");
+    //    boolean exist = isMailExist("Electricity Bill Due! Pay Now at Paytm.");
+    //    System.out.println("Mail with given subject exist or not: " + exist);
+    //
+    //    System.out.println(getAccessToken());
 
     // trashThread("176e5032b2b9249f");
 

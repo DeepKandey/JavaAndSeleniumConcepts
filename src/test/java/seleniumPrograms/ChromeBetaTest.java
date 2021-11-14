@@ -1,12 +1,11 @@
 package seleniumPrograms;
 
+import java.util.ArrayList;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
-
-import java.util.ArrayList;
 
 public class ChromeBetaTest {
 
@@ -24,7 +23,8 @@ public class ChromeBetaTest {
         "webdriver.chrome.driver", "C:\\Users\\deepa\\Downloads\\BrowserDrivers\\chromedriver.exe");
 
     ChromeOptions options = new ChromeOptions();
-    options.setBinary("C:\\Program Files\\Google\\Chrome Beta\\Application\\chrome.exe"); // Chrome beta
+    options.setBinary(
+        "C:\\Program Files\\Google\\Chrome Beta\\Application\\chrome.exe"); // Chrome beta
     driver = new ChromeDriver(options);
     driver.manage().window().maximize();
     driver.get("https://www.cacert.org/");
