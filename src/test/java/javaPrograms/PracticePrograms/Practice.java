@@ -5,8 +5,10 @@ class Practice {
 
   public static void main(String[] args) {
     //
-    String a = "AbcDE";
-    String b = "ABDE";
+    String a = "daBcd";
+    String b = "ABC";
+
+    abbreviation(a,b);
   }
 
   /*
@@ -21,5 +23,7 @@ class Practice {
   public static String abbreviation(String a, String b) {
     // Write your code here
 
+
+    return  null;
   }
 }
