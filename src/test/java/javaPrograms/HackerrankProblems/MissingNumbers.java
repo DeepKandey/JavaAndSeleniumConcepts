@@ -37,7 +37,7 @@ public class MissingNumbers {
 
     HashMap<Integer, Integer> brrMap = new HashMap<>();
     HashMap<Integer, Integer> arrMap = new HashMap<>();
-    Set<Integer> missingNumberList = new TreeSet<>();
+    Set<Integer> missingNumberSet = new TreeSet<>();
 
     for (Integer integer : brr) {
       brrMap.merge(integer, 1, Integer::sum);
@@ -52,6 +52,6 @@ public class MissingNumbers {
         missingNumberList.add(integer);
       }
     }
-    return new ArrayList<>(missingNumberList);
+    return new ArrayList<>(missingNumberSet);
   }
 }
