@@ -49,7 +49,7 @@ public class MissingNumbers {
 
     for (Integer integer : brr) {
       if (!(brrMap.get(integer).equals(arrMap.get(integer)))) {
-        missingNumberList.add(integer);
+        missingNumberSet.add(integer);
       }
     }
     return new ArrayList<>(missingNumberSet);

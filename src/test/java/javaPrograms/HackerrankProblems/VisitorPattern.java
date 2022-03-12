@@ -1,4 +1,4 @@
-package javaPrograms.PracticePrograms;
+package javaPrograms.HackerrankProblems;
 
 import java.util.ArrayList;
 import java.util.HashMap;
