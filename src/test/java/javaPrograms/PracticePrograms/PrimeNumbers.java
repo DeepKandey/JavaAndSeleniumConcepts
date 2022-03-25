@@ -39,7 +39,7 @@ public class PrimeNumbers {
 
   public static void getPrimeNumbers(int num) {
 
-    System.out.println("****--Prime numbers upto " + num + "--****");
+    System.out.println("****--Prime numbers up to " + num + "--****");
     for (int i = 2; i <= num; i++) {
       if (isPrimeNumber(i)) System.out.print(i + " ");
     }
