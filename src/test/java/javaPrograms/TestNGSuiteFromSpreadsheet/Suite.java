@@ -21,8 +21,8 @@ public class Suite {
     this.tests = new ArrayList<>();
   }
 
-  public void addTest(String testname, String paramName, String paramValue, String className) {
-    Test test = new Test(testname);
+  public void addTest(String testName, String paramName, String paramValue, String className) {
+    Test test = new Test(testName);
     test.addParam(paramName, paramValue);
     Pattern.compile(",").splitAsStream(className).forEach(test::addClass);
     this.tests.add(test);
@@ -105,5 +105,5 @@ public class Suite {
     Class(String name) {
       this.name = name;
     }
-  } // End of class Class
+  } // End of class
 } // End of class Suite
