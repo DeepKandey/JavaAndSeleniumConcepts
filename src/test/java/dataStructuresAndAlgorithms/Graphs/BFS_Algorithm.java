@@ -39,30 +39,37 @@ public class BFS_Algorithm {
         int source = Integer.parseInt(br.readLine());
         /*
         4
-        6
+        7
         0 1
         0 2
         1 2
         2 0
         2 3
         3 3
+        4 5
         2
          */
 
         // write your code here
         boolean[] visited = new boolean[vertices];
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(source);
 
         for (int i = 0; i < vertices; i++) {
             // To check if already visited
             if (!visited[i]) {
-                Queue<Integer> queue = new LinkedList<>();
-                queue.add(source);
+                queue.add(i);
 
                 // BFS starting from ith node
                 while (queue.size() > 0) {
                     int node = queue.remove();
-                    visited[node] = true;
-                    System.out.print(node + " ");
+
+                    if (visited[node]) {
+                        continue;
+                    } else {
+                        visited[node] = true;
+                        System.out.print(node + " ");
+                    }
 
                     for (Edge e : graph[node]) {
                         if (!visited[e.dest]) {
