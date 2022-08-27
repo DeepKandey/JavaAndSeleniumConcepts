@@ -8,7 +8,7 @@ import java.util.LinkedList;
 public class BreadthFirstSearch {
 
   private int v; // no. of vertices
-  private LinkedList<Integer> adj[]; // Adjancey List
+  private LinkedList<Integer> adj[]; // Adjacency List
 
   @SuppressWarnings("unchecked")
   public BreadthFirstSearch(int v) {
@@ -44,7 +44,7 @@ public class BreadthFirstSearch {
       System.out.println("Dequeuing " + s);
 
       // Get all adjacent vertices of the dequeued vertex s
-      // If a adjacent has not been visited, then mark it
+      // If an adjacent has not been visited, then mark it
       // visited and enqueue it
       Iterator<Integer> i = adj[s].listIterator();
       while (i.hasNext()) {

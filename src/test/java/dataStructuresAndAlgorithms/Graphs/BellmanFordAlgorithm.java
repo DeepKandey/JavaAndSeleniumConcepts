@@ -3,7 +3,7 @@ package dataStructuresAndAlgorithms.Graphs;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-// Find the shortest path
+// Find the shortest path in a graph containing negative weights
 
 public class BellmanFordAlgorithm {
 
