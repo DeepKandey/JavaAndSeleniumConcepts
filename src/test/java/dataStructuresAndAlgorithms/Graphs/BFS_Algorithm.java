@@ -51,32 +51,40 @@ public class BFS_Algorithm {
 
         // write your code here
         boolean[] visited = new boolean[vertices];
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(source);
 
+/*
+        For disconnected graph
         for (int i = 0; i < vertices; i++) {
             // To check if already visited
             if (!visited[i]) {
-                queue.add(i);
-
-                // BFS starting from ith node
-                while (queue.size() > 0) {
-                    int node = queue.remove();
-
-                    if (visited[node]) {
-                        continue;
-                    } else {
-                        visited[node] = true;
-                        System.out.print(node + " ");
-                    }
-
-                    for (Edge e : graph[node]) {
-                        if (!visited[e.dest]) {
-                            queue.add(e.dest);
-                        }
-                    }
-                }
+                bfsForDisconnectedGraph(i, visited, graph);
                 System.out.println();
+            }
+        }
+*/
+
+        // For connected graph
+        bfs(source, visited, graph);
+    }
+
+    public static void bfs(int node, boolean[] visited, LinkedList<Edge>[] graph) {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(node);
+
+        while (queue.size() > 0) {
+            int vertex = queue.remove();
+
+            if (visited[vertex]) {
+                continue;
+            } else {
+                visited[vertex] = true;
+                System.out.print(vertex + " ");
+            }
+
+            for (Edge e : graph[vertex]) {
+                if (!visited[e.dest]) {
+                    queue.add(e.dest);
+                }
             }
         }
     }
