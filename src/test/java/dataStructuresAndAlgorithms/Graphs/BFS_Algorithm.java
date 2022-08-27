@@ -57,7 +57,7 @@ public class BFS_Algorithm {
         for (int i = 0; i < vertices; i++) {
             // To check if already visited
             if (!visited[i]) {
-                bfsForDisconnectedGraph(i, visited, graph);
+                bfs(i, visited, graph);
                 System.out.println();
             }
         }
