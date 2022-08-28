@@ -22,7 +22,6 @@ public class LinkedList {
     // Check if we are adding node for first time
     if (head == null) {
       head = newNode;
-      return;
     } else {
       // Set new node's next to the current node
       newNode.next = head;
@@ -39,7 +38,6 @@ public class LinkedList {
     // Check if we are adding node for first time
     if (head == null) {
       head = newNode;
-      return;
     } else {
       // Else traverse list till the last node
       Node last = head;
