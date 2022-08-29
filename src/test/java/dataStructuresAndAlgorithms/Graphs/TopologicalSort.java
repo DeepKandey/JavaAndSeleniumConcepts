@@ -4,12 +4,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Stack;
 
-public class CycleInDirected {
-
+public class TopologicalSort {
     static class Edge {
         int src;
         int dest;
+
         Edge(int src, int dest) {
             this.src = src;
             this.dest = dest;
@@ -36,46 +37,27 @@ public class CycleInDirected {
 
         int source = Integer.parseInt(br.readLine());
 
-        /*
-        7
-        6
-        0 1
-        1 2
-        2 3
-        4 5
-        5 6
-        6 4
-        0
-         */
-        // Write your code here
+        // write your code here
         boolean[] visited = new boolean[vertices];
-        boolean[] dfsVisited = new boolean[vertices];
+        Stack<Integer> stack = new Stack<>();
 
+        // For disconnected graph
         for (int i = 0; i < vertices; i++) {
-            if (!visited[i]) {
-                boolean ans = isCyclicDFS(i, graph, visited, dfsVisited);
-                if (ans) {
-                    System.out.println("Yes");
-                }
-            }
+            if (!visited[i])
+                topologicalSortUsingDFS(i, graph, visited, stack);
         }
+
+        System.out.println(stack);
     }
 
-    public static boolean isCyclicDFS(int node, ArrayList<Edge>[] graph, boolean[] visited, boolean[] dfsVisited) {
+    public static void topologicalSortUsingDFS(int node, ArrayList<Edge>[] graph, boolean[] visited, Stack<Integer> stack) {
         visited[node] = true;
-        dfsVisited[node] = true;
 
-        for (Edge e : graph[node]) {
+        for (TopologicalSort.Edge e : graph[node]) {
             if (!visited[e.dest]) {
-                boolean ans = isCyclicDFS(e.dest, graph, visited, dfsVisited);
-                if (ans) {
-                    return true;
-                }
-            } else if (dfsVisited[e.dest]) {
-                return true;
+                topologicalSortUsingDFS(e.dest, graph, visited, stack);
             }
         }
-        dfsVisited[node] = true;
-        return false;
+        stack.add(node);
     }
 }
