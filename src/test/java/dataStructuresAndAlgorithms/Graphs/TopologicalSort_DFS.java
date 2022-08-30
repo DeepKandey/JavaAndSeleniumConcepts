@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class TopologicalSort {
+public class TopologicalSort_DFS {
     static class Edge {
         int src;
         int dest;
@@ -36,6 +36,18 @@ public class TopologicalSort {
         }
 
         int source = Integer.parseInt(br.readLine());
+        /*
+        6
+        6
+        5 2
+        4 0
+        5 0
+        4 1
+        2 3
+        3 1
+        0
+        4
+         */
 
         // write your code here
         boolean[] visited = new boolean[vertices];
@@ -53,7 +65,7 @@ public class TopologicalSort {
     public static void topologicalSortUsingDFS(int node, ArrayList<Edge>[] graph, boolean[] visited, Stack<Integer> stack) {
         visited[node] = true;
 
-        for (TopologicalSort.Edge e : graph[node]) {
+        for (TopologicalSort_DFS.Edge e : graph[node]) {
             if (!visited[e.dest]) {
                 topologicalSortUsingDFS(e.dest, graph, visited, stack);
             }
