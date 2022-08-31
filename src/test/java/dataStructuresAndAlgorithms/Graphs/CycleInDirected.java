@@ -4,12 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class CycleInDirected {
-
     static class Edge {
         int src;
         int dest;
+
         Edge(int src, int dest) {
             this.src = src;
             this.dest = dest;
@@ -59,6 +61,11 @@ public class CycleInDirected {
                 }
             }
         }
+
+        boolean ans = isCyclicBFS(vertices, graph);
+        if (ans) {
+            System.out.println("Yes");
+        }
     }
 
     public static boolean isCyclicDFS(int node, ArrayList<Edge>[] graph, boolean[] visited, boolean[] dfsVisited) {
@@ -77,5 +84,43 @@ public class CycleInDirected {
         }
         dfsVisited[node] = true;
         return false;
+    }
+
+    public static boolean isCyclicBFS(int vertices, ArrayList<Edge>[] graph) {
+        int count = 0;
+
+        // Find all in degrees
+        int[] in_degree = new int[vertices];
+        for (int i = 0; i < vertices; i++) {
+            for (Edge edge : graph[i]) {
+                in_degree[edge.dest]++;
+            }
+        }
+
+        // Push nodes in queue having in-degree 0
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < vertices; i++) {
+            if (in_degree[i] == 0) {
+                queue.add(i);
+            }
+        }
+
+        // do bfs
+        while (queue.size() > 0) {
+            int front = queue.remove();
+
+            count++;
+
+            // neighbour in-degree update
+            for (Edge e : graph[front]) {
+                in_degree[e.dest]--;
+                if (in_degree[e.dest] == 0) {
+                    queue.add(e.dest);
+                }
+            }
+        }
+
+        if (count == vertices) return false;
+        else return true;
     }
 }

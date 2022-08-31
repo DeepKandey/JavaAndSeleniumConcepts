@@ -7,11 +7,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class CycleInUndirected {
-
     static class Edge {
         int src;
         int dest;
-
         Edge(int src, int dest) {
             this.src = src;
             this.dest = dest;
