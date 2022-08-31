@@ -131,6 +131,6 @@ public class HashTable {
     System.out.println(obj.get("Deepak Rai"));
     System.out.println(obj.get("John Smith"));
     System.out.println(obj.get("Sandra Dee"));
-    System.out.println(obj.toString());
+    System.out.println(obj);
   }
 }
