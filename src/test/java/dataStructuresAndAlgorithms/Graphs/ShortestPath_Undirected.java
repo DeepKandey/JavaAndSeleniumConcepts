@@ -38,6 +38,23 @@ public class ShortestPath_Undirected {
         int source = Integer.parseInt(br.readLine());
         int destination = Integer.parseInt(br.readLine());
 
+        /*
+        8
+        10
+        0 1
+        0 3
+        1 2
+        3 4
+        3 7
+        4 5
+        4 6
+        4 7
+        5 6
+        6 7
+        0
+        7
+         */
+
         // Write your code here
         shortestPath_BFS(vertices, source, destination, graph);
     }

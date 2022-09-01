@@ -65,7 +65,7 @@ public class TopologicalSort_DFS {
     public static void topologicalSortUsingDFS(int node, ArrayList<Edge>[] graph, boolean[] visited, Stack<Integer> stack) {
         visited[node] = true;
 
-        for (TopologicalSort_DFS.Edge e : graph[node]) {
+        for (Edge e : graph[node]) {
             if (!visited[e.dest]) {
                 topologicalSortUsingDFS(e.dest, graph, visited, stack);
             }
