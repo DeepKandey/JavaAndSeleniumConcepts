@@ -5,8 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class DFS_Algorithm {
-
+public class Bridges {
     static class Edge {
         int src;
         int dest;
@@ -35,46 +34,54 @@ public class DFS_Algorithm {
             graph[u].add(new Edge(u, v));
             graph[v].add(new Edge(v, u));
         }
-
-        int source = Integer.parseInt(br.readLine());
+        /*
+        5
+        5
+        1 0
+        0 2
+        2 1
+        0 3
+        3 4
+         */
 
         // Write your code here
+        int timer = 0;
+        int[] disc = new int[vertices];
+        int[] low = new int[vertices];
+        int parent = -1;
         boolean[] visited = new boolean[vertices];
 
-        /* For disconnected graph
-        ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
+        for (int i = 0; i < vertices; i++) {
+            disc[i] = -1;
+            low[i] = -1;
+        }
 
+        // dfs
         for (int i = 0; i < vertices; i++) {
             if (!visited[i]) {
-                ArrayList<Integer> component = new ArrayList<>();
-                dfs(i, graph, component, visited);
-                ans.add(component);
-            }
-        }
-
-        System.out.println(Arrays.deepToString(ans.toArray()));
-*/
-        dfs(source, graph, visited); // For connected graph
-    }
-
-    public static void dfs(int node, ArrayList<Edge>[] graph, ArrayList<Integer> component, boolean[] visited) {
-        visited[node] = true;
-        component.add(node);
-
-        for (Edge e : graph[node]) {
-            if (!visited[e.dest]) {
-                dfs(e.dest, graph, component, visited);
+                dfs(i, parent, timer, disc, low, graph, visited);
             }
         }
     }
 
-    public static void dfs(int node, ArrayList<Edge>[] graph, boolean[] visited) {
+    static void dfs(int node, int parent, int timer, int[] disc, int[] low, ArrayList<Edge>[] graph, boolean[] visited) {
         visited[node] = true;
-        System.out.print(node + " ");
 
-        for (Edge e : graph[node]) {
-            if (!visited[e.dest]) {
-                dfs(e.dest, graph, visited);
+        disc[node] = low[node] = timer++;
+
+        for (Edge edge : graph[node]) {
+            if (edge.dest == parent) {
+                continue;
+            } else if (!visited[edge.dest]) {
+                dfs(edge.dest, node, timer, disc, low, graph, visited);
+                low[node] = Math.min(low[node], low[edge.dest]);
+                // check edge is bridge
+                if (low[edge.dest] > disc[node]) {
+                    System.out.println(node + " " + edge.dest);
+                }
+            } else {
+                // back edge
+                low[node] = Math.min(low[node], disc[edge.dest]);
             }
         }
     }
