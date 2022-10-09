@@ -46,7 +46,6 @@ public class MaximumXOR {
             int bit = (num >> i) & 1;
             if (node.containsKey(1 - bit)) {
                 maxNum = maxNum | (1 << i);
-                System.out.print(maxNum + " ");
                 node = node.getNode(1 - bit);
             } else node = node.getNode(bit);
         }
