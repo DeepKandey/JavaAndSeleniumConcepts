@@ -53,10 +53,10 @@ public class MaxHeap {
         int leftIndex = largest * 2;
         int rightIndex = largest * 2 + 1;
 
-        if (leftIndex < n && array1[leftIndex] > array1[largest]) {
+        if (leftIndex <= n && array1[leftIndex] > array1[largest]) {
             largest = leftIndex;
         }
-        if (rightIndex < n && array1[rightIndex] > array1[largest]) {
+        if (rightIndex <= n && array1[rightIndex] > array1[largest]) {
             largest = rightIndex;
         }
 
@@ -68,6 +68,18 @@ public class MaxHeap {
         }
     }
 
+    void heapSort(int[] array3, int n) {
+        int size = n;
+
+        while (size > 1) {
+            int temp = array3[1];
+            array3[1] = array3[size];
+            array3[size] = temp;
+            size--;
+            heapify(array3, size, 1);
+        }
+    }
+
     void print() {
         for (int i = 1; i <= size; i++) {
             System.out.print(array[i] + " ");
@@ -76,9 +88,10 @@ public class MaxHeap {
     }
 
     void printArray(int[] array2) {
-        for (int i = 1; i <= array2.length-1; i++) {
+        for (int i = 1; i <= array2.length - 1; i++) {
             System.out.print(array2[i] + " ");
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {
@@ -97,11 +110,16 @@ public class MaxHeap {
         maxHeap.print();
 
         int[] arr = new int[]{-1, 54, 53, 55, 52, 50};
-        int n=5;
-        for (int i = n/2; i > 0; i--) {
-            maxHeap.heapify(arr,n,i);
+        int n = 5;
+        for (int i = n / 2; i > 0; i--) {
+            maxHeap.heapify(arr, n, i);
         }
         System.out.println("After Heapify");
         maxHeap.printArray(arr);
+
+        maxHeap.heapSort(arr,n);
+        System.out.println("After heap sort");
+        maxHeap.printArray(arr);
+
     }
 }
