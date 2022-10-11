@@ -48,10 +48,36 @@ public class MaxHeap {
         }
     }
 
+    void heapify(int[] array1, int n, int i) {
+        int largest = i;
+        int leftIndex = largest * 2;
+        int rightIndex = largest * 2 + 1;
+
+        if (leftIndex < n && array1[leftIndex] > array1[largest]) {
+            largest = leftIndex;
+        }
+        if (rightIndex < n && array1[rightIndex] > array1[largest]) {
+            largest = rightIndex;
+        }
+
+        if (largest != i) {
+            int temp = array1[largest];
+            array1[largest] = array1[i];
+            array1[i] = temp;
+            heapify(array1, n, largest);
+        }
+    }
 
     void print() {
         for (int i = 1; i <= size; i++) {
             System.out.print(array[i] + " ");
+        }
+        System.out.println();
+    }
+
+    void printArray(int[] array2) {
+        for (int i = 1; i <= array2.length-1; i++) {
+            System.out.print(array2[i] + " ");
         }
     }
 
@@ -63,10 +89,19 @@ public class MaxHeap {
         maxHeap.insert(53);
         maxHeap.insert(52);
         maxHeap.insert(54);
+        System.out.println("After Insert");
         maxHeap.print();
 
-        System.out.println();
+        System.out.println("After Delete");
         maxHeap.deleteFromHeap();
         maxHeap.print();
+
+        int[] arr = new int[]{-1, 54, 53, 55, 52, 50};
+        int n=5;
+        for (int i = n/2; i > 0; i--) {
+            maxHeap.heapify(arr,n,i);
+        }
+        System.out.println("After Heapify");
+        maxHeap.printArray(arr);
     }
 }
