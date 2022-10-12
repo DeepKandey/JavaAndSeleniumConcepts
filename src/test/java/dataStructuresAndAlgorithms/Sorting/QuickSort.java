@@ -1,87 +1,59 @@
 package dataStructuresAndAlgorithms.Sorting;
 
+import java.util.Arrays;
+
 public class QuickSort {
 
-  public int[] sort(int[] array) {
-    // Pick a pivot element randomly
+    int partition(int[] array, int start, int end) {
 
-    // Walk through the array making sure that all the elements are smaller before
-    // the pivot, and that all the elements after are bigger and we do this in
-    // place! That's the killer feature.No extra array required.
-    //
-    // Then we repeat the process to the left and right portions over and over again
-    // Then eventually our array becomes sorted.
+        int pivot = array[start];
+        int count = 0;
 
-    quickSort(array, 0, array.length - 1);
-    return array;
-  }
+        for (int i = start + 1; i <= end; i++) {
+            if (array[i] <= pivot) count++;
+        }
 
-  private void quickSort(int[] array, int left, int right) {
+        int pivotIndex = start + count;
 
-    if (left >= right) {
-      return;
+        int temp = array[pivotIndex];
+        array[pivotIndex] = array[start];
+        array[start] = temp;
+
+        int i = start, j = end;
+
+        while (i < pivotIndex && j > pivotIndex) {
+            while (array[i] < array[pivotIndex]) i++;
+            while (array[j] > array[pivotIndex]) j--;
+
+            if (i < pivotIndex && j > pivotIndex) {
+                int temp_1 = array[i];
+                array[i] = array[j];
+                array[j] = temp_1;
+            }
+        }
+
+        return pivotIndex;
     }
 
-    // Step 1: Pick a pivot element- we will choose the center
-    int pivot = array[(left + right) / 2];
+    void quickSorting(int[] array, int start, int end) {
+        // Base case
+        if (start > end) return;
 
-    // Step 2: Partition the array around this array- return the index of the
-    // partition
-    int index = partition(array, left, right, pivot);
+        int pivot = partition(array, start, end);
 
-    // Step 3: Sort on the left and the right side
-    quickSort(array, left, index - 1);
-    quickSort(array, index, right);
-  }
-
-  private int partition(int[] array, int left, int right, int pivot) {
-
-    // Move the left and right pointers in towards each other
-    while (left <= right) {
-
-      // Move left until you find an element greater than pivot
-      while (array[left] < pivot) {
-        left++;
-      }
-
-      // Move right until you find an element smaller than pivot
-      while (array[right] > pivot) {
-        right--;
-      }
-
-      // Then swap
-      if (left <= right) {
-        swap(array, left, right);
-        left++;
-        right--;
-      }
+        // Quick sort left part
+        quickSorting(array, start, pivot - 1);
+        // Quick sort right part
+        quickSorting(array, pivot + 1, end);
     }
 
-    // When we get here, everything in this partition will be in the right order
-    // Now we need to return next partition point - which for us will be left
-    return left;
-  }
+    public static void main(String[] args) {
 
-  private void swap(int[] array, int left, int right) {
+        int[] array = new int[]{34, 89, 56, 24, 65};
 
-    int temp = array[left];
-    array[left] = array[right];
-    array[right] = temp;
-  }
+        QuickSort quickSort = new QuickSort();
+        quickSort.quickSorting(array, 0, 4);
 
-  public void prettyPrint(int[] a) {
-    for (int i = 0; i < a.length; i++) {
-      System.out.print(a[i] + " ");
+        System.out.println(Arrays.toString(array));
     }
-  }
-
-  public static void main(String[] args) {
-    // TODO Auto-generated method stub
-
-    int[] arr = {12, 11, 13, 6, 5, 4};
-
-    QuickSort obj = new QuickSort();
-    int[] sortedArray = obj.sort(arr);
-    obj.prettyPrint(sortedArray);
-  }
 }
