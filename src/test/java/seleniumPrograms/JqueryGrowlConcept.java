@@ -21,7 +21,6 @@ public class JqueryGrowlConcept {
 
   @BeforeMethod
   public void setUp() {
-    System.setProperty("webdriver.chrome.driver", CommonConstants.DRIVERPATH_CHROME);
     driver = new ChromeDriver();
     driver.manage().window().maximize();
     js = (JavascriptExecutor) driver;

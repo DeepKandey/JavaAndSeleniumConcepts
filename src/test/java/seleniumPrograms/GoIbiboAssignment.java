@@ -22,12 +22,9 @@ public class GoIbiboAssignment {
   public void setup() {
 
     /*
-     * System.setProperty("webdriver.gecko.driver",
-     * "C:\\Users\\deepa\\Downloads\\Drivers\\FireFoxDrivers\\geckodriver.exe");
      * driver = new FirefoxDriver();
      */
 
-    System.setProperty("webdriver.chrome.driver", CommonConstants.DRIVERPATH_CHROME);
     driver = new ChromeDriver();
 
     wait = new WebDriverWait(driver, 20);

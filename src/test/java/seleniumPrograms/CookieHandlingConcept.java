@@ -27,8 +27,6 @@ public class CookieHandlingConcept {
 
   @BeforeMethod
   public void setup() {
-
-    System.setProperty("webdriver.gecko.driver", CommonConstants.DRIVERPATH_FIREFOX);
     driver = new FirefoxDriver();
     wait = new WebDriverWait(driver, 20);
     driver.manage().window().maximize();

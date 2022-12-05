@@ -25,7 +25,6 @@ public class DownloadFileConcept {
     folder = new File(UUID.randomUUID().toString());
     folder.mkdir();
 
-    System.setProperty("webdriver.chrome.driver", CommonConstants.DRIVERPATH_CHROME);
     ChromeOptions options = new ChromeOptions();
 
     Map<String, Object> pref = new HashMap<String, Object>();

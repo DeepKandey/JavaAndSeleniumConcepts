@@ -12,57 +12,50 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestBase {
 
-  protected static WebDriver driver = null;
-  protected static WebDriverWait wait;
+    protected static WebDriver driver = null;
+    protected static WebDriverWait wait;
 
-  public static void initialization(BrowserNames browserName) {
+    public static void initialization(BrowserNames browserName) {
 
-    if (driver == null) {
-      if (browserName == BrowserNames.CHROME) {
+        if (driver == null) {
+            if (browserName == BrowserNames.CHROME) {
+                System.setProperty("webdriver.chrome.silentOutput", "true"); // To suppress browser logs
+                driver = new ChromeDriver();
 
-        System.setProperty("webdriver.chrome.driver", CommonConstants.DRIVERPATH_CHROME);
-        System.setProperty("webdriver.chrome.silentOutput", "true"); // To suppress browser logs
-        driver = new ChromeDriver();
+            } else if (browserName == BrowserNames.FF) {
+                System.setProperty(
+                        FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "null"); // To suppress FF logs on
+                driver = new FirefoxDriver();
 
-      } else if (browserName == BrowserNames.FF) {
+            } else if (browserName == BrowserNames.EDGE) {
+                driver = new EdgeDriver();
 
-        System.setProperty("webdriver.gecko.driver", CommonConstants.DRIVERPATH_FIREFOX);
-        System.setProperty(
-            FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "null"); // To suppress FF logs on
-        driver = new FirefoxDriver();
+            } else if (browserName == BrowserNames.IE) {
+                WebDriverManager.iedriver().setup();
 
-      } else if (browserName == BrowserNames.EDGE) {
+                InternetExplorerOptions options = new InternetExplorerOptions();
+                options.setCapability(
+                        InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+                options.setCapability(InternetExplorerDriver.INITIAL_BROWSER_URL, "");
+                options.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
+                driver = new InternetExplorerDriver(options);
 
-        System.setProperty("webdriver.edge.driver", CommonConstants.DRIVERPATH_EDGE);
-        driver = new EdgeDriver();
+            } else System.out.println("Print provide valid browser names");
+        }
 
-      } else if (browserName == BrowserNames.IE) {
+        if (driver != null) {
 
-        WebDriverManager.iedriver().setup();
+            driver.manage().window().maximize();
+            wait = new WebDriverWait(driver, 20);
+            System.out.println("Launching " + browserName + " browser");
+        }
+    } // End of method initialization()
 
-        InternetExplorerOptions options = new InternetExplorerOptions();
-        options.setCapability(
-            InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
-        options.setCapability(InternetExplorerDriver.INITIAL_BROWSER_URL, "");
-        options.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
-        driver = new InternetExplorerDriver(options);
+    public static void closeDriver() {
 
-      } else System.out.println("Print provide valid browser names");
-    }
-
-    if (driver != null) {
-
-      driver.manage().window().maximize();
-      wait = new WebDriverWait(driver, 20);
-      System.out.println("Launching " + browserName + " browser");
-    }
-  } // End of method initialization()
-
-  public static void closeDriver() {
-
-    if (driver != null) {
-      System.out.println("Driver quit");
-      driver.quit();
-    }
-  } // End of method close()
+        if (driver != null) {
+            System.out.println("Driver quit");
+            driver.quit();
+        }
+    } // End of method close()
 } // End of class TestBase

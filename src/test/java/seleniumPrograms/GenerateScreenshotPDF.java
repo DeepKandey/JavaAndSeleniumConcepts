@@ -20,7 +20,6 @@ public class GenerateScreenshotPDF {
 
   @BeforeTest
   public void setup() {
-    System.setProperty("webdriver.chrome.driver", CommonConstants.DRIVERPATH_CHROME);
     driver = new ChromeDriver();
     driver.manage().window().maximize();
   }

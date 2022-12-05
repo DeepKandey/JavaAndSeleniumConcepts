@@ -19,7 +19,6 @@ public class FireFoxHeadlessMode extends TestBase {
     FirefoxOptions options = new FirefoxOptions();
     options.setBinary(binary);
 
-    System.setProperty("webdriver.gecko.driver", CommonConstants.DRIVERPATH_FIREFOX);
     WebDriver driver = new FirefoxDriver(options);
 
     driver.get(
@@ -30,7 +29,6 @@ public class FireFoxHeadlessMode extends TestBase {
 
   @Test
   public void launchEdgeBrowser() {
-    System.setProperty("webdriver.edge.driver", CommonConstants.DRIVERPATH_EDGE);
     WebDriver driver = new EdgeDriver();
     driver.get(
         "http://learn-automation.com/launch-microsoft-edge-browser-using-selenium-webdriver");

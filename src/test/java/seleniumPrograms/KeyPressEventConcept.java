@@ -13,7 +13,6 @@ public class KeyPressEventConcept {
 
   @Test
   public void keyEventTest() {
-    System.setProperty("webdriver.chrome.driver", CommonConstants.DRIVERPATH_CHROME);
     WebDriver driver = new ChromeDriver();
 
     driver.get("https://the-internet.herokuapp.com/key_presses");

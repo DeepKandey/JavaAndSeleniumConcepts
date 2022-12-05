@@ -20,20 +20,17 @@ public class ParallelBrowserHandlingUsingTestNG {
 
     if (browserName.equalsIgnoreCase("chrome")) {
 
-      System.setProperty("webdriver.chrome.driver", CommonConstants.DRIVERPATH_CHROME);
       driver = new ChromeDriver();
       System.out.println("Launching " + browserName + " browser");
       driver.manage().window().maximize();
 
     } else if (browserName.equalsIgnoreCase("firefox")) {
 
-      System.setProperty("webdriver.gecko.driver", CommonConstants.DRIVERPATH_FIREFOX);
       driver = new FirefoxDriver();
       System.out.println("Launching " + browserName + " browser");
 
     } else if (browserName.equalsIgnoreCase("Edge")) {
 
-      System.setProperty("webdriver.edge.driver", CommonConstants.DRIVERPATH_EDGE);
       driver = new EdgeDriver();
       System.out.println("Launching " + browserName + " browser");
     }
