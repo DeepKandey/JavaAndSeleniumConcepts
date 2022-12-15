@@ -16,6 +16,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class AcceptSSLCertificates {
   WebDriver driver;
 
@@ -24,7 +26,7 @@ public class AcceptSSLCertificates {
     WebDriverManager.chromedriver().setup();
 
     ChromeOptions options = new ChromeOptions();
-    options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+    options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
     driver = new ChromeDriver(options);
     driver.manage().window().maximize();
     driver.get("https://www.cacert.org/");
@@ -45,7 +47,7 @@ public class AcceptSSLCertificates {
     driver.get("https://www.cacert.org/");
     driver.navigate().to("javascript:document.getElementById('overridelink').click()");
     WebElement element = driver.findElement(By.xpath("//a[@href='http://www.cacert.org']"));
-    new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(element));
+    new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(element));
     driver.quit();
   }
 
@@ -58,7 +60,7 @@ public class AcceptSSLCertificates {
     driver.get("https://www.cacert.org/");
     driver.navigate().to("javascript:document.getElementById('overridelink').click()");
     WebElement element = driver.findElement(By.xpath("//a[@href='http://www.cacert.org']"));
-    new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(element));
+    new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(element));
     driver.quit();
   }
 
@@ -67,7 +69,6 @@ public class AcceptSSLCertificates {
     WebDriverManager.firefoxdriver().setup();
 
     FirefoxOptions options = new FirefoxOptions();
-    options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
     options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 
     driver = new FirefoxDriver(options);
@@ -75,7 +76,7 @@ public class AcceptSSLCertificates {
     driver.get("https://www.cacert.org/");
 
     WebElement element = driver.findElement(By.xpath("//a[@href='http://www.cacert.org']"));
-    new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(element));
+    new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(element));
     driver.quit();
   }
 }

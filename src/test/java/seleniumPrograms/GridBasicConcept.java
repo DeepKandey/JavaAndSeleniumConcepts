@@ -1,5 +1,16 @@
 package seleniumPrograms;
 
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.Browser;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -7,16 +18,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
 import java.util.stream.Collectors;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.BrowserType;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
 public class GridBasicConcept {
 
@@ -74,7 +75,7 @@ public class GridBasicConcept {
     DesiredCapabilities cap = new DesiredCapabilities();
     cap.setPlatform(Platform.WINDOWS);
 
-    cap.setBrowserName(BrowserType.FIREFOX);
+    cap.setBrowserName(String.valueOf(Browser.FIREFOX));
     FirefoxOptions options = new FirefoxOptions();
     options.merge(cap);
 
@@ -99,7 +100,7 @@ public class GridBasicConcept {
     DesiredCapabilities cap = new DesiredCapabilities();
     cap.setPlatform(Platform.WINDOWS);
 
-    cap.setBrowserName(BrowserType.CHROME);
+    cap.setBrowserName(String.valueOf(Browser.CHROME));
     ChromeOptions options = new ChromeOptions();
     options.merge(cap);
 
@@ -124,7 +125,7 @@ public class GridBasicConcept {
     DesiredCapabilities cap = new DesiredCapabilities();
     cap.setPlatform(Platform.WINDOWS);
 
-    cap.setBrowserName(BrowserType.EDGE);
+    cap.setBrowserName(String.valueOf(Browser.EDGE));
     EdgeOptions options = new EdgeOptions();
     options.merge(cap);
 

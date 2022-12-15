@@ -4,6 +4,7 @@ import com.qa.constants.CommonConstants;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Date;
 import java.util.Set;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -28,7 +29,7 @@ public class CookieHandlingConcept {
   @BeforeMethod
   public void setup() {
     driver = new FirefoxDriver();
-    wait = new WebDriverWait(driver, 20);
+    wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     driver.manage().window().maximize();
   }
 

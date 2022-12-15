@@ -1,6 +1,8 @@
 package seleniumPrograms;
 
 import com.qa.constants.CommonConstants;
+
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -27,7 +29,7 @@ public class GoIbiboAssignment {
 
     driver = new ChromeDriver();
 
-    wait = new WebDriverWait(driver, 20);
+    wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     driver.manage().window().maximize();
   }
 

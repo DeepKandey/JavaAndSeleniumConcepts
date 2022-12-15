@@ -1,19 +1,13 @@
 package seleniumPrograms;
 
-import com.qa.constants.CommonConstants;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -21,11 +15,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+
 public class MakeMyTrip {
     WebDriver driver;
-    EventFiringWebDriver eventDriver;
-    EventHandler eventHandler;
-    static final Logger log = Logger.getLogger(MakeMyTrip.class);
+    static final Logger log = LogManager.getLogger(MakeMyTrip.class);
 
     @BeforeMethod
     public void setup() {
@@ -35,25 +31,20 @@ public class MakeMyTrip {
                 "--disable-infobars"); // --disable info bar-that chrome is controlled by automated test s/w
 
         // To accept notifications
-        Map<String, Object> prefs = new HashMap<String, Object>();
+        Map<String, Object> prefs = new HashMap<>();
         prefs.put("profile.default_content_setting_values.notifications", 1);
         // 1-Allow, 2-Block, 0-default
         option.setExperimentalOption("prefs", prefs);
 
         driver = new ChromeDriver(option);
-        eventDriver = new EventFiringWebDriver(driver);
-        eventHandler = new EventHandler();
-        eventDriver.register(eventHandler);
-        driver = eventDriver;
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
     }
 
     @AfterMethod
     public void tearDown() {
         if (driver != null) driver.quit();
-        eventDriver.unregister(eventHandler);
     }
 
     @Test
@@ -204,7 +195,7 @@ public class MakeMyTrip {
 
         driver.findElement(By.id("searchBtn")).click();
 
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(
                 ExpectedConditions.presenceOfElementLocated(
                         By.xpath("//*[@class='pull-right modify_search_toggle ng-scope']/span[2]")));

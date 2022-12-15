@@ -57,7 +57,7 @@ public class DuplicateTabWithHistory {
         r.keyRelease(KeyEvent.VK_ALT);
 
         // Wait till another duplicate is opened
-        new WebDriverWait(driver, Duration.ofSeconds(10).getSeconds())
+        new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.numberOfWindowsToBe(2));
 
         // Let's Switch to new tab and navigate back and forward
@@ -65,11 +65,11 @@ public class DuplicateTabWithHistory {
 
         // Verifying history is retained
         driver.navigate().back();
-        new WebDriverWait(driver, Duration.ofSeconds(10).getSeconds())
+        new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.titleIs("Google"));
         System.out.println("Title is : " + driver.getTitle());
         driver.navigate().back();
-        new WebDriverWait(driver, Duration.ofSeconds(10).getSeconds())
+        new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.titleIs("Login - My Store"));
         System.out.println("Title is : " + driver.getTitle());
 

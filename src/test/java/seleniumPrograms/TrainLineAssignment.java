@@ -13,6 +13,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class TrainLineAssignment extends TestBase {
 
   @BeforeTest
@@ -36,7 +38,7 @@ public class TrainLineAssignment extends TestBase {
     }
     driver.findElement(By.id("to.text")).sendKeys(Keys.ENTER);
 
-    WebDriverWait wait = new WebDriverWait(driver, 15);
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
     wait.until(
         ExpectedConditions.elementToBeClickable(

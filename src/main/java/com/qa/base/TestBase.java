@@ -10,6 +10,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class TestBase {
 
     protected static WebDriver driver = null;
@@ -46,7 +48,7 @@ public class TestBase {
         if (driver != null) {
 
             driver.manage().window().maximize();
-            wait = new WebDriverWait(driver, 20);
+            wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             System.out.println("Launching " + browserName + " browser");
         }
     } // End of method initialization()
